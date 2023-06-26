@@ -43,7 +43,7 @@ contains
             use kinds
             character(len=1), intent(in)    :: ftrans
             integer,          intent(in)    :: fm, fn, fnrhs, flda, fldb, flwork
-            real(rk),         intent(inout) :: fa(flda,*), fb(fldb,*), fwork(*)
+            real(rk),         intent(in)    :: fa(flda,*), fb(fldb,*), fwork(*)
             integer,          intent(out)   :: finfo
          end subroutine dgels
       end interface
