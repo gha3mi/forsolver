@@ -1,7 +1,8 @@
 module forsolver
 
-   !This module provides functions and subroutines for pseudoinverse calculations.
-
+  ! This module provides functions and subroutines for 
+  ! solving linear systems and performing Newton's method.
+   
    use :: kinds
 
    implicit none
