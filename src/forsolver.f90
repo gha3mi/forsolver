@@ -14,7 +14,8 @@ module forsolver
    !===============================================================================
    interface solver
       procedure :: solver_lin
-      procedure :: newton_rel
+      procedure :: newton_rel_T0
+      procedure :: newton_rel_T1
    end interface
    !===============================================================================
 
@@ -42,7 +43,7 @@ contains
       else
          if (size(A,1)==size(A,2)) then
             x = dgesv_rel(A, b)
-         else 
+         else
             x = dgels_rel(A, b)
          end if
       end if
@@ -155,7 +156,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   impure function newton_rel(F, dFdx, x0, tol, maxit) result(x_sol)
+   impure function newton_rel_T0(F, dFdx, x0, tol, maxit) result(x_sol)
       use kinds
       implicit none
 
@@ -222,7 +223,82 @@ contains
       write(*, '(a)') '-----------------------------------------------'
       write(*, '(a, g0)') 'x_sol = ', x_sol
 
-   end function newton_rel
+   end function newton_rel_T0
+   !===============================================================================
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   impure function newton_rel_T1(F, dFdx, x0, tol, maxit) result(x_sol)
+      use kinds
+      implicit none
+
+      interface
+         impure function Fun(x)
+            use kinds
+            real(rk), dimension(:), intent(in) :: x
+            real(rk), dimension(:), allocatable                          :: Fun
+         end function Fun
+
+         impure function dFun(x)
+            use kinds
+            real(rk), dimension(:), intent(in) :: x
+            real(rk), dimension(:,:), allocatable                          :: dFun
+         end function dFun
+      end interface
+
+      procedure(Fun)  :: F
+      procedure(dFun) :: dFdx
+
+      real(rk), dimension(:), intent(in)    :: x0
+      real(rk),               intent(in)    :: tol
+      integer,                intent(in)    :: maxit
+      real(rk), dimension(size(x0))         :: x_sol
+      real(rk), dimension(size(x0))         :: x, xnp
+      real(rk), dimension(:),   allocatable :: F_val
+      real(rk), dimension(:,:), allocatable :: dFdx_val
+      real(rk)                              :: Krit
+      integer                               :: it
+      logical                               :: convergenz
+
+      ! Variable declaration
+      x          = x0
+      xnp        = x0
+      it         = 0
+      convergenz = .false.
+
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'maxit             tol'
+      write(*, '(i3, 10x, f12.8, e12.4)') maxit, tol
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'start newton'
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'it     ||F||'
+
+      ! Main loop
+      do while (.not. convergenz .and. it < maxit)
+         F_val    = F(x)
+         dFdx_val = dFdx(x)
+         xnp      = x - solver(dFdx_val, F_val)
+
+         Krit = norm2(F_val)
+
+         if (Krit <= tol) then
+            convergenz = .true.
+            x_sol      = x
+         end if
+
+         write(*, '(i3, e12.4)') it, Krit
+         it = it + 1
+
+         x = xnp
+      end do
+
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'end newton'
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a, g0)') 'x_sol = ', x_sol
+
+   end function newton_rel_T1
    !===============================================================================
 
 end module forsolver
