@@ -15,9 +15,11 @@ module forsolver
    interface solver
       procedure :: solver_lin
       procedure :: newton_rel_T0
-      procedure :: newton_gradfree_rel_T0
+      procedure :: newton_gradfree_fdm_rel_T0
+      procedure :: newton_gradfree_cmplx_step_T0
       procedure :: newton_rel_T1
-      procedure :: newton_gradfree_rel_T1
+      procedure :: newton_gradfree_fdm_rel_T1
+      procedure :: newton_gradfree_cmplx_step_T1
    end interface
    !===============================================================================
 
@@ -305,7 +307,7 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   impure function newton_gradfree_rel_T0(F, x0, tol, maxit) result(x_sol)
+   impure function newton_gradfree_fdm_rel_T0(F, x0, tol, maxit) result(x_sol)
       use kinds
       use fordiff
       implicit none
@@ -368,12 +370,12 @@ contains
       write(*, '(a)') '-----------------------------------------------'
       write(*, '(a, g0)') 'x_sol = ', x_sol
 
-   end function newton_gradfree_rel_T0
+   end function newton_gradfree_fdm_rel_T0
    !===============================================================================
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   impure function newton_gradfree_rel_T1(F, x0, tol, maxit) result(x_sol)
+   impure function newton_gradfree_fdm_rel_T1(F, x0, tol, maxit) result(x_sol)
       use kinds
       use fordiff
       implicit none
@@ -437,7 +439,145 @@ contains
       write(*, '(a)') '-----------------------------------------------'
       write(*, '(a, g0)') 'x_sol = ', x_sol
 
-   end function newton_gradfree_rel_T1
+   end function newton_gradfree_fdm_rel_T1
+   !===============================================================================
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   impure function newton_gradfree_cmplx_step_T0(F, x0, tol, maxit) result(x_sol)
+      use kinds
+      use fordiff
+      implicit none
+
+      interface
+         impure function Fun(x)
+            use kinds
+            complex(rk), intent(in) :: x
+            complex(rk)             :: Fun
+         end function Fun
+      end interface
+
+      procedure(Fun)  :: F
+
+      real(rk), intent(in)     :: tol
+      integer,  intent(in)     :: maxit
+      complex(rk), intent(in)  :: x0
+      complex(rk)              :: x_sol
+      complex(rk)              :: x, xnp
+      complex(rk)              :: F_val
+      real(rk)                 :: dFdx_val, Krit
+      integer                  :: it
+      logical                  :: convergenz
+
+
+      ! Variable declaration
+      x          = x0
+      xnp        = x0
+      it         = 0
+      convergenz = .false.
+
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'maxit             x0                   tol'
+      write(*, '(i3, 10x, f12.8, 10x, e12.4)') maxit, x0, tol
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'start newton'
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'it        xn           F(xn)        dF(xn)/dxn'
+
+      ! Main loop
+      do while (.not. convergenz .and. it < maxit)
+         F_val    = F(x)
+         dFdx_val = derivative(f=F, x=real(x,kind=rk), h=1e-100_rk)
+         xnp      = x - F_val / dFdx_val
+
+         Krit = abs(F_val)
+
+         if (Krit <= tol) then
+            convergenz = .true.
+            x_sol      = x
+         end if
+
+         write(*, '(i3, f12.4, 4x, e12.4, 4x, e12.4)') it, real(x, kind=rk), real(F_val, kind=rk), dFdx_val
+         it = it + 1
+
+         x = xnp
+      end do
+
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'end newton'
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a, g0)') 'x_sol = ', x_sol
+
+   end function newton_gradfree_cmplx_step_T0
+   !===============================================================================
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   impure function newton_gradfree_cmplx_step_T1(F, x0, tol, maxit) result(x_sol)
+      use kinds
+      use fordiff
+      implicit none
+
+      interface
+         impure function Fun(x)
+            use kinds
+            complex(rk), dimension(:), intent(in)  :: x
+            complex(rk), dimension(:), allocatable :: Fun
+         end function Fun
+      end interface
+
+      procedure(Fun)  :: F
+
+      real(rk),                  intent(in)    :: tol
+      integer,                   intent(in)    :: maxit
+      complex(rk), dimension(:), intent(in)    :: x0
+      complex(rk), dimension(size(x0))         :: x_sol
+      complex(rk), dimension(size(x0))         :: x, xnp
+      complex(rk), dimension(:),   allocatable :: F_val
+      real(rk),    dimension(:,:), allocatable :: dFdx_val
+      real(rk)                                 :: Krit
+      integer                                  :: it
+      logical                                  :: convergenz
+
+      ! Variable declaration
+      x          = x0
+      xnp        = x0
+      it         = 0
+      convergenz = .false.
+
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'maxit             tol'
+      write(*, '(i3, 10x, f12.8, e12.4)') maxit, tol
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'start newton'
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'it     ||F||'
+
+      ! Main loop
+      do while (.not. convergenz .and. it < maxit)
+         F_val    = F(x)
+         dFdx_val = derivative(f=F, x=real(x, kind=rk), h=1e-100_rk)
+         xnp      = x - solver(dFdx_val, real(F_val, kind=rk))
+
+         Krit = norm2(real(F_val, kind=rk))
+
+         if (Krit <= tol) then
+            convergenz = .true.
+            x_sol      = x
+         end if
+
+         write(*, '(i3, e12.4)') it, Krit
+         it = it + 1
+
+         x = xnp
+      end do
+
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a)') 'end newton'
+      write(*, '(a)') '-----------------------------------------------'
+      write(*, '(a, g0)') 'x_sol = ', x_sol
+
+   end function newton_gradfree_cmplx_step_T1
    !===============================================================================
 
 end module forsolver
