@@ -87,7 +87,7 @@ program test1
    A = A*10.0_rk
    b = b*10.0_rk
 
-   X = solver(A, b)
+   X = solve(A, b)
 
    ! Print A
    print *, "A:"
@@ -144,7 +144,7 @@ program test2
    tol   = 1e-8_rk
    maxit = 100
 
-   x_sol = solver(F, dFdx, x0, tol, maxit)
+   x_sol = solve(F, dFdx, x0, tol, maxit)
 
 end program test2
 ```
