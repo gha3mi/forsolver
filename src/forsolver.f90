@@ -195,13 +195,13 @@ contains
       it         = 0
       convergenz = .false.
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'maxit             x0                   tol'
-      write(*, '(i3, 10x, f12.8, 10x, e12.4)') maxit, x0, tol
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'start newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'it        xn           F(xn)        dF(xn)/dxn'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'maxit             x0                   tol'
+      print '(i3, 10x, f12.8, 10x, e12.4)', maxit, x0, tol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'start newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'it        xn           F(xn)        dF(xn)/dxn'
 
       ! Main loop
       do while (.not. convergenz .and. it < maxit)
@@ -216,16 +216,16 @@ contains
             x_sol      = x
          end if
 
-         write(*, '(i3, f12.4, 4x, e12.4, 4x, e12.4)') it, x, F_val, dFdx_val
+         print '(i3, f12.4, 4x, e12.4, 4x, e12.4)', it, x, F_val, dFdx_val
          it = it + 1
 
          x = xnp
       end do
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'end newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a, g0)') 'x_sol = ', x_sol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'end newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a, g0)', 'x_sol = ', x_sol
 
    end function newton_rel_T0
    !===============================================================================
@@ -270,13 +270,13 @@ contains
       it         = 0
       convergenz = .false.
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'maxit             tol'
-      write(*, '(i3, 10x, f12.8, e12.4)') maxit, tol
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'start newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'it     ||F||'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'maxit             tol'
+      print '(i3, 10x, f12.8, e12.4)', maxit, tol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'start newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'it     ||F||'
 
       ! Main loop
       do while (.not. convergenz .and. it < maxit)
@@ -291,16 +291,16 @@ contains
             x_sol      = x
          end if
 
-         write(*, '(i3, e12.4)') it, Krit
+         print '(i3, e12.4)', it, Krit
          it = it + 1
 
          x = xnp
       end do
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'end newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a, g0)') 'x_sol = ', x_sol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'end newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a, g0)', 'x_sol = ', x_sol
 
    end function newton_rel_T1
    !===============================================================================
@@ -338,13 +338,13 @@ contains
       it         = 0
       convergenz = .false.
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'maxit             x0                   tol'
-      write(*, '(i3, 10x, f12.8, 10x, e12.4)') maxit, x0, tol
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'start newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'it        xn           F(xn)        dF(xn)/dxn'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'maxit             x0                   tol'
+      print '(i3, 10x, f12.8, 10x, e12.4)', maxit, x0, tol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'start newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'it        xn           F(xn)        dF(xn)/dxn'
 
       ! Main loop
       do while (.not. convergenz .and. it < maxit)
@@ -359,16 +359,16 @@ contains
             x_sol      = x
          end if
 
-         write(*, '(i3, f12.4, 4x, e12.4, 4x, e12.4)') it, x, F_val, dFdx_val
+         print '(i3, f12.4, 4x, e12.4, 4x, e12.4)', it, x, F_val, dFdx_val
          it = it + 1
 
          x = xnp
       end do
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'end newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a, g0)') 'x_sol = ', x_sol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'end newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a, g0)', 'x_sol = ', x_sol
 
    end function newton_gradfree_fdm_rel_T0
    !===============================================================================
@@ -407,13 +407,13 @@ contains
       it         = 0
       convergenz = .false.
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'maxit             tol'
-      write(*, '(i3, 10x, f12.8, e12.4)') maxit, tol
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'start newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'it     ||F||'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'maxit             tol'
+      print '(i3, 10x, f12.8, e12.4)', maxit, tol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'start newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'it     ||F||'
 
       ! Main loop
       do while (.not. convergenz .and. it < maxit)
@@ -428,16 +428,16 @@ contains
             x_sol      = x
          end if
 
-         write(*, '(i3, e12.4)') it, Krit
+         print '(i3, e12.4)', it, Krit
          it = it + 1
 
          x = xnp
       end do
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'end newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a, g0)') 'x_sol = ', x_sol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'end newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a, g0)', 'x_sol = ', x_sol
 
    end function newton_gradfree_fdm_rel_T1
    !===============================================================================
@@ -476,13 +476,13 @@ contains
       it         = 0
       convergenz = .false.
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'maxit             x0                   tol'
-      write(*, '(i3, 10x, f12.8, 10x, e12.4)') maxit, real(x0, kind=rk), tol
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'start newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'it        xn           F(xn)        dF(xn)/dxn'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'maxit             x0                   tol'
+      print '(i3, 10x, f12.8, 10x, e12.4)', maxit, real(x0, kind=rk), tol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'start newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'it        xn           F(xn)        dF(xn)/dxn'
 
       ! Main loop
       do while (.not. convergenz .and. it < maxit)
@@ -497,16 +497,16 @@ contains
             x_sol      = x
          end if
 
-         write(*, '(i3, f12.4, 4x, e12.4, 4x, e12.4)') it, real(x, kind=rk), real(F_val, kind=rk), dFdx_val
+         print '(i3, f12.4, 4x, e12.4, 4x, e12.4)', it, real(x, kind=rk), real(F_val, kind=rk), dFdx_val
          it = it + 1
 
          x = xnp
       end do
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'end newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a, g0)') 'x_sol = ', x_sol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'end newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a, g0)', 'x_sol = ', x_sol
 
    end function newton_gradfree_cmplx_step_T0
    !===============================================================================
@@ -545,13 +545,13 @@ contains
       it         = 0
       convergenz = .false.
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'maxit             tol'
-      write(*, '(i3, 10x, f12.8, e12.4)') maxit, tol
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'start newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'it     ||F||'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'maxit             tol'
+      print '(i3, 10x, f12.8, e12.4)', maxit, tol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'start newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'it     ||F||'
 
       ! Main loop
       do while (.not. convergenz .and. it < maxit)
@@ -566,16 +566,16 @@ contains
             x_sol      = x
          end if
 
-         write(*, '(i3, e12.4)') it, Krit
+         print '(i3, e12.4)', it, Krit
          it = it + 1
 
          x = xnp
       end do
 
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a)') 'end newton'
-      write(*, '(a)') '-----------------------------------------------'
-      write(*, '(a, g0)') 'x_sol = ', x_sol
+      print '(a)', '-----------------------------------------------'
+      print '(a)', 'end newton'
+      print '(a)', '-----------------------------------------------'
+      print '(a, g0)', 'x_sol = ', x_sol
 
    end function newton_gradfree_cmplx_step_T1
    !===============================================================================
