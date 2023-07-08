@@ -1,9 +1,9 @@
 name = "forsolver"
 version = "0.2.0"
-license = "license"
 author = "Seyed Ali Ghasemi"
 maintainer = "info@gha3mi.com"
-copyright = "Copyright 2023, Seyed Ali Ghasemi"
+copyright = "Copyright (c) 2023, Seyed Ali Ghasemi"
+license = "BSD-3"
 [build]
 auto-executables = false
 auto-tests = false
