@@ -153,7 +153,7 @@ end program test2
 ## Documentation
 To generate the documentation for the `ForSolver` module using [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following command:
 ```bash
-ford project.yml
+ford ford.yml
 ```
 -----
 

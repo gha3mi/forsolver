@@ -1,5 +1,5 @@
 project:             forsolver
-version:             v0.1.0
+version:             v0.2.0
 year:                2023
 project_github:      https://github.com/gha3mi/forsolver
 author:              Seyed Ali Ghasemi
@@ -16,3 +16,4 @@ display:             public
                      protected
 print_creation_date: true
 
+{!README.md!}
