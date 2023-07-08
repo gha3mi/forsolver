@@ -9,10 +9,10 @@ module forsolver
 
    private
 
-   public ::  solver
+   public ::  solve
 
    !===============================================================================
-   interface solver
+   interface solve
       procedure :: solver_lin
       procedure :: newton_rel_T0
       procedure :: newton_gradfree_fdm_rel_T0
@@ -282,7 +282,7 @@ contains
       do while (.not. convergenz .and. it < maxit)
          F_val    = F(x)
          dFdx_val = dFdx(x)
-         xnp      = x - solver(dFdx_val, F_val)
+         xnp      = x - solve(dFdx_val, F_val)
 
          Krit = norm2(F_val)
 
@@ -419,7 +419,7 @@ contains
       do while (.not. convergenz .and. it < maxit)
          F_val    = F(x)
          dFdx_val = derivative(f=F, x=x, h=1e-10_rk, method='central')
-         xnp      = x - solver(dFdx_val, F_val)
+         xnp      = x - solve(dFdx_val, F_val)
 
          Krit = norm2(F_val)
 
@@ -557,7 +557,7 @@ contains
       do while (.not. convergenz .and. it < maxit)
          F_val    = F(x)
          dFdx_val = derivative(f=F, x=real(x, kind=rk), h=1e-100_rk)
-         xnp      = x - solver(dFdx_val, real(F_val, kind=rk))
+         xnp      = x - solve(dFdx_val, real(F_val, kind=rk))
 
          Krit = norm2(real(F_val, kind=rk))
 

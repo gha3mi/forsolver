@@ -33,7 +33,7 @@ program main
    tol   = 1e-8_rk
    maxit = 100
 
-   x_sol = solver(F, dFdx, x0, tol, maxit)
+   x_sol = solve(F, dFdx, x0, tol, maxit)
 
 end program main
 

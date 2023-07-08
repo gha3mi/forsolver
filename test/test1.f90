@@ -19,7 +19,7 @@ program test1
    A = A*10.0_rk
    b = b*10.0_rk
 
-   X = solver(A, b)
+   X = solve(A, b)
 
    ! Print A
    print *, "A:"
