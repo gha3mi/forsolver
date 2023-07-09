@@ -1,22 +1,21 @@
-# ForSolver
-ForSolver is a Fortran library that provides numerical solvers for linear and non-linear systems.
+![ForSolver](media/logo.png)
+============
+
+**ForSolver**: A Fortran library of linear and nonlinear solvers.
 
 -----
 
 ## Table of Contents
-
-- [ForSolver](#forsolver)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-    - [fpm](#fpm)
-  - [Linear system solver](#linear-system-solver)
-  - [Nonlinear system solver](#nonlinear-system-solver)
-  - [Tests](#tests)
-  - [Examples](#examples)
-    - [Example 1: Linear System Solver](#example-1-linear-system-solver)
-    - [Example 2: Newton's Method for Root Finding](#example-2-newtons-method-for-root-finding)
-  - [Documentation](#documentation)
-  - [Contributing](#contributing)
+- [Installation](#installation)
+  - [fpm](#fpm)
+- [Linear system solver](#linear-system-solver)
+- [Nonlinear system solver](#nonlinear-system-solver)
+- [Tests](#tests)
+- [Examples](#examples)
+  - [Example 1: Linear System Solver](#example-1-linear-system-solver)
+  - [Example 2: Newton's Method for Root Finding](#example-2-newtons-method-for-root-finding)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
 -----
 
 ## Installation
