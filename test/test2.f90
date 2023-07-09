@@ -1,39 +1,28 @@
-module functions_module
-use kinds
-implicit none
+program test2
 
-contains
+   use :: kinds
+   use :: forsolver, only : solve
 
-function F(x) result(F_val)
-   real(rk), intent(in) :: x
-   real(rk) :: F_val
-   F_val = 5_rk * x**3 + 8_rk * x - 5_rk
-end function F
-
-function dFdx(x) result(dFdx_val)
-   real(rk), intent(in) :: x
-   real(rk) :: dFdx_val
-   dFdx_val = 15_rk * x**2 + 8_rk
-end function dFdx
-
-end module functions_module
-
-
-
-program main
-   use kinds
-   use forsolver
-   use functions_module
    implicit none
-   real(rk) :: x0, tol, x_sol
-   integer :: maxit
 
-   ! Variable declaration
-   x0    = 10.0_rk
-   tol   = 1e-8_rk
-   maxit = 100
+   real(rk), dimension(:,:), allocatable :: A
+   real(rk), dimension(:)  , allocatable :: x, b
+   integer                               :: m,n, i, j
 
-   x_sol = solve(F, dFdx, x0, tol, maxit)
+   m = 4
+   n = 4
 
-end program main
+   allocate(A(m,n),b(m),x(n))
 
+   call random_number(A)
+   call random_number(b)
+   A = A*10.0_rk
+   b = b*10.0_rk
+
+   X = solve(A, b)
+   X = solve(A, b, method='gesv')
+   X = solve(A, b, method='gels')
+
+   deallocate(A,b,x)
+
+end program test2

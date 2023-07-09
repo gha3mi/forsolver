@@ -1,5 +1,5 @@
 name = "forsolver"
-version = "0.2.1"
+version = "0.3.0"
 author = "Seyed Ali Ghasemi"
 maintainer = "info@gha3mi.com"
 copyright = "Copyright (c) 2023, Seyed Ali Ghasemi"
@@ -29,3 +29,63 @@ main       = "test1.f90"
 name       = "test2"
 source-dir = "test"
 main       = "test2.f90"
+
+[[test]]
+name       = "test3"
+source-dir = "test"
+main       = "test3.f90"
+
+[[test]]
+name       = "test4"
+source-dir = "test"
+main       = "test4.f90"
+
+[[test]]
+name       = "test5"
+source-dir = "test"
+main       = "test5.f90"
+
+[[test]]
+name       = "test6"
+source-dir = "test"
+main       = "test6.f90"
+
+[[test]]
+name       = "test7"
+source-dir = "test"
+main       = "test7.f90"
+
+[[test]]
+name       = "test8"
+source-dir = "test"
+main       = "test8.f90"
+
+[[test]]
+name       = "test9"
+source-dir = "test"
+main       = "test9.f90"
+
+[[test]]
+name       = "test10"
+source-dir = "test"
+main       = "test10.f90"
+
+[[test]]
+name       = "test11"
+source-dir = "test"
+main       = "test11.f90"
+
+[[test]]
+name       = "test12"
+source-dir = "test"
+main       = "test12.f90"
+
+[[test]]
+name       = "test13"
+source-dir = "test"
+main       = "test13.f90"
+
+[[test]]
+name       = "test14"
+source-dir = "test"
+main       = "test14.f90"

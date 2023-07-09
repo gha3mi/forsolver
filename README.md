@@ -9,6 +9,8 @@ ForSolver is a Fortran library that provides numerical solvers for linear and no
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
     - [fpm](#fpm)
+  - [Linear system solver](#linear-system-solver)
+  - [Nonlinear system solver](#nonlinear-system-solver)
   - [Tests](#tests)
   - [Examples](#examples)
     - [Example 1: Linear System Solver](#example-1-linear-system-solver)
@@ -34,6 +36,47 @@ Or you can easily include this package as a dependency in your `fpm.toml` file.
 [dependencies]
 forsolver = {git="https://github.com/gha3mi/forsolver.git"}
 ```
+-----
+
+## Linear system solver
+```fortran
+use forsolver, only : solve
+x = solve(A,b,method)
+```
+available methods (optional):
+- ```gesv```
+- ```gels```
+-----
+
+## Nonlinear system solver
+```fortran
+use forsolver, only : nlsolver
+
+call nls%set_options(&
+      lin_method,&
+      nl_method,&
+      fdm_method,&
+      fdm_tol,&
+      cs_tol,&
+      TolFun,&
+      maxit,&
+      nmp,&
+      verbosity )
+
+call nls%solve(F, dFdx, x0, x_sol)
+```
+available nl_methods:
+- ```newton```
+- ```newton-modified```
+- ```newton-quasi-fd```
+- ```newton-quasi-fd-modified```
+- ```newton-quasi-cs```
+- ```newton-quasi-cs-modified```
+
+fd: finite difference method
+
+cs: complex step method
+
 -----
 
 ## Tests
@@ -68,8 +111,8 @@ fpm @gfortran
 ```fortran
 program test1
 
-   use :: kinds
-   use :: forsolver
+   use kinds
+   use forsolver, only : solve
 
    implicit none
 
@@ -110,43 +153,26 @@ end program test1
 ### Example 2: Newton's Method for Root Finding
 
 ```fortran
-module functions_module
-use kinds
-implicit none
+program test3
 
-contains
-
-function F(x) result(F_val)
-   real(rk), intent(in) :: x
-   real(rk) :: F_val
-   F_val = 5_rk * x**3 + 8_rk * x - 5_rk
-end function F
-
-function dFdx(x) result(dFdx_val)
-   real(rk), intent(in) :: x
-   real(rk) :: dFdx_val
-   dFdx_val = 15_rk * x**2 + 8_rk
-end function dFdx
-
-end module functions_module
-
-
-program test2
    use kinds
-   use forsolver
    use functions_module
+   use forsolver, only : nlsolver
+
    implicit none
-   real(rk) :: x0, tol, x_sol
-   integer :: maxit
 
-   ! Variable declaration
-   x0    = 10.0_rk
-   tol   = 1e-8_rk
-   maxit = 100
+   type(nlsolver) :: nls
+   real(rk)       :: x_sol
 
-   x_sol = solve(F, dFdx, x0, tol, maxit)
+   call nls%set_options(&
+      nl_method   = 'newton',&
+      maxit       = 100,&
+      TolFun      = 1e-15_rk,&
+      verbosity   = 1)
 
-end program test2
+   call nls%solve(F=F1, dFdx=dF1dx, x0=10.0_rk, x_sol=x_sol)
+
+end program test3
 ```
 -----
 

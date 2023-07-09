@@ -1,7 +1,7 @@
 program test1
 
    use :: kinds
-   use :: forsolver
+   use :: forsolver, only : solve
 
    implicit none
 
@@ -20,19 +20,7 @@ program test1
    b = b*10.0_rk
 
    X = solve(A, b)
-
-   ! Print A
-   print *, "A:"
-   print "(4F10.6)", (A(:,j), j = 1, m)
-
-   ! Print b
-   print *, "b:"
-   print "(4F10.6)", b
-
-
-   ! Print x
-   print *, "x:"
-   print "(4F10.6)", x
+   X = solve(A, b, method='gels')
 
    deallocate(A,b,x)
 
