@@ -7,14 +7,14 @@ program test9
    implicit none
 
    type(nlsolver)         :: nls
-   real(rk), dimension(3) :: x_sol
+   real(rk), dimension(2) :: x_sol
 
    call nls%set_options(&
       nl_method   = 'newton',&
       maxit       = 100,&
-      TolFun      = 1e-12_rk,&
+      TolFun      = 1e-15_rk,&
       verbosity   = 1)
 
-   call nls%solve(F=F3, dFdx=dF3dx, x0=[5.0_rk,3.0_rk,1.0_rk], x_sol=x_sol)
+   call nls%solve(F=F3, dFdx=dF3dx, x0=[-1.0_rk,-1.0_rk], x_sol=x_sol)
 
 end program test9

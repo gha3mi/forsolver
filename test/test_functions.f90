@@ -26,33 +26,25 @@ end function F2
 function F3(x) result(F_val)
    real(rk), dimension(:), intent(in) :: x
    real(rk), dimension(:), allocatable :: F_val
-   integer :: i
 
-   allocate(F_val(3))
-   F_val = 0.0_rk
-   do i = 1,3
-      F_val(i) = x(i)**3
-   end do
+   allocate(F_val(2))
+
+   F_val(1) = 2.0_rk*x(1) - 400.0_rk*x(1) * (x(2) - x(1)**2) - 2
+   F_val(2) = 200.0_rk*x(2) - 200.0_rk*x(1)**2
+
 end function F3
 
 function dF3dx(x) result(dFdx_val)
    real(rk), dimension(:), intent(in) :: x
    real(rk), dimension(:,:), allocatable :: dFdx_val
-   integer :: i, j
-   real(rk), dimension(3,3) :: Idt
 
-   Idt = 0.0_rk
-   Idt(1,1) = 1.0_rk
-   Idt(2,2) = 1.0_rk
-   Idt(3,3) = 1.0_rk
+   allocate(dFdx_val(2,2))
 
-   allocate(dFdx_val(3,3))
-   dFdx_val = 0.0_rk
-   do i = 1,3
-      do j = 1,3
-         dFdx_val(i,j) =  dFdx_val(i,j) + 3.0_rk*Idt(i,j)*x(i)**2
-      end do
-   end do
+   dFdx_val(1,1) = 1200.0_rk*x(1)**2 - 400.0_rk*x(2) + 2
+   dFdx_val(1,2) = - 400.0_rk*x(1)
+
+   dFdx_val(2,1) = - 400.0_rk*x(1)
+   dFdx_val(2,2) = 200.0_rk
 
 end function dF3dx
 
@@ -61,11 +53,11 @@ function F4(x) result(F_val)
    complex(rk), dimension(:), allocatable :: F_val
    integer :: i
 
-   allocate(F_val(3))
-   F_val = 0.0_rk
-   do i = 1,3
-      F_val(i) = x(i)**3
-   end do
+   allocate(F_val(2))
+   
+   F_val(1) = 2.0_rk*x(1) - 400.0_rk*x(1) * (x(2) - x(1)**2) - 2
+   F_val(2) = 200.0_rk*x(2) - 200.0_rk*x(1)**2
+
 end function F4
 
 end module functions_module

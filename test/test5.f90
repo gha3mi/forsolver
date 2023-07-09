@@ -17,6 +17,6 @@ program test5
       TolFun      = 1e-15_rk,&
       verbosity   = 1)
 
-   call nls%solve(F=F1, dFdx=dF1dx, x0=10.0_rk, x_sol=x_sol)
+   call nls%solve(F=F1, x0=10.0_rk, x_sol=x_sol)
 
 end program test5
