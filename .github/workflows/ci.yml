@@ -47,6 +47,7 @@ jobs:
       run: |
         sudo add-apt-repository ppa:ubuntu-toolchain-r/test
         sudo apt-get update
+        sudo apt-get upgrade -y
         sudo apt-get install -y gcc-${{ matrix.gcc_v }} gfortran-${{ matrix.gcc_v }}
         sudo update-alternatives \
            --install /usr/bin/gcc gcc /usr/bin/gcc-${{ matrix.gcc_v }} 100 \
