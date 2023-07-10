@@ -6,16 +6,18 @@
 -----
 
 ## Table of Contents
-- [Installation](#installation)
-  - [fpm](#fpm)
-- [Linear system solver](#linear-system-solver)
-- [Nonlinear system solver](#nonlinear-system-solver)
-- [Tests](#tests)
-- [Examples](#examples)
-  - [Example 1: Linear System Solver](#example-1-linear-system-solver)
-  - [Example 2: Newton's Method for Root Finding](#example-2-newtons-method-for-root-finding)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
+- [](#)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+    - [fpm](#fpm)
+  - [Linear system solver](#linear-system-solver)
+  - [Nonlinear system solver](#nonlinear-system-solver)
+  - [Tests](#tests)
+  - [Examples](#examples)
+    - [Example 1: Linear System Solver](#example-1-linear-system-solver)
+    - [Example 2: Newton's Method for Root Finding](#example-2-newtons-method-for-root-finding)
+  - [Documentation](#documentation)
+  - [Contributing](#contributing)
 -----
 
 ## Installation
@@ -183,6 +185,4 @@ ford ford.yml
 -----
 
 ## Contributing
-
 Contributions to `ForSolver` are welcome! If you find any issues or would like to suggest improvements, please open an issue or submit a pull request.
-
