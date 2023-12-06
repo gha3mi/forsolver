@@ -92,8 +92,8 @@ contains
       integer                                  :: info ! result info
       integer                                  :: n, lda, ldb
       integer,  dimension(size(A, 2))          :: ipiv
-      real(rk), dimension(size(A,1),size(A,2)) :: a_copy
-      real(rk), dimension(size(b))             :: b_copy
+      real(rk), dimension(:,:), allocatable    :: a_copy
+      real(rk), dimension(:),   allocatable    :: b_copy
 
       ! interface for dgels subroutine
       interface
@@ -140,8 +140,8 @@ contains
       integer                                  :: m, n, lda, ldb, lwork
       real(rk), allocatable                    :: work(:)
       real(rk)                                 :: work1(1)
-      real(rk), dimension(size(A,1),size(A,2)) :: a_copy
-      real(rk), dimension(size(b))             :: b_copy
+      real(rk), dimension(:,:), allocatable    :: a_copy
+      real(rk), dimension(:),   allocatable    :: b_copy
 
       ! interface for dgels subroutine
       interface
