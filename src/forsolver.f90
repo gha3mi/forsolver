@@ -57,7 +57,7 @@ contains
       character(*), optional,                    intent(in) :: method
 
       ! outputs:
-      real(rk), dimension(size(b))                          :: x      ! solution matrix x
+      real(rk), dimension(size(A,2))                        :: x      ! solution matrix x
 
       if (present(method)) then
          select case (method)
@@ -86,7 +86,7 @@ contains
       real(rk), dimension(:),    contiguous, intent(in)  :: b    ! right-hand side matrix b
 
       ! outputs:
-      real(rk), dimension(size(b))                       :: x    ! solution matrix x
+      real(rk), dimension(size(A,2))                     :: x    ! solution matrix x
 
       ! local variables
       integer                                  :: info ! result info
@@ -133,7 +133,7 @@ contains
       real(rk), dimension(:),    contiguous, intent(in)  :: b    ! right-hand side matrix b
 
       ! outputs:
-      real(rk), dimension(size(b))                        :: x    ! solution matrix x
+      real(rk), dimension(size(A,2))                     :: x    ! solution matrix x
 
       ! local variables
       integer                                  :: info ! result info
