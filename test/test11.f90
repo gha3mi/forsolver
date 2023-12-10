@@ -2,7 +2,7 @@ program test11
 
    use kinds
    use functions_module
-   use forsolver, only : nlsolver
+   use forsolver, only: nlsolver
 
    implicit none
 

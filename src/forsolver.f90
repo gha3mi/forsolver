@@ -57,20 +57,24 @@ contains
       character(*), optional,                    intent(in) :: method
 
       ! outputs:
-      real(rk), dimension(size(A,2))                        :: x      ! solution matrix x
+      real(rk), dimension(max(1, size(A, 2))) :: x      ! solution matrix x
+      
+      ! local variables
+      integer :: info ! result info
 
+      ! call solver
       if (present(method)) then
          select case (method)
           case ('gesv')
-            x = dgesv_rel(A, b)
+            call dgesv_rel(A, b, x, info)
           case ('gels')
-            x = dgels_rel(A, b)
+            call dgels_rel(A, b, x, info)
          end select
       else
          if (size(A,1)==size(A,2)) then
-            x = dgesv_rel(A, b)
+            call dgesv_rel(A, b, x, info)
          else
-            x = dgels_rel(A, b)
+            call dgels_rel(A, b, x, info)
          end if
       end if
 
@@ -80,68 +84,76 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   pure function dgesv_rel(A, b) result(x)
+   pure subroutine dgesv_rel(A, b, x, info)
       ! inputs:
-      real(rk), dimension(:, :), contiguous, intent(in)  :: A    ! input matrix A
-      real(rk), dimension(:),    contiguous, intent(in)  :: b    ! right-hand side matrix b
+      real(rk), dimension(:, :), contiguous, intent(in) :: A    ! input matrix A
+      real(rk), dimension(:),    contiguous, intent(in) :: b    ! right-hand side matrix b
 
       ! outputs:
-      real(rk), dimension(size(A,2))                     :: x    ! solution matrix x
+      real(rk), dimension(max(1, size(A, 2))), intent(out) :: x    ! solution matrix x
+      integer,                                 intent(out) :: info ! result info
 
       ! local variables
-      integer                                  :: info ! result info
-      integer                                  :: n, lda, ldb
-      integer,  dimension(size(A, 2))          :: ipiv
-      real(rk), dimension(:,:), allocatable    :: a_copy
-      real(rk), dimension(:),   allocatable    :: b_copy
+      integer                               :: n, lda, ldb, nrhs
+      integer,  dimension(size(A, 2))       :: ipiv
+      real(rk), dimension(:,:), allocatable :: a_copy
+      real(rk), dimension(:,:), allocatable :: b_copy
 
       ! interface for dgels subroutine
       interface
          pure subroutine dgesv(fn, fnrhs, fa, flda, fipiv, fb, fldb, finfo)
             import rk
             integer,  intent(in)    :: fn, fnrhs, flda, fldb
-            real(rk), intent(inout) :: fa(flda,*), fb(fldb,*)
+            real(rk), intent(inout) :: fa(flda,fn), fb(fldb,fnrhs)
             integer,  intent(out)   :: finfo
             integer,  intent(out)   :: fipiv(fn)
          end subroutine dgesv
       end interface
 
-      b_copy = b
-      a_copy = a
-
       ! get dimensions
+      nrhs = 1 ! size(b, 2)
       n    = size(A, 2)
       lda  = max(1, n)
       ldb  = max(1, n)
 
+      ! copy the input matrices
+      a_copy = a
+      allocate(b_copy(ldb, nrhs))
+      b_copy(:, 1) = b
+
       ! call dgels subroutine
-      call dgesv(n, 1, a_copy, n, ipiv, b_copy, n, info)
+      call dgesv(n, nrhs, a_copy, lda, ipiv, b_copy, ldb, info)
 
       ! copy the solution matrix
-      x = b_copy
+      if (info == 0) then
+         x = b_copy(1:ldb, 1) ! nrhs = 1
+      else
+         error stop 'dgesv failed'
+      end if
 
-   end function dgesv_rel
+   end subroutine dgesv_rel
    !===============================================================================
 
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    !> solves an overdetermined or underdetermined linear system using dgels.
-   pure function dgels_rel(A, b) result(x)
+   pure subroutine dgels_rel(A, b, x, info)
       ! inputs:
-      real(rk), dimension(:, :), contiguous, intent(in)  :: A    ! input matrix A
-      real(rk), dimension(:),    contiguous, intent(in)  :: b    ! right-hand side matrix b
+      real(rk), dimension(:, :), contiguous, intent(in) :: A    ! input matrix A
+      real(rk), dimension(:),    contiguous, intent(in) :: b    ! right-hand side matrix b
 
       ! outputs:
-      real(rk), dimension(size(A,2))                     :: x    ! solution matrix x
+      real(rk), dimension(max(1, size(A, 2))), intent(out) :: x    ! solution matrix x
+      integer,                                 intent(out) :: info ! result info
 
       ! local variables
-      integer                                  :: info ! result info
-      integer                                  :: m, n, lda, ldb, lwork
-      real(rk), allocatable                    :: work(:)
-      real(rk)                                 :: work1(1)
-      real(rk), dimension(:,:), allocatable    :: a_copy
-      real(rk), dimension(:),   allocatable    :: b_copy
+      character(1)                          :: trans
+      integer                               :: m, n, lda, ldb, lwork, nrhs
+      real(rk), allocatable                 :: work(:)
+      real(rk)                              :: work1(1)
+      real(rk), dimension(:,:), allocatable :: a_copy
+      real(rk), dimension(:,:), allocatable :: b_copy
 
       ! interface for dgels subroutine
       interface
@@ -155,31 +167,42 @@ contains
          end subroutine dgels
       end interface
 
-      a_copy = a
-      b_copy = b
+      ! 
+      trans = 'n'
 
       ! get dimensions
+      nrhs = 1 ! size(b, 2)
       m    = size(A, 1)
       n    = size(A, 2)
       lda  = max(1, m)
       ldb  = max(1, max(m, n))
 
+      ! copy the input matrices
+      a_copy = a
+      allocate(b_copy(ldb, nrhs))
+      b_copy(:, 1) = b
+
       ! calculate the optimal size of the work array
-      call dgels('n', m, n, 1, a_copy, lda, b_copy, ldb, work1, -1, info)
+      call dgels(trans, m, n, nrhs, a_copy, lda, b_copy, ldb, work1, -1, info)
 
       ! allocate work array
       lwork = nint(work1(1))
       allocate(work(lwork))
 
       ! call dgels subroutine
-      call dgels('n', m, n, 1, a_copy, lda, b_copy, ldb, work, lwork, info)
+      call dgels(trans, m, n, nrhs, a_copy, lda, b_copy, ldb, work, lwork, info)
 
       ! copy the solution matrix
-      x = b_copy
+      if (info == 0) then
+         if (trans == 'n') x = b_copy(1:n, 1) ! nrhs = 1
+         if (trans == 't') x = b_copy(1:m, 1) ! nrhs = 1
+      else
+         error stop 'dgels failed'
+      end if
 
       ! deallocate workspace
       deallocate(work)
-   end function dgels_rel
+   end subroutine dgels_rel
    !===============================================================================
 
 

@@ -1,7 +1,7 @@
 program test1
 
-   use :: kinds
-   use :: forsolver, only : solve
+   use kinds
+   use forsolver, only: solve
 
    implicit none
 

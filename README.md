@@ -41,7 +41,7 @@ forsolver = {git="https://github.com/gha3mi/forsolver.git"}
 
 ## Linear system solver
 ```fortran
-use forsolver, only : solve
+use forsolver, only: solve
 x = solve(A,b,method)
 ```
 available methods (optional):
@@ -51,7 +51,7 @@ available methods (optional):
 
 ## Nonlinear system solver
 ```fortran
-use forsolver, only : nlsolver
+use forsolver, only: nlsolver
 
 call nls%set_options(&
       lin_method,&
@@ -82,7 +82,7 @@ cs: complex step method
 
 ## Tests
 
-The `tests` directory contains test programs to verify the functionality of the `forsolver` module. To run the tests using `fpm`, you can use response files for specific compilers:
+The `tests` directory contains test programs to verify the functionality of the `forsolver` module. To run the tests using `fpm`:
 
 - For Intel Fortran Compiler (ifort):
 ```bash
@@ -113,7 +113,7 @@ fpm @gfortran
 program test1
 
    use kinds
-   use forsolver, only : solve
+   use forsolver, only: solve
 
    implicit none
 
@@ -158,7 +158,7 @@ program test3
 
    use kinds
    use functions_module
-   use forsolver, only : nlsolver
+   use forsolver, only: nlsolver
 
    implicit none
 
