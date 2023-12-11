@@ -233,7 +233,7 @@ contains
       if (this%verbosity == 1) then
          print '(a)', '-----------------------------------------------'
          print '(a)', 'maxit             x0                   tol'
-         print '(i5, 10x, f12.8, 10x, e12.4)', this%maxit, x0, this%TolFun
+         print '(g0, 10x, f12.8, 10x, e12.4)', this%maxit, x0, this%TolFun
          print '(a)', '-----------------------------------------------'
          print '(a)', 'start newton'
          print '(a)', '-----------------------------------------------'
@@ -295,7 +295,7 @@ contains
       if (this%verbosity == 1) then
          print '(a)', '-----------------------------------------------'
          print '(a)', 'maxit             tol'
-         print '(i5, 10x, e12.4)', this%maxit, this%TolFun
+         print '(g0, 10x, e12.4)', this%maxit, this%TolFun
          print '(a)', '-----------------------------------------------'
          print '(a)', 'start newton'
          print '(a)', '-----------------------------------------------'
@@ -350,7 +350,7 @@ contains
       if (this%verbosity == 1) then
          print '(a)', '-----------------------------------------------'
          print '(a)', 'maxit             x0                   tol'
-         print '(i5, 10x, f12.8, 10x, e12.4)', this%maxit, real(x0, kind=rk), this%TolFun
+         print '(g0, 10x, f12.8, 10x, e12.4)', this%maxit, real(x0, kind=rk), this%TolFun
          print '(a)', '-----------------------------------------------'
          print '(a)', 'start newton'
          print '(a)', '-----------------------------------------------'
@@ -396,7 +396,7 @@ contains
       if (this%verbosity == 1) then
          print '(a)', '-----------------------------------------------'
          print '(a)', 'maxit             tol'
-         print '(i5, 10x, f12.8, e12.4)', this%maxit, this%TolFun
+         print '(g0, 10x, f12.8, e12.4)', this%maxit, this%TolFun
          print '(a)', '-----------------------------------------------'
          print '(a)', 'start newton'
          print '(a)', '-----------------------------------------------'
@@ -560,7 +560,7 @@ contains
          criteriaFun = abs(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, f12.4, 4x, e12.4, 4x, e12.4)', k, xk, F_val, dFdx_val
+            print '(g0, f12.4, 4x, e12.4, 4x, e12.4)', k, xk, F_val, dFdx_val
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -621,7 +621,7 @@ contains
          criteriaFun = abs(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, f12.4, 4x, e12.4, 4x, e12.4)', k, xk, F_val, dFdx_val
+            print '(g0, f12.4, 4x, e12.4, 4x, e12.4)', k, xk, F_val, dFdx_val
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -677,7 +677,7 @@ contains
          criteriaFun = abs(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, f12.4, 4x, e12.4, 4x, e12.4)', k, xk, F_val, dFdx_val
+            print '(g0, f12.4, 4x, e12.4, 4x, e12.4)', k, xk, F_val, dFdx_val
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -733,7 +733,7 @@ contains
          criteriaFun = abs(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, f12.4, 4x, e12.4, 4x, e12.4)', k, xk, F_val, dFdx_val
+            print '(g0, f12.4, 4x, e12.4, 4x, e12.4)', k, xk, F_val, dFdx_val
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -794,7 +794,7 @@ contains
          criteriaFun = norm2(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, e12.4)', k, criteriaFun
+            print '(g0, e12.4)', k, criteriaFun
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -855,7 +855,7 @@ contains
          criteriaFun = norm2(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, e12.4)', k, criteriaFun
+            print '(g0, e12.4)', k, criteriaFun
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -909,7 +909,7 @@ contains
          criteriaFun = norm2(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, e12.4)', k, criteriaFun
+            print '(g0, e12.4)', k, criteriaFun
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -964,7 +964,7 @@ contains
          criteriaFun = norm2(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, e12.4)', k, criteriaFun
+            print '(g0, e12.4)', k, criteriaFun
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -1019,7 +1019,7 @@ contains
          criteriaFun = abs(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, f12.4, 4x, e12.4, 4x, e12.4)', k, real(xk, kind=rk), real(F_val, kind=rk), dFdx_val
+            print '(g0, f12.4, 4x, e12.4, 4x, e12.4)', k, real(xk, kind=rk), real(F_val, kind=rk), dFdx_val
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -1073,7 +1073,7 @@ contains
          criteriaFun = abs(F_val)
 
          if (this%verbosity == 1) then
-            print '(i5, f12.4, 4x, e12.4, 4x, e12.4)', k, real(xk, kind=rk), real(F_val, kind=rk), dFdx_val
+            print '(g0, f12.4, 4x, e12.4, 4x, e12.4)', k, real(xk, kind=rk), real(F_val, kind=rk), dFdx_val
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -1127,7 +1127,7 @@ contains
          criteriaFun = norm2(real(F_val, kind=rk))
 
          if (this%verbosity == 1) then
-            print '(i5, e12.4)', k, criteriaFun
+            print '(g0, e12.4)', k, criteriaFun
          end if
 
          if (criteriaFun <= this%TolFun) then
@@ -1181,7 +1181,7 @@ contains
          criteriaFun = norm2(real(F_val, kind=rk))
 
          if (this%verbosity == 1) then
-            print '(i5, e12.4)', k, criteriaFun
+            print '(g0, e12.4)', k, criteriaFun
          end if
 
          if (criteriaFun <= this%TolFun) then
