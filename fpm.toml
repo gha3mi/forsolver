@@ -1,106 +1,110 @@
-name = "forsolver"
-version = "0.3.1"
-author = "Seyed Ali Ghasemi"
+name       = "forsolver"
+version    = "0.3.1"
+author     = "Seyed Ali Ghasemi"
 maintainer = "info@gha3mi.com"
-copyright = "Copyright (c) 2023, Seyed Ali Ghasemi"
-license = "BSD-3"
+copyright  = "Copyright (c) 2023, Seyed Ali Ghasemi"
+license    = "BSD-3"
+
 [build]
 auto-executables = false
-auto-tests = false
-auto-examples = false
-module-naming = false
+auto-tests       = false
+auto-examples    = false
+module-naming    = false
+
 [install]
 library = true
+
 [fortran]
-implicit-typing = false
+implicit-typing   = false
 implicit-external = false
-source-form = "free"
+source-form       = "free"
 
 [dependencies]
-kinds = {git="https://github.com/gha3mi/kinds.git"}
-fordiff = {git="https://github.com/gha3mi/fordiff.git"}
+kinds       = {git="https://github.com/gha3mi/kinds.git"}
+fordiff     = {git="https://github.com/gha3mi/fordiff.git"}
+forunittest = {git="https://github.com/gha3mi/forunittest.git"}
 
 [[test]]
-name       = "test1"
+name       = "test_solver1"
 source-dir = "test"
-main       = "test1.f90"
+main       = "test_solver1.f90"
 
 [[test]]
-name       = "test2"
+name       = "test_solver2"
 source-dir = "test"
-main       = "test2.f90"
+main       = "test_solver2.f90"
 
 [[test]]
-name       = "test3"
+name       = "test_solver3"
 source-dir = "test"
-main       = "test3.f90"
+main       = "test_solver3.f90"
 
 [[test]]
-name       = "test4"
+name       = "test_solver4"
 source-dir = "test"
-main       = "test4.f90"
+main       = "test_solver4.f90"
 
 [[test]]
-name       = "test5"
+name       = "test_solver5"
 source-dir = "test"
-main       = "test5.f90"
+main       = "test_solver5.f90"
 
 [[test]]
-name       = "test6"
+name       = "test_solver6"
 source-dir = "test"
-main       = "test6.f90"
+main       = "test_solver6.f90"
 
 [[test]]
-name       = "test7"
+name       = "test_solver7"
 source-dir = "test"
-main       = "test7.f90"
+main       = "test_solver7.f90"
 
 [[test]]
-name       = "test8"
+name       = "test_solver8"
 source-dir = "test"
-main       = "test8.f90"
+main       = "test_solver8.f90"
 
 [[test]]
-name       = "test9"
+name       = "test_solver9"
 source-dir = "test"
-main       = "test9.f90"
+main       = "test_solver9.f90"
 
 [[test]]
-name       = "test10"
+name       = "test_solver10"
 source-dir = "test"
-main       = "test10.f90"
+main       = "test_solver10.f90"
 
 [[test]]
-name       = "test11"
+name       = "test_solver11"
 source-dir = "test"
-main       = "test11.f90"
+main       = "test_solver11.f90"
 
 [[test]]
-name       = "test12"
+name       = "test_solver12"
 source-dir = "test"
-main       = "test12.f90"
+main       = "test_solver12.f90"
 
 [[test]]
-name       = "test13"
+name       = "test_solver13"
 source-dir = "test"
-main       = "test13.f90"
+main       = "test_solver13.f90"
 
 [[test]]
-name       = "test14"
+name       = "test_solver14"
 source-dir = "test"
-main       = "test14.f90"
+main       = "test_solver14.f90"
 
 [[test]]
-name       = "test15"
+name       = "test_solver15"
 source-dir = "test"
-main       = "test15.f90"
+main       = "test_solver15.f90"
 
 [[test]]
-name       = "test16"
+name       = "test_solver16"
 source-dir = "test"
-main       = "test16.f90"
+main       = "test_solver16.f90"
 
 [[test]]
-name       = "test17"
+name       = "test_solver17"
 source-dir = "test"
-main       = "test17.f90"
+main       = "test_solver17.f90"

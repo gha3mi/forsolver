@@ -1,9 +1,23 @@
-@gfortran
-options test --compiler gfortran --flag "-Wno-line-truncation -Ofast -march=native -llapack -lblas"
-@ifort
-# options test --compiler ifort --flag "-Ofast -xHost -mtune=native -qopenmp -parallel -qmkl=parallel"
-options test --compiler ifort --flag "-Ofast -xHost -mtune=native -qopenmp -parallel -llapack -lblas"
-@ifx
-options test --compiler ifx --flag "-Ofast -xHost -mtune=native -qopenmp -fopenmp-target-do-concurrent -parallel -qmkl=parallel"
-@nvfortran
-options test --compiler nvfortran --flag "-O4 -mtune=native -stdpar=gpu,multicore -llapack"
+@test-gfortran
+options test
+options --profile release
+options --compiler gfortran
+options --flag "-Wno-line-truncation -O3 -march=native -llapack -lblas"
+
+@test-ifort
+options test
+options --profile release
+options --compiler ifort
+options --flag "-O3 -xHost -mtune=native -qopenmp -parallel -llapack -lblas"
+
+@test-ifx
+options test
+options --profile release
+options --compiler ifx
+options --flag "-O3 -xHost -mtune=native -qopenmp -fopenmp-target-do-concurrent -parallel -qmkl=parallel"
+
+@test-nvfortran
+options test
+options --profile release
+options --compiler nvfortran
+options --flag "-O4 -mtune=native -stdpar=gpu,multicore -llapack -lblas"
