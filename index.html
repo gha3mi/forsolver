@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for forsolver">
+    <meta name="author" content="Seyed Ali Ghasemi" >
+    <link rel="icon" href="./favicon.png">
+
+    <title> forsolver </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./css/pygments.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/local.css" rel="stylesheet">
+      <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">forsolver <small>v0.3.1</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="./search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="p-5 mb-4 bg-light border rounded-3" id="jumbotron">
+        
+	<p> Find us on&hellip;</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi/forsolver" role="button">GitHub</a>
+        </p>
+      </div>
+
+      <div class="row" id='text'>
+        <div class=col-md-8>
+          <h1>forsolver</h1>
+          <p><a href="https://github.com/gha3mi/forsolver"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-ForSolver-blue.svg?style=social&amp;logo=github"></a>
+<a href="https://github.com/gha3mi/forsolver/releases/latest"><img alt="Version" src="https://img.shields.io/github/release/gha3mi/forsolver.svg"></a>
+<a href="https://gha3mi.github.io/forsolver/"><img alt="Documentation" src="https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg"></a>
+<a href="https://github.com/gha3mi/forsolver/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/gha3mi/forsolver?color=green"></a>
+<a href="https://github.com/gha3mi/forsolver/actions/workflows/CI_test.yml"><img alt="Build" src="https://github.com/gha3mi/forsolver/actions/workflows/CI_test.yml/badge.svg"></a></p>
+<p><strong>ForSolver</strong>: A Fortran library of linear and nonlinear solvers.</p>
+<h2>Usage</h2>
+<h3>Linear system solver</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">forsolver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">solve</span>
+
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">method</span><span class="p">)</span>
+</code></pre></div>
+
+<p>available methods (optional):</p>
+<ul>
+<li><code>gesv</code></li>
+<li><code>gels</code></li>
+</ul>
+<h3>Nonlinear system solver</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">forsolver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">nlsolver</span>
+
+<span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span>
+<span class="w">      </span><span class="n">lin_method</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">nl_method</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">fdm_method</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">fdm_tol</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">cs_tol</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">TolFun</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">maxit</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">nmp</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">verbosity</span><span class="w"> </span><span class="p">)</span>
+
+<span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">x_sol</span><span class="p">)</span>
+</code></pre></div>
+
+<p>available nl_methods:</p>
+<ul>
+<li><code>newton</code></li>
+<li><code>newton-modified</code></li>
+<li><code>newton-quasi-fd</code></li>
+<li><code>newton-quasi-fd-modified</code></li>
+<li><code>newton-quasi-cs</code></li>
+<li><code>newton-quasi-cs-modified</code></li>
+</ul>
+<p>fd: finite difference method</p>
+<p>cs: complex step method</p>
+<h2>Requirements</h2>
+<ul>
+<li>A Fortran Compiler</li>
+<li>BLAS Library</li>
+<li>Fortran Package Manager (fpm)</li>
+</ul>
+<h2>fpm Dependency</h2>
+<p>If you want to use <code>ForSolver</code> as a dependency in your own fpm project,
+you can easily include it by adding the following line to your <code>fpm.toml</code> file:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span>
+<span class="n">forsolver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="p">=</span><span class="s2">&quot;https://github.com/gha3mi/forsolver.git&quot;</span><span class="p">}</span>
+</code></pre></div>
+
+<h2>Runing Tests</h2>
+<p>Execute the following commands to run tests with specific compilers:</p>
+<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@&lt;compiler&gt;-test
+</code></pre></div>
+
+<p><code>compiler: ifx, ifort, gfortran, nvfortran</code></p>
+<h2>Examples</h2>
+<h3>Example 1: Linear System Solver</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">program </span><span class="n">example1</span>
+
+<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
+<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span>
+
+<span class="w">   </span><span class="k">implicit none</span>
+
+<span class="k">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span>
+<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
+<span class="w">   </span><span class="kt">integer</span><span class="w">                               </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
+
+<span class="w">   </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">   </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="w">   </span><span class="k">allocate</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="n">b</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="p">]</span>
+<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">3.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0_rk</span><span class="p">]</span>
+<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">2.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0_rk</span><span class="p">]</span>
+
+<span class="w">   </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">4.0_rk</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">2.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0_rk</span><span class="p">]</span>
+
+<span class="w">   </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+
+<span class="k">end program </span><span class="n">example1</span>
+</code></pre></div>
+
+<h3>Example 2: Newton's Method for Root Finding</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">module </span><span class="n">my_function3</span>
+<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
+<span class="w">   </span><span class="k">implicit none</span>
+<span class="k">contains</span>
+<span class="k">   function </span><span class="n">F1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">F_val</span><span class="p">)</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">F_val</span>
+<span class="w">      </span><span class="n">F_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5.0_rk</span>
+<span class="w">   </span><span class="k">end function </span><span class="n">F1</span>
+<span class="w">   </span><span class="k">function </span><span class="n">dF1dx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dFdx_val</span><span class="p">)</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dFdx_val</span>
+<span class="w">      </span><span class="n">dFdx_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">5.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8.0_rk</span>
+<span class="w">   </span><span class="k">end function </span><span class="n">dF1dx</span>
+<span class="k">end module </span><span class="n">my_function3</span>
+
+<span class="k">program </span><span class="n">example2</span>
+
+<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span>
+<span class="w">   </span><span class="k">use </span><span class="n">my_function3</span>
+
+<span class="w">   </span><span class="k">implicit none</span>
+
+<span class="k">   type</span><span class="p">(</span><span class="n">nlsolver</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nls</span>
+<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span>
+
+<span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span>
+<span class="w">      </span><span class="n">nl_method</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;newton&#39;</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">maxit</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">TolFun</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-4_rk</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">verbosity</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="o">=</span><span class="n">F1</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="o">=</span><span class="n">dF1dx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="o">=</span><span class="mi">1</span><span class="mf">0.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">x_sol</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">end program </span><span class="n">example2</span>
+</code></pre></div>
+
+<h2>API Documentation</h2>
+<p>The most up-to-date API documentation for the master branch is available
+<a href="https://gha3mi.github.io/ForSolver/">here</a>.
+To generate the API documentation for <code>ForSolver</code> using
+<a href="https://github.com/Fortran-FOSS-Programmers/ford">ford</a> run the following
+command:</p>
+<div class="codehilite"><pre><span></span><code>ford<span class="w"> </span>ford.yml
+</code></pre></div>
+
+<h2>Contributing</h2>
+<p>Contributions to <code>ForSolver</code> are welcome!
+If you find any issues or would like to suggest improvements, please open an issue.</p>
+        </div>
+          <div class="col-md-4">
+	        <div class="card card-body bg-light">
+              <h2 class="card-title">Developer Info</h2>
+              <h4 class="card-text">Seyed Ali Ghasemi</h4>
+              <p class="card-text"></p>
+                <div class="text-center"><div class="btn-group" role="group">
+                      <a class="btn btn-lg btn-primary" href="mailto:info@gha3mi.com"><i class="fa fa-envelope fa-lg"></i></a>
+                      <a class="btn btn-lg btn-primary" href="https://github.com/gha3mi"><i class="fa fa-github fa-lg"></i></a>
+                </div></div>
+            </div>
+          </div>
+      </div>
+        <div class="row">
+          <hr>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Source Files</h3>
+              <ul><li><a href='sourcefile/external_interfaces.f90.html'>external_interfaces.f90</a></li><li><a href='sourcefile/forsolver.f90.html'>forsolver.f90</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Modules</h3>
+              <ul><li><a href='module/external_interfaces_solver.html'>external_interfaces_solver</a></li><li><a href='module/forsolver.html'>forsolver</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/modules.html"><em>All modules&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Procedures</h3>
+              <ul><li><a href='proc/deallocate_solver.html'>deallocate_solver</a></li><li><a href='interface/gels.html'>gels</a></li><li><a href='proc/gels_rel.html'>gels_rel</a></li><li><a href='interface/gesv.html'>gesv</a></li><li><a href='proc/gesv_rel.html'>gesv_rel</a></li><li><a href='proc/modified_newton_method_t0.html'>modified_newton_method_T0</a></li><li><a href='proc/modified_newton_method_t1.html'>modified_newton_method_T1</a></li><li><a href='proc/modified_quasi_cs_newton_method_t0.html'>modified_quasi_cs_newton_method_T0</a></li><li><a href='proc/modified_quasi_cs_newton_method_t1.html'>modified_quasi_cs_newton_method_T1</a></li><li><a href='proc/modified_quasi_fd_newton_method_t0.html'>modified_quasi_fd_newton_method_T0</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <div>
+              <h3>Derived Types</h3>
+              <ul><li><a href='type/nlsolver.html'>nlsolver</a></li></ul>
+            </div>
+            <div>
+              <ul>
+                <li><a href="./lists/types.html"><em>All derived types&hellip;</em></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>forsolver was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-02-02T13:45:37.055816             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="./tipuesearch/tipuesearch_content.js"></script>
+          <script src="./tipuesearch/tipuesearch_set.js"></script>
+          <script src="./tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,543 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for forsolver">
+    <meta name="author" content="Seyed Ali Ghasemi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>newton_rel_T0 &ndash; forsolver</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">forsolver <small>v0.3.1</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>newton_rel_T0
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 4.9% of total for procedures.">44 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/forsolver.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/forsolver.f90.html'>forsolver.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/forsolver.html'>forsolver</a></li>
+            <li class="breadcrumb-item active" aria-current="page">newton_rel_T0</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/newton_rel_t0.html#src">newton_rel_T0</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>private impure subroutine newton_rel_T0(this, F, dFdx, x0, x_sol)  
+</h2>
+    
+
+
+    <h3>Type Bound</h3>
+    <p><a href='../type/nlsolver.html'>nlsolver</a></p>
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-this"></span>
+              class(<a href='../type/nlsolver.html'>nlsolver</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>this</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f"></span>
+              procedure(Fun1)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>F</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dfdx"></span>
+              procedure(dFun1),
+            </td>
+<td></td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dFdx</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x0"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x0</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x_sol"></span>
+              real(kind=rk),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x_sol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~newton_rel_t0~~CallsGraph Pages: 1 -->
+<svg id="procnewton_rel_t0CallsGraph" width="616pt" height="158pt"
+ viewBox="0.00 0.00 616.00 158.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~newton_rel_t0~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 154)">
+<title>proc~~newton_rel_t0~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-154 612,-154 612,4 -4,4"/>
+<!-- proc~newton_rel_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_node1" class="node">
+<title>proc~newton_rel_t0</title>
+<polygon fill="none" stroke="black" points="196,-87 0,-87 0,-63 196,-63 196,-87"/>
+<text text-anchor="middle" x="98" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">forsolver::nlsolver%newton_rel_T0</text>
+</g>
+<!-- proc~modified_newton_method_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_node2" class="node">
+<title>proc~modified_newton_method_t0</title>
+<g id="a_proc~~newton_rel_t0~~CallsGraph_node2"><a xlink:href="../proc/modified_newton_method_t0.html" xlink:title="forsolver::modified_newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="481,-150 257,-150 257,-126 481,-126 481,-150"/>
+<text text-anchor="middle" x="369" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::modified_newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t0&#45;&gt;proc~modified_newton_method_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_edge1" class="edge">
+<title>proc~newton_rel_t0&#45;&gt;proc~modified_newton_method_t0</title>
+<path fill="none" stroke="#255000" d="M132.22,-87.05C158.89,-96.34 197.46,-108.93 232,-117 243.36,-119.65 255.33,-122.06 267.27,-124.22"/>
+<polygon fill="#255000" stroke="#255000" points="266.83,-127.69 277.28,-125.97 268.04,-120.8 266.83,-127.69"/>
+</g>
+<!-- proc~modified_quasi_fd_newton_method_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_node3" class="node">
+<title>proc~modified_quasi_fd_newton_method_t0</title>
+<g id="a_proc~~newton_rel_t0~~CallsGraph_node3"><a xlink:href="../proc/modified_quasi_fd_newton_method_t0.html" xlink:title="forsolver::modified_quasi_fd_newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="506,-108 232,-108 232,-84 506,-84 506,-108"/>
+<text text-anchor="middle" x="369" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::modified_quasi_fd_newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t0&#45;&gt;proc~modified_quasi_fd_newton_method_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_edge2" class="edge">
+<title>proc~newton_rel_t0&#45;&gt;proc~modified_quasi_fd_newton_method_t0</title>
+<path fill="none" stroke="#255000" d="M196.12,-82.58C204.44,-83.23 212.98,-83.9 221.58,-84.57"/>
+<polygon fill="#255000" stroke="#255000" points="221.46,-88.07 231.7,-85.36 222,-81.09 221.46,-88.07"/>
+</g>
+<!-- proc~newton_method_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_node4" class="node">
+<title>proc~newton_method_t0</title>
+<g id="a_proc~~newton_rel_t0~~CallsGraph_node4"><a xlink:href="../proc/newton_method_t0.html" xlink:title="forsolver::newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="455,-66 283,-66 283,-42 455,-42 455,-66"/>
+<text text-anchor="middle" x="369" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t0&#45;&gt;proc~newton_method_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_edge3" class="edge">
+<title>proc~newton_rel_t0&#45;&gt;proc~newton_method_t0</title>
+<path fill="none" stroke="#255000" d="M196.12,-67.42C220.98,-65.48 247.7,-63.39 272.49,-61.46"/>
+<polygon fill="#255000" stroke="#255000" points="272.91,-64.93 282.61,-60.67 272.37,-57.96 272.91,-64.93"/>
+</g>
+<!-- proc~quasi_fd_newton_method_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_node5" class="node">
+<title>proc~quasi_fd_newton_method_t0</title>
+<g id="a_proc~~newton_rel_t0~~CallsGraph_node5"><a xlink:href="../proc/quasi_fd_newton_method_t0.html" xlink:title="forsolver::quasi_fd_newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="479.5,-24 258.5,-24 258.5,0 479.5,0 479.5,-24"/>
+<text text-anchor="middle" x="369" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::quasi_fd_newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t0&#45;&gt;proc~quasi_fd_newton_method_t0 -->
+<g id="proc~~newton_rel_t0~~CallsGraph_edge4" class="edge">
+<title>proc~newton_rel_t0&#45;&gt;proc~quasi_fd_newton_method_t0</title>
+<path fill="none" stroke="#255000" d="M132.22,-62.95C158.89,-53.66 197.46,-41.07 232,-33 243.36,-30.35 255.33,-27.94 267.27,-25.78"/>
+<polygon fill="#255000" stroke="#255000" points="268.04,-29.2 277.28,-24.03 266.83,-22.31 268.04,-29.2"/>
+</g>
+<!-- derivative -->
+<g id="proc~~newton_rel_t0~~CallsGraph_node6" class="node">
+<title>derivative</title>
+<polygon fill="#777777" stroke="#777777" points="608,-66 542,-66 542,-42 608,-42 608,-66"/>
+<text text-anchor="middle" x="575" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">derivative</text>
+</g>
+<!-- proc~modified_quasi_fd_newton_method_t0&#45;&gt;derivative -->
+<g id="proc~~newton_rel_t0~~CallsGraph_edge5" class="edge">
+<title>proc~modified_quasi_fd_newton_method_t0&#45;&gt;derivative</title>
+<path fill="none" stroke="transparent" d="M460.33,-83.95C475.65,-81.37 491.33,-78.38 506,-75 514.48,-73.05 523.44,-70.58 531.98,-68.03"/>
+<polygon fill="transparent" stroke="transparent" points="533.22,-71.31 541.75,-65.02 531.16,-64.62 533.22,-71.31"/>
+</g>
+<!-- proc~quasi_fd_newton_method_t0&#45;&gt;derivative -->
+<g id="proc~~newton_rel_t0~~CallsGraph_edge6" class="edge">
+<title>proc~quasi_fd_newton_method_t0&#45;&gt;derivative</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M460.33,-24.05C475.65,-26.63 491.33,-29.62 506,-33 514.48,-34.95 523.44,-37.42 531.98,-39.97"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="531.16,-43.38 541.75,-42.98 533.22,-36.69 531.16,-43.38"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">impure subroutine </span><span class="n">newton_rel_T0</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w">  </span><span class="n">x_sol</span><span class="p">)</span>
+<span class="w">      </span><span class="k">interface</span>
+<span class="k">         impure function </span><span class="n">Fun1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">            </span><span class="k">import </span><span class="n">rk</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">Fun1</span>
+<span class="w">         </span><span class="k">end function </span><span class="n">Fun1</span>
+
+<span class="w">         </span><span class="k">impure function </span><span class="n">dFun1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">            </span><span class="k">import </span><span class="n">rk</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
+<span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">dFun1</span>
+<span class="w">         </span><span class="k">end function </span><span class="n">dFun1</span>
+<span class="w">      </span><span class="k">end interface</span>
+
+<span class="k">      procedure</span><span class="p">(</span><span class="n">Fun1</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">F</span>
+<span class="w">      </span><span class="k">procedure</span><span class="p">(</span><span class="n">dFun1</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dFdx</span>
+
+<span class="w">      </span><span class="k">class</span><span class="p">(</span><span class="n">nlsolver</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">this</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w">        </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x0</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w">        </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">x_sol</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">verbosity</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-----------------------------------------------&#39;</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;maxit             x0                   tol&#39;</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(g0, 10x, f12.8, 10x, e12.4)&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">maxit</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="p">%</span><span class="n">TolFun</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-----------------------------------------------&#39;</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;start newton&#39;</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-----------------------------------------------&#39;</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;it        xn           F(xn)         dF(xn)/dxn&#39;</span>
+<span class="w">      </span><span class="k">end if</span>
+
+<span class="k">      select case</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">nl_method</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;newton&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">newton_method_T0</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w">  </span><span class="n">x_sol</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;newton-modified&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">modified_newton_method_T0</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w">  </span><span class="n">x_sol</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;newton-quasi-fd&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">quasi_fd_newton_method_T0</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w">  </span><span class="n">x_sol</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;newton-quasi-fd-modified&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">modified_quasi_fd_newton_method_T0</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w">  </span><span class="n">x_sol</span><span class="p">)</span>
+<span class="w">         </span><span class="c">!  case (&#39;newton-quasi-bfgs&#39;)</span>
+<span class="w">         </span><span class="c">!    call quasi_bfgs_newton_method_T0(this, F, x0,  x_sol)</span>
+<span class="w">         </span><span class="c">!  case (&#39;newton-quasi-bfgs-modified&#39;)</span>
+<span class="w">         </span><span class="c">!    call modified_quasi_bfgs_newton_method_T0(this, F, x0,  x_sol)</span>
+<span class="w">      </span><span class="k">end select</span>
+
+<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">verbosity</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-----------------------------------------------&#39;</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;end newton&#39;</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;-----------------------------------------------&#39;</span>
+<span class="w">         </span><span class="k">print</span><span class="w"> </span><span class="s1">&#39;(a, g0)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x_sol = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">x_sol</span>
+<span class="w">      </span><span class="k">end if</span>
+
+
+<span class="k">   end subroutine </span><span class="n">newton_rel_T0</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>forsolver was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-02-02T13:45:37.055816             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
