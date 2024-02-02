@@ -1,13 +1,15 @@
-program test17
+program test_solver16
 
    use kinds
-   use forsolver, only: solve
+   use forsolver
+   use forunittest
 
    implicit none
 
    real(rk), dimension(4,4) :: A
    real(rk), dimension(4)   :: b
-   real(rk), dimension(4)   :: x, x_expected
+   real(rk), dimension(4)   :: x, expected_x
+   type(unit_test) :: ut
 
    ! set the matrix A
    A(1,:) = [ 1.44_rk, -7.84_rk, -4.39_rk,  4.53_rk]
@@ -19,19 +21,15 @@ program test17
    b = [8.58_rk, 8.26_rk, 8.48_rk,-5.28_rk]
 
    ! solve the system
-   X = solve(A, b, method='gels')
+   x = solve(A, b) ! X = solve(A, b, method='gesvs')
 
    ! expected result
-   x_expected(1) = -1.0544691129297037_rk
-   x_expected(2) = -1.9149827187319857_rk
-   x_expected(3) =  2.9192679369935912_rk
-   x_expected(4) =  1.7440523733249165_rk
+   expected_x(1) = -1.0544691129297037_rk
+   expected_x(2) = -1.9149827187319857_rk
+   expected_x(3) =  2.9192679369935912_rk
+   expected_x(4) =  1.7440523733249165_rk
 
    ! check the result
-   if (norm2(X - x_expected) < 1e-6_rk) then
-      print'(a)', 'test17: passed'
-   else
-      print'(a)', 'test17: failed'
-   end if
+   call ut%check(x, expected_x, 1.0e-5_rk, 'test_solver16' )
 
-end program test17
+end program test_solver16
