@@ -66,15 +66,15 @@ contains
       if (present(method)) then
          select case (method)
           case ('gesv')
-            call dgesv_rel(A, b, x, info)
+            call gesv_rel(A, b, x, info)
           case ('gels')
-            call dgels_rel(A, b, x, info)
+            call gels_rel(A, b, x, info)
          end select
       else
          if (size(A,1)==size(A,2)) then
-            call dgesv_rel(A, b, x, info)
+            call gesv_rel(A, b, x, info)
          else
-            call dgels_rel(A, b, x, info)
+            call gels_rel(A, b, x, info)
          end if
       end if
 
@@ -84,7 +84,10 @@ contains
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   pure subroutine dgesv_rel(A, b, x, info)
+   pure subroutine gesv_rel(A, b, x, info)
+
+      use external_interfaces_solver
+
       ! inputs:
       real(rk), dimension(:, :), contiguous, intent(in) :: A    ! input matrix A
       real(rk), dimension(:),    contiguous, intent(in) :: b    ! right-hand side matrix b
@@ -99,17 +102,6 @@ contains
       real(rk), dimension(:,:), allocatable :: a_copy
       real(rk), dimension(:,:), allocatable :: b_copy
 
-      ! interface for dgels subroutine
-      interface
-         pure subroutine dgesv(fn, fnrhs, fa, flda, fipiv, fb, fldb, finfo)
-            import rk
-            integer,  intent(in)    :: fn, fnrhs, flda, fldb
-            real(rk), intent(inout) :: fa(flda,fn), fb(fldb,fnrhs)
-            integer,  intent(out)   :: finfo
-            integer,  intent(out)   :: fipiv(fn)
-         end subroutine dgesv
-      end interface
-
       ! get dimensions
       nrhs = 1 ! size(b, 2)
       n    = size(A, 2)
@@ -121,24 +113,27 @@ contains
       allocate(b_copy(ldb, nrhs))
       b_copy(:, 1) = b
 
-      ! call dgels subroutine
-      call dgesv(n, nrhs, a_copy, lda, ipiv, b_copy, ldb, info)
+      ! call gels subroutine
+      call gesv(n, nrhs, a_copy, lda, ipiv, b_copy, ldb, info)
 
       ! copy the solution matrix
       if (info == 0) then
          x = b_copy(1:ldb, 1) ! nrhs = 1
       else
-         error stop 'dgesv failed'
+         error stop 'gesv failed'
       end if
 
-   end subroutine dgesv_rel
+   end subroutine gesv_rel
    !===============================================================================
 
 
    !===============================================================================
    !> author: Seyed Ali Ghasemi
-   !> solves an overdetermined or underdetermined linear system using dgels.
-   pure subroutine dgels_rel(A, b, x, info)
+   !> solves an overdetermined or underdetermined linear system using gels.
+   pure subroutine gels_rel(A, b, x, info)
+
+      use external_interfaces_solver
+
       ! inputs:
       real(rk), dimension(:, :), contiguous, intent(in) :: A    ! input matrix A
       real(rk), dimension(:),    contiguous, intent(in) :: b    ! right-hand side matrix b
@@ -154,18 +149,6 @@ contains
       real(rk)                              :: work1(1)
       real(rk), dimension(:,:), allocatable :: a_copy
       real(rk), dimension(:,:), allocatable :: b_copy
-
-      ! interface for dgels subroutine
-      interface
-         pure subroutine dgels(ftrans, fm, fn, fnrhs, fa, flda, fb, fldb, fwork, flwork, finfo)
-            import rk
-            character(len=1), intent(in)    :: ftrans
-            integer,          intent(in)    :: fm, fn, fnrhs, flda, fldb, flwork
-            real(rk),         intent(inout) :: fa(flda,*), fb(fldb,*)
-            real(rk),         intent(in)    :: fwork(*)
-            integer,          intent(out)   :: finfo
-         end subroutine dgels
-      end interface
 
       ! 
       trans = 'n'
@@ -183,26 +166,26 @@ contains
       b_copy(:, 1) = b
 
       ! calculate the optimal size of the work array
-      call dgels(trans, m, n, nrhs, a_copy, lda, b_copy, ldb, work1, -1, info)
+      call gels(trans, m, n, nrhs, a_copy, lda, b_copy, ldb, work1, -1, info)
 
       ! allocate work array
       lwork = nint(work1(1))
       allocate(work(lwork))
 
-      ! call dgels subroutine
-      call dgels(trans, m, n, nrhs, a_copy, lda, b_copy, ldb, work, lwork, info)
+      ! call gels subroutine
+      call gels(trans, m, n, nrhs, a_copy, lda, b_copy, ldb, work, lwork, info)
 
       ! copy the solution matrix
       if (info == 0) then
          if (trans == 'n') x = b_copy(1:n, 1) ! nrhs = 1
          if (trans == 't') x = b_copy(1:m, 1) ! nrhs = 1
       else
-         error stop 'dgels failed'
+         error stop 'gels failed'
       end if
 
       ! deallocate workspace
       deallocate(work)
-   end subroutine dgels_rel
+   end subroutine gels_rel
    !===============================================================================
 
 
@@ -210,21 +193,21 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine newton_rel_T0(this, F, dFdx, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun1(x)
             import rk
             real(rk), intent(in) :: x
-            real(rk)             :: Fun
-         end function Fun
+            real(rk)             :: Fun1
+         end function Fun1
 
-         impure function dFun(x)
+         impure function dFun1(x)
             import rk
             real(rk), intent(in) :: x
-            real(rk)             :: dFun
-         end function dFun
+            real(rk)             :: dFun1
+         end function dFun1
       end interface
 
-      procedure(Fun)            :: F
-      procedure(dFun), optional :: dFdx
+      procedure(Fun1)            :: F
+      procedure(dFun1), optional :: dFdx
 
       class(nlsolver), intent(inout) :: this
       real(rk),        intent(in)    :: x0
@@ -271,21 +254,21 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine newton_rel_T1(this, F, dFdx, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun2(x) result(res)
             import rk
             real(rk), dimension(:), intent(in)  :: x
-            real(rk), dimension(:), allocatable :: Fun
-         end function Fun
+            real(rk), dimension(:), allocatable :: res
+         end function Fun2
 
-         impure function dFun(x)
+         impure function dFun2(x) result(res)
             import rk
             real(rk), dimension(:), intent(in)    :: x
-            real(rk), dimension(:,:), allocatable :: dFun
-         end function dFun
+            real(rk), dimension(:,:), allocatable :: res
+         end function dFun2
       end interface
 
-      procedure(Fun)            :: F
-      procedure(dFun), optional :: dFdx
+      procedure(Fun2)            :: F
+      procedure(dFun2), optional :: dFdx
 
       class(nlsolver),               intent(inout) :: this
       real(rk), dimension(:),        intent(in)    :: x0
@@ -334,14 +317,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine newton_complex_step_rel_T0(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun3(x) result(res)
             import rk
             complex(rk), intent(in) :: x
-            complex(rk)             :: Fun
-         end function Fun
+            complex(rk)             :: res
+         end function Fun3
       end interface
 
-      procedure(Fun) :: F
+      procedure(Fun3) :: F
 
       class(nlsolver), intent(inout) :: this
       complex(rk),     intent(in)    :: x0
@@ -379,14 +362,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine newton_complex_step_rel_T1(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun4(x) result(res)
             import rk
             complex(rk), dimension(:), intent(in)  :: x
-            complex(rk), dimension(:), allocatable :: Fun
-         end function Fun
+            complex(rk), dimension(:), allocatable :: res
+         end function Fun4
       end interface
 
-      procedure(Fun)  :: F
+      procedure(Fun4)  :: F
 
       class(nlsolver),                  intent(inout) :: this
       complex(rk), dimension(:),        intent(in)    :: x0
@@ -452,7 +435,7 @@ contains
       if (present(lin_method)) then
          this%lin_method  = lin_method
       else
-         ! this%lin_method  =
+         this%lin_method  = 'gels'
       end if
 
       if (present(fdm_method)) then
@@ -521,21 +504,21 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine newton_method_T0(this, F, dFdx, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun5(x) result(res)
             import rk
             real(rk), intent(in)  :: x
-            real(rk) :: Fun
-         end function Fun
+            real(rk) :: res
+         end function Fun5
 
-         impure function dFun(x)
+         impure function dFun5(x) result(res)
             import rk
             real(rk), intent(in)    :: x
-            real(rk) :: dFun
-         end function dFun
+            real(rk) :: res
+         end function dFun5
       end interface
 
-      procedure(Fun)  :: F
-      procedure(dFun) :: dFdx
+      procedure(Fun5)  :: F
+      procedure(dFun5) :: dFdx
 
       class(nlsolver), intent(inout) :: this
       real(rk),        intent(in)    :: x0
@@ -582,21 +565,21 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine modified_newton_method_T0(this, F, dFdx, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun6(x) result(res)
             import rk
             real(rk), intent(in)  :: x
-            real(rk) :: Fun
-         end function Fun
+            real(rk) :: res
+         end function Fun6
 
-         impure function dFun(x)
+         impure function dFun6(x) result(res)
             import rk
             real(rk), intent(in)    :: x
-            real(rk) :: dFun
-         end function dFun
+            real(rk) :: res
+         end function dFun6
       end interface
 
-      procedure(Fun)  :: F
-      procedure(dFun) :: dFdx
+      procedure(Fun6)  :: F
+      procedure(dFun6) :: dFdx
 
       class(nlsolver), intent(inout) :: this
       real(rk),        intent(in)    :: x0
@@ -643,14 +626,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine quasi_fd_newton_method_T0(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun7(x) result(res)
             import rk
             real(rk), intent(in) :: x
-            real(rk)             :: Fun
-         end function Fun
+            real(rk)             :: res
+         end function Fun7
       end interface
 
-      procedure(Fun) :: F
+      procedure(Fun7) :: F
 
       class(nlsolver), intent(inout) :: this
       real(rk),        intent(in)    :: x0
@@ -699,14 +682,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine modified_quasi_fd_newton_method_T0(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun8(x) result(res)
             import rk
             real(rk), intent(in) :: x
-            real(rk)             :: Fun
-         end function Fun
+            real(rk)             :: res
+         end function Fun8
       end interface
 
-      procedure(Fun) :: F
+      procedure(Fun8) :: F
 
       class(nlsolver), intent(inout) :: this
       real(rk),        intent(in)    :: x0
@@ -755,21 +738,21 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine newton_method_T1(this, F, dFdx, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun9(x) result(res)
             import rk
             real(rk), dimension(:), intent(in)  :: x
-            real(rk), dimension(:), allocatable :: Fun
-         end function Fun
+            real(rk), dimension(:), allocatable :: res
+         end function Fun9
 
-         impure function dFun(x)
+         impure function dFun10(x) result(res)
             import rk
             real(rk), dimension(:), intent(in)    :: x
-            real(rk), dimension(:,:), allocatable :: dFun
-         end function dFun
+            real(rk), dimension(:,:), allocatable :: res
+         end function dFun10
       end interface
 
-      procedure(Fun)  :: F
-      procedure(dFun) :: dFdx
+      procedure(Fun9)  :: F
+      procedure(dFun10) :: dFdx
 
       class(nlsolver),               intent(inout) :: this
       real(rk), dimension(:),        intent(in)    :: x0
@@ -816,21 +799,21 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine modified_newton_method_T1(this, F, dFdx, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun11(x) result(res)
             import rk
             real(rk), dimension(:), intent(in)  :: x
-            real(rk), dimension(:), allocatable :: Fun
-         end function Fun
+            real(rk), dimension(:), allocatable :: res
+         end function Fun11
 
-         impure function dFun(x)
+         impure function dFun11(x) result(res)
             import rk
             real(rk), dimension(:), intent(in)    :: x
-            real(rk), dimension(:,:), allocatable :: dFun
-         end function dFun
+            real(rk), dimension(:,:), allocatable :: res
+         end function dFun11
       end interface
 
-      procedure(Fun)  :: F
-      procedure(dFun) :: dFdx
+      procedure(Fun11)  :: F
+      procedure(dFun11) :: dFdx
 
       class(nlsolver),               intent(inout) :: this
       real(rk), dimension(:),        intent(in)    :: x0
@@ -877,14 +860,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine quasi_fd_newton_method_T1(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun12(x) result(res)
             import rk
             real(rk), dimension(:), intent(in)  :: x
-            real(rk), dimension(:), allocatable :: Fun
-         end function Fun
+            real(rk), dimension(:), allocatable :: res
+         end function Fun12
       end interface
 
-      procedure(Fun)  :: F
+      procedure(Fun12)  :: F
 
       class(nlsolver),               intent(inout) :: this
       real(rk), dimension(:),        intent(in)    :: x0
@@ -931,14 +914,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine modified_quasi_fd_newton_method_T1(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun13(x) result(res)
             import rk
             real(rk), dimension(:), intent(in)  :: x
-            real(rk), dimension(:), allocatable :: Fun
-         end function Fun
+            real(rk), dimension(:), allocatable :: res
+         end function Fun13
       end interface
 
-      procedure(Fun)  :: F
+      procedure(Fun13)  :: F
 
       class(nlsolver),               intent(inout) :: this
       real(rk), dimension(:),        intent(in)    :: x0
@@ -986,14 +969,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine quasi_cs_newton_method_T0(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun14(x) result(res)
             import rk
             complex(rk), intent(in) :: x
-            complex(rk)             :: Fun
-         end function Fun
+            complex(rk)             :: res
+         end function Fun14
       end interface
 
-      procedure(Fun)  :: F
+      procedure(Fun14)  :: F
 
       class(nlsolver), intent(inout) :: this
       complex(rk),     intent(in)    :: x0
@@ -1041,14 +1024,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine modified_quasi_cs_newton_method_T0(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun15(x) result(res)
             import rk
             complex(rk), intent(in) :: x
-            complex(rk)             :: Fun
-         end function Fun
+            complex(rk)             :: res
+         end function Fun15
       end interface
 
-      procedure(Fun)  :: F
+      procedure(Fun15)  :: F
 
       class(nlsolver), intent(inout) :: this
       complex(rk),     intent(in)    :: x0
@@ -1095,14 +1078,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine quasi_cs_newton_method_T1(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun16(x) result(res)
             import rk
             complex(rk), dimension(:), intent(in)  :: x
-            complex(rk), dimension(:), allocatable :: Fun
-         end function Fun
+            complex(rk), dimension(:), allocatable :: res
+         end function Fun16
       end interface
 
-      procedure(Fun)  :: F
+      procedure(Fun16)  :: F
 
       class(nlsolver),                  intent(inout) :: this
       complex(rk), dimension(:),        intent(in)    :: x0
@@ -1149,14 +1132,14 @@ contains
    !> author: Seyed Ali Ghasemi
    impure subroutine modified_quasi_cs_newton_method_T1(this, F, x0,  x_sol)
       interface
-         impure function Fun(x)
+         impure function Fun17(x) result(res)
             import rk
             complex(rk), dimension(:), intent(in)  :: x
-            complex(rk), dimension(:), allocatable :: Fun
-         end function Fun
+            complex(rk), dimension(:), allocatable :: res
+         end function Fun17
       end interface
 
-      procedure(Fun)  :: F
+      procedure(Fun17)  :: F
 
       class(nlsolver),                  intent(inout) :: this
       complex(rk), dimension(:),        intent(in)    :: x0
