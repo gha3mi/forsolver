@@ -155,7 +155,7 @@ end program example2
 ## API Documentation
 
 The most up-to-date API documentation for the master branch is available
-[here](https://gha3mi.github.io/ForSolver/).
+[here](https://gha3mi.github.io/forsolver/).
 To generate the API documentation for `ForSolver` using
 [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following
 command:
