@@ -1,0 +1,1074 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for ForSolver">
+    <meta name="author" content="Seyed Ali Ghasemi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>test_solver6 &ndash; ForSolver</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForSolver <small>v0.3.1</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>test_solver6      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 4.7% of total for programs.">13 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/test_solver6.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/test_solver6.f90.html'>test_solver6.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">test_solver6</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/test_solver6.html#variable-nls~4">nls</a>
+            <a class="list-group-item" href="../program/test_solver6.html#variable-x~34">x</a>
+            <a class="list-group-item" href="../program/test_solver6.html#variable-expected_x~4">expected_x</a>
+            <a class="list-group-item" href="../program/test_solver6.html#variable-ut~4">ut</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/test_solver6.html#src">test_solver6</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/my_function6.html'>my_function6</a></li>
+                  <li class="list-inline-item"><a href='../module/forsolver.html'>forsolver</a></li>
+                  <li class="list-inline-item">forunittest</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~test_solver6~~UsesGraph Pages: 1 -->
+<svg id="programtest_solver6UsesGraph" width="295pt" height="116pt"
+ viewBox="0.00 0.00 295.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~test_solver6~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>program~~test_solver6~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 291,-112 291,4 -4,4"/>
+<!-- program~test_solver6 -->
+<g id="program~~test_solver6~~UsesGraph_node1" class="node">
+<title>program~test_solver6</title>
+<polygon fill="none" stroke="black" points="287,-66 211,-66 211,-42 287,-42 287,-66"/>
+<text text-anchor="middle" x="249" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">test_solver6</text>
+</g>
+<!-- forunittest -->
+<g id="program~~test_solver6~~UsesGraph_node2" class="node">
+<title>forunittest</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="166,-108 99,-108 99,-84 166,-84 166,-108"/>
+<text text-anchor="middle" x="132.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forunittest</text>
+</g>
+<!-- program~test_solver6&#45;&gt;forunittest -->
+<g id="program~~test_solver6~~UsesGraph_edge1" class="edge">
+<title>program~test_solver6&#45;&gt;forunittest</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M215.19,-66.04C202.97,-70.52 188.93,-75.67 175.97,-80.42"/>
+<polygon fill="#255000" stroke="#255000" points="174.5,-77.23 166.32,-83.96 176.91,-83.8 174.5,-77.23"/>
+</g>
+<!-- module~forsolver -->
+<g id="program~~test_solver6~~UsesGraph_node3" class="node">
+<title>module~forsolver</title>
+<g id="a_program~~test_solver6~~UsesGraph_node3"><a xlink:href="../module/forsolver.html" xlink:title="forsolver">
+<polygon fill="#337ab7" stroke="#337ab7" points="162.5,-66 102.5,-66 102.5,-42 162.5,-42 162.5,-66"/>
+<text text-anchor="middle" x="132.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver</text>
+</a>
+</g>
+</g>
+<!-- program~test_solver6&#45;&gt;module~forsolver -->
+<g id="program~~test_solver6~~UsesGraph_edge2" class="edge">
+<title>program~test_solver6&#45;&gt;module~forsolver</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M210.83,-54C198.58,-54 184.94,-54 172.56,-54"/>
+<polygon fill="#255000" stroke="#255000" points="172.51,-50.5 162.51,-54 172.51,-57.5 172.51,-50.5"/>
+</g>
+<!-- module~my_function6 -->
+<g id="program~~test_solver6~~UsesGraph_node4" class="node">
+<title>module~my_function6</title>
+<g id="a_program~~test_solver6~~UsesGraph_node4"><a xlink:href="../module/my_function6.html" xlink:title="my_function6">
+<polygon fill="#337ab7" stroke="#337ab7" points="175,-24 90,-24 90,0 175,0 175,-24"/>
+<text text-anchor="middle" x="132.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">my_function6</text>
+</a>
+</g>
+</g>
+<!-- program~test_solver6&#45;&gt;module~my_function6 -->
+<g id="program~~test_solver6~~UsesGraph_edge3" class="edge">
+<title>program~test_solver6&#45;&gt;module~my_function6</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M215.19,-41.96C202.97,-37.48 188.93,-32.33 175.97,-27.58"/>
+<polygon fill="#255000" stroke="#255000" points="176.91,-24.2 166.32,-24.04 174.5,-30.77 176.91,-24.2"/>
+</g>
+<!-- fordiff -->
+<g id="program~~test_solver6~~UsesGraph_node5" class="node">
+<title>fordiff</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">fordiff</text>
+</g>
+<!-- module~forsolver&#45;&gt;fordiff -->
+<g id="program~~test_solver6~~UsesGraph_edge4" class="edge">
+<title>module~forsolver&#45;&gt;fordiff</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M102.39,-54C90.53,-54 76.69,-54 64.18,-54"/>
+<polygon fill="#025500" stroke="#025500" points="64.06,-50.5 54.06,-54 64.06,-57.5 64.06,-50.5"/>
+</g>
+<!-- kinds -->
+<g id="program~~test_solver6~~UsesGraph_node6" class="node">
+<title>kinds</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">kinds</text>
+</g>
+<!-- module~forsolver&#45;&gt;kinds -->
+<g id="program~~test_solver6~~UsesGraph_edge5" class="edge">
+<title>module~forsolver&#45;&gt;kinds</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M102.39,-42.19C90.29,-37.28 76.13,-31.53 63.43,-26.38"/>
+<polygon fill="#025500" stroke="#025500" points="64.65,-23.09 54.06,-22.58 62.01,-29.58 64.65,-23.09"/>
+</g>
+<!-- module~my_function6&#45;&gt;kinds -->
+<g id="program~~test_solver6~~UsesGraph_edge6" class="edge">
+<title>module~my_function6&#45;&gt;kinds</title>
+<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M90,-12C81.46,-12 72.53,-12 64.19,-12"/>
+<polygon fill="#002505" stroke="#002505" points="64.03,-8.5 54.03,-12 64.03,-15.5 64.03,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: program~~test_solver6~~CallsGraph Pages: 1 -->
+<svg id="programtest_solver6CallsGraph" width="641pt" height="202pt"
+ viewBox="0.00 0.00 641.00 201.56" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~test_solver6~~CallsGraph" class="graph" transform="scale(2.45 2.45) rotate(0) translate(4 490)">
+<title>program~~test_solver6~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-490 1567,-490 1567,4 -4,4"/>
+<!-- program~test_solver6 -->
+<g id="program~~test_solver6~~CallsGraph_node1" class="node">
+<title>program~test_solver6</title>
+<polygon fill="none" stroke="black" points="76,-276 0,-276 0,-252 76,-252 76,-276"/>
+<text text-anchor="middle" x="38" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50">test_solver6</text>
+</g>
+<!-- check -->
+<g id="program~~test_solver6~~CallsGraph_node2" class="node">
+<title>check</title>
+<polygon fill="#777777" stroke="#777777" points="228.5,-318 174.5,-318 174.5,-294 228.5,-294 228.5,-318"/>
+<text text-anchor="middle" x="201.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check</text>
+</g>
+<!-- program~test_solver6&#45;&gt;check -->
+<g id="program~~test_solver6~~CallsGraph_edge1" class="edge">
+<title>program~test_solver6&#45;&gt;check</title>
+<path fill="none" stroke="#255000" d="M76.04,-275.02C87.54,-278.34 100.26,-281.92 112,-285 129.17,-289.5 148.32,-294.1 164.4,-297.84"/>
+<polygon fill="#255000" stroke="#255000" points="163.94,-301.33 174.47,-300.16 165.52,-294.51 163.94,-301.33"/>
+</g>
+<!-- none~solve -->
+<g id="program~~test_solver6~~CallsGraph_node3" class="node">
+<title>none~solve</title>
+<g id="a_program~~test_solver6~~CallsGraph_node3"><a xlink:href="../type/nlsolver.html#boundprocedure-solve" xlink:title="forsolver::nlsolver%solve">
+<polygon fill="#a7506f" stroke="#a7506f" points="275,-276 128,-276 128,-252 275,-252 275,-276"/>
+<text text-anchor="middle" x="201.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::nlsolver%solve</text>
+</a>
+</g>
+</g>
+<!-- program~test_solver6&#45;&gt;none~solve -->
+<g id="program~~test_solver6~~CallsGraph_edge2" class="edge">
+<title>program~test_solver6&#45;&gt;none~solve</title>
+<path fill="none" stroke="#255000" d="M76.05,-264C88.61,-264 103.19,-264 117.85,-264"/>
+<polygon fill="#255000" stroke="#255000" points="117.99,-267.5 127.99,-264 117.99,-260.5 117.99,-267.5"/>
+</g>
+<!-- proc~set_options -->
+<g id="program~~test_solver6~~CallsGraph_node4" class="node">
+<title>proc~set_options</title>
+<g id="a_program~~test_solver6~~CallsGraph_node4"><a xlink:href="../proc/set_options.html" xlink:title="forsolver::nlsolver%set_options">
+<polygon fill="#d9534f" stroke="#d9534f" points="291,-234 112,-234 112,-210 291,-210 291,-234"/>
+<text text-anchor="middle" x="201.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::nlsolver%set_options</text>
+</a>
+</g>
+</g>
+<!-- program~test_solver6&#45;&gt;proc~set_options -->
+<g id="program~~test_solver6~~CallsGraph_edge3" class="edge">
+<title>program~test_solver6&#45;&gt;proc~set_options</title>
+<path fill="none" stroke="#255000" d="M76.04,-252.98C87.54,-249.66 100.26,-246.08 112,-243 120.43,-240.79 129.35,-238.55 138.14,-236.41"/>
+<polygon fill="#255000" stroke="#255000" points="139.09,-239.78 147.99,-234.03 137.44,-232.98 139.09,-239.78"/>
+</g>
+<!-- proc~newton_complex_step_rel_t0 -->
+<g id="program~~test_solver6~~CallsGraph_node5" class="node">
+<title>proc~newton_complex_step_rel_t0</title>
+<g id="a_program~~test_solver6~~CallsGraph_node5"><a xlink:href="../proc/newton_complex_step_rel_t0.html" xlink:title="forsolver::nlsolver%newton_complex_step_rel_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="601,-444 327,-444 327,-420 601,-420 601,-444"/>
+<text text-anchor="middle" x="464" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::nlsolver%newton_complex_step_rel_T0</text>
+</a>
+</g>
+</g>
+<!-- none~solve&#45;&gt;proc~newton_complex_step_rel_t0 -->
+<g id="program~~test_solver6~~CallsGraph_edge4" class="edge">
+<title>none~solve&#45;&gt;proc~newton_complex_step_rel_t0</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M272.31,-276.08C278.86,-278.52 285.2,-281.46 291,-285 311.99,-297.8 309.18,-310.07 327,-327 362.32,-360.56 407.93,-394.03 436.32,-413.87"/>
+<polygon fill="#025500" stroke="#025500" points="434.69,-417 444.9,-419.82 438.67,-411.25 434.69,-417"/>
+</g>
+<!-- proc~newton_complex_step_rel_t1 -->
+<g id="program~~test_solver6~~CallsGraph_node6" class="node">
+<title>proc~newton_complex_step_rel_t1</title>
+<g id="a_program~~test_solver6~~CallsGraph_node6"><a xlink:href="../proc/newton_complex_step_rel_t1.html" xlink:title="forsolver::nlsolver%newton_complex_step_rel_T1">
+<polygon fill="#d9534f" stroke="#d9534f" points="601,-234 327,-234 327,-210 601,-210 601,-234"/>
+<text text-anchor="middle" x="464" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::nlsolver%newton_complex_step_rel_T1</text>
+</a>
+</g>
+</g>
+<!-- none~solve&#45;&gt;proc~newton_complex_step_rel_t1 -->
+<g id="program~~test_solver6~~CallsGraph_edge5" class="edge">
+<title>none~solve&#45;&gt;proc~newton_complex_step_rel_t1</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M275.06,-252.3C307.13,-247.13 345.03,-241.02 378.37,-235.64"/>
+<polygon fill="#025500" stroke="#025500" points="379.25,-239.05 388.56,-234 378.13,-232.14 379.25,-239.05"/>
+</g>
+<!-- proc~newton_rel_t0 -->
+<g id="program~~test_solver6~~CallsGraph_node7" class="node">
+<title>proc~newton_rel_t0</title>
+<g id="a_program~~test_solver6~~CallsGraph_node7"><a xlink:href="../proc/newton_rel_t0.html" xlink:title="forsolver::nlsolver%newton_rel_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="562,-318 366,-318 366,-294 562,-294 562,-318"/>
+<text text-anchor="middle" x="464" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::nlsolver%newton_rel_T0</text>
+</a>
+</g>
+</g>
+<!-- none~solve&#45;&gt;proc~newton_rel_t0 -->
+<g id="program~~test_solver6~~CallsGraph_edge6" class="edge">
+<title>none~solve&#45;&gt;proc~newton_rel_t0</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M275.06,-275.7C307.13,-280.87 345.03,-286.98 378.37,-292.36"/>
+<polygon fill="#025500" stroke="#025500" points="378.13,-295.86 388.56,-294 379.25,-288.95 378.13,-295.86"/>
+</g>
+<!-- proc~newton_rel_t1 -->
+<g id="program~~test_solver6~~CallsGraph_node8" class="node">
+<title>proc~newton_rel_t1</title>
+<g id="a_program~~test_solver6~~CallsGraph_node8"><a xlink:href="../proc/newton_rel_t1.html" xlink:title="forsolver::nlsolver%newton_rel_T1">
+<polygon fill="#d9534f" stroke="#d9534f" points="562,-108 366,-108 366,-84 562,-84 562,-108"/>
+<text text-anchor="middle" x="464" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::nlsolver%newton_rel_T1</text>
+</a>
+</g>
+</g>
+<!-- none~solve&#45;&gt;proc~newton_rel_t1 -->
+<g id="program~~test_solver6~~CallsGraph_edge7" class="edge">
+<title>none~solve&#45;&gt;proc~newton_rel_t1</title>
+<path fill="none" stroke="#025500" stroke-dasharray="5,2" d="M272.31,-251.92C278.86,-249.48 285.2,-246.54 291,-243 311.99,-230.2 309.18,-217.93 327,-201 362.32,-167.44 407.93,-133.97 436.32,-114.13"/>
+<polygon fill="#025500" stroke="#025500" points="438.67,-116.75 444.9,-108.18 434.69,-111 438.67,-116.75"/>
+</g>
+<!-- proc~modified_quasi_cs_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_node11" class="node">
+<title>proc~modified_quasi_cs_newton_method_t0</title>
+<g id="a_program~~test_solver6~~CallsGraph_node11"><a xlink:href="../proc/modified_quasi_cs_newton_method_t0.html" xlink:title="forsolver::modified_quasi_cs_newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="911,-486 637,-486 637,-462 911,-462 911,-486"/>
+<text text-anchor="middle" x="774" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::modified_quasi_cs_newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_complex_step_rel_t0&#45;&gt;proc~modified_quasi_cs_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_edge8" class="edge">
+<title>proc~newton_complex_step_rel_t0&#45;&gt;proc~modified_quasi_cs_newton_method_t0</title>
+<path fill="none" stroke="#255000" d="M553.26,-444.04C591.2,-449.21 635.69,-455.28 674.68,-460.59"/>
+<polygon fill="#255000" stroke="#255000" points="674.61,-464.12 684.99,-462 675.56,-457.18 674.61,-464.12"/>
+</g>
+<!-- proc~quasi_cs_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_node17" class="node">
+<title>proc~quasi_cs_newton_method_t0</title>
+<g id="a_program~~test_solver6~~CallsGraph_node17"><a xlink:href="../proc/quasi_cs_newton_method_t0.html" xlink:title="forsolver::quasi_cs_newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="885,-444 663,-444 663,-420 885,-420 885,-444"/>
+<text text-anchor="middle" x="774" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::quasi_cs_newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_complex_step_rel_t0&#45;&gt;proc~quasi_cs_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_edge9" class="edge">
+<title>proc~newton_complex_step_rel_t0&#45;&gt;proc~quasi_cs_newton_method_t0</title>
+<path fill="none" stroke="#255000" d="M601.44,-432C618.36,-432 635.57,-432 652.24,-432"/>
+<polygon fill="#255000" stroke="#255000" points="652.53,-435.5 662.53,-432 652.53,-428.5 652.53,-435.5"/>
+</g>
+<!-- proc~modified_quasi_cs_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_node12" class="node">
+<title>proc~modified_quasi_cs_newton_method_t1</title>
+<g id="a_program~~test_solver6~~CallsGraph_node12"><a xlink:href="../proc/modified_quasi_cs_newton_method_t1.html" xlink:title="forsolver::modified_quasi_cs_newton_method_T1">
+<polygon fill="#d9534f" stroke="#d9534f" points="911,-234 637,-234 637,-210 911,-210 911,-234"/>
+<text text-anchor="middle" x="774" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::modified_quasi_cs_newton_method_T1</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_complex_step_rel_t1&#45;&gt;proc~modified_quasi_cs_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_edge10" class="edge">
+<title>proc~newton_complex_step_rel_t1&#45;&gt;proc~modified_quasi_cs_newton_method_t1</title>
+<path fill="none" stroke="transparent" d="M601.44,-222C609.79,-222 618.21,-222 626.6,-222"/>
+<polygon fill="transparent" stroke="transparent" points="626.81,-225.5 636.81,-222 626.81,-218.5 626.81,-225.5"/>
+</g>
+<!-- proc~quasi_cs_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_node18" class="node">
+<title>proc~quasi_cs_newton_method_t1</title>
+<g id="a_program~~test_solver6~~CallsGraph_node18"><a xlink:href="../proc/quasi_cs_newton_method_t1.html" xlink:title="forsolver::quasi_cs_newton_method_T1">
+<polygon fill="#d9534f" stroke="#d9534f" points="885,-192 663,-192 663,-168 885,-168 885,-192"/>
+<text text-anchor="middle" x="774" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::quasi_cs_newton_method_T1</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_complex_step_rel_t1&#45;&gt;proc~quasi_cs_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_edge11" class="edge">
+<title>proc~newton_complex_step_rel_t1&#45;&gt;proc~quasi_cs_newton_method_t1</title>
+<path fill="none" stroke="transparent" d="M553.26,-209.96C591.2,-204.79 635.69,-198.72 674.68,-193.41"/>
+<polygon fill="transparent" stroke="transparent" points="675.56,-196.82 684.99,-192 674.61,-189.88 675.56,-196.82"/>
+</g>
+<!-- proc~modified_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_node9" class="node">
+<title>proc~modified_newton_method_t0</title>
+<g id="a_program~~test_solver6~~CallsGraph_node9"><a xlink:href="../proc/modified_newton_method_t0.html" xlink:title="forsolver::modified_newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="886,-276 662,-276 662,-252 886,-252 886,-276"/>
+<text text-anchor="middle" x="774" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::modified_newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t0&#45;&gt;proc~modified_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_edge12" class="edge">
+<title>proc~newton_rel_t0&#45;&gt;proc~modified_newton_method_t0</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M553.26,-293.96C591.2,-288.79 635.69,-282.72 674.68,-277.41"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="675.56,-280.82 684.99,-276 674.61,-273.88 675.56,-280.82"/>
+</g>
+<!-- proc~modified_quasi_fd_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_node13" class="node">
+<title>proc~modified_quasi_fd_newton_method_t0</title>
+<g id="a_program~~test_solver6~~CallsGraph_node13"><a xlink:href="../proc/modified_quasi_fd_newton_method_t0.html" xlink:title="forsolver::modified_quasi_fd_newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="911,-360 637,-360 637,-336 911,-336 911,-360"/>
+<text text-anchor="middle" x="774" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::modified_quasi_fd_newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t0&#45;&gt;proc~modified_quasi_fd_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_edge13" class="edge">
+<title>proc~newton_rel_t0&#45;&gt;proc~modified_quasi_fd_newton_method_t0</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M553.26,-318.04C591.2,-323.21 635.69,-329.28 674.68,-334.59"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="674.61,-338.12 684.99,-336 675.56,-331.18 674.61,-338.12"/>
+</g>
+<!-- proc~newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_node15" class="node">
+<title>proc~newton_method_t0</title>
+<g id="a_program~~test_solver6~~CallsGraph_node15"><a xlink:href="../proc/newton_method_t0.html" xlink:title="forsolver::newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="860,-318 688,-318 688,-294 860,-294 860,-318"/>
+<text text-anchor="middle" x="774" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t0&#45;&gt;proc~newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_edge14" class="edge">
+<title>proc~newton_rel_t0&#45;&gt;proc~newton_method_t0</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M562.03,-306C598.94,-306 640.93,-306 677.68,-306"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="677.9,-309.5 687.9,-306 677.9,-302.5 677.9,-309.5"/>
+</g>
+<!-- proc~quasi_fd_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_node19" class="node">
+<title>proc~quasi_fd_newton_method_t0</title>
+<g id="a_program~~test_solver6~~CallsGraph_node19"><a xlink:href="../proc/quasi_fd_newton_method_t0.html" xlink:title="forsolver::quasi_fd_newton_method_T0">
+<polygon fill="#d9534f" stroke="#d9534f" points="884.5,-402 663.5,-402 663.5,-378 884.5,-378 884.5,-402"/>
+<text text-anchor="middle" x="774" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::quasi_fd_newton_method_T0</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t0&#45;&gt;proc~quasi_fd_newton_method_t0 -->
+<g id="program~~test_solver6~~CallsGraph_edge15" class="edge">
+<title>proc~newton_rel_t0&#45;&gt;proc~quasi_fd_newton_method_t0</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M492.76,-318.11C526.32,-332.29 584.8,-355.55 637,-369 647.27,-371.65 658.08,-374.01 668.91,-376.1"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="668.39,-379.56 678.86,-377.95 669.67,-372.68 668.39,-379.56"/>
+</g>
+<!-- proc~modified_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_node10" class="node">
+<title>proc~modified_newton_method_t1</title>
+<g id="a_program~~test_solver6~~CallsGraph_node10"><a xlink:href="../proc/modified_newton_method_t1.html" xlink:title="forsolver::modified_newton_method_T1">
+<polygon fill="#d9534f" stroke="#d9534f" points="886,-66 662,-66 662,-42 886,-42 886,-66"/>
+<text text-anchor="middle" x="774" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::modified_newton_method_T1</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t1&#45;&gt;proc~modified_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_edge16" class="edge">
+<title>proc~newton_rel_t1&#45;&gt;proc~modified_newton_method_t1</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M553.26,-83.96C591.2,-78.79 635.69,-72.72 674.68,-67.41"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="675.56,-70.82 684.99,-66 674.61,-63.88 675.56,-70.82"/>
+</g>
+<!-- proc~modified_quasi_fd_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_node14" class="node">
+<title>proc~modified_quasi_fd_newton_method_t1</title>
+<g id="a_program~~test_solver6~~CallsGraph_node14"><a xlink:href="../proc/modified_quasi_fd_newton_method_t1.html" xlink:title="forsolver::modified_quasi_fd_newton_method_T1">
+<polygon fill="#d9534f" stroke="#d9534f" points="911,-150 637,-150 637,-126 911,-126 911,-150"/>
+<text text-anchor="middle" x="774" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::modified_quasi_fd_newton_method_T1</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t1&#45;&gt;proc~modified_quasi_fd_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_edge17" class="edge">
+<title>proc~newton_rel_t1&#45;&gt;proc~modified_quasi_fd_newton_method_t1</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M553.26,-108.04C591.2,-113.21 635.69,-119.28 674.68,-124.59"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="674.61,-128.12 684.99,-126 675.56,-121.18 674.61,-128.12"/>
+</g>
+<!-- proc~newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_node16" class="node">
+<title>proc~newton_method_t1</title>
+<g id="a_program~~test_solver6~~CallsGraph_node16"><a xlink:href="../proc/newton_method_t1.html" xlink:title="forsolver::newton_method_T1">
+<polygon fill="#d9534f" stroke="#d9534f" points="860,-24 688,-24 688,0 860,0 860,-24"/>
+<text text-anchor="middle" x="774" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::newton_method_T1</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t1&#45;&gt;proc~newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_edge18" class="edge">
+<title>proc~newton_rel_t1&#45;&gt;proc~newton_method_t1</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M492.76,-83.89C526.32,-69.71 584.8,-46.45 637,-33 650.12,-29.62 664.11,-26.7 677.93,-24.22"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="678.7,-27.64 687.95,-22.48 677.5,-20.74 678.7,-27.64"/>
+</g>
+<!-- proc~quasi_fd_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_node20" class="node">
+<title>proc~quasi_fd_newton_method_t1</title>
+<g id="a_program~~test_solver6~~CallsGraph_node20"><a xlink:href="../proc/quasi_fd_newton_method_t1.html" xlink:title="forsolver::quasi_fd_newton_method_T1">
+<polygon fill="#d9534f" stroke="#d9534f" points="884.5,-108 663.5,-108 663.5,-84 884.5,-84 884.5,-108"/>
+<text text-anchor="middle" x="774" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::quasi_fd_newton_method_T1</text>
+</a>
+</g>
+</g>
+<!-- proc~newton_rel_t1&#45;&gt;proc~quasi_fd_newton_method_t1 -->
+<g id="program~~test_solver6~~CallsGraph_edge19" class="edge">
+<title>proc~newton_rel_t1&#45;&gt;proc~quasi_fd_newton_method_t1</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M562.03,-96C590.94,-96 622.97,-96 653.16,-96"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="653.32,-99.5 663.32,-96 653.32,-92.5 653.32,-99.5"/>
+</g>
+<!-- interface~solve -->
+<g id="program~~test_solver6~~CallsGraph_node22" class="node">
+<title>interface~solve</title>
+<g id="a_program~~test_solver6~~CallsGraph_node22"><a xlink:href="../interface/solve.html" xlink:title="forsolver::solve">
+<polygon fill="#a7506f" stroke="#a7506f" points="1042,-129 947,-129 947,-105 1042,-105 1042,-129"/>
+<text text-anchor="middle" x="994.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::solve</text>
+</a>
+</g>
+</g>
+<!-- proc~modified_newton_method_t1&#45;&gt;interface~solve -->
+<g id="program~~test_solver6~~CallsGraph_edge20" class="edge">
+<title>proc~modified_newton_method_t1&#45;&gt;interface~solve</title>
+<path fill="none" stroke="transparent" d="M876.47,-66.01C888.24,-68.48 899.97,-71.44 911,-75 929.87,-81.09 949.72,-91.07 965.22,-99.77"/>
+<polygon fill="transparent" stroke="transparent" points="963.84,-103.02 974.25,-104.97 967.34,-96.95 963.84,-103.02"/>
+</g>
+<!-- derivative -->
+<g id="program~~test_solver6~~CallsGraph_node21" class="node">
+<title>derivative</title>
+<polygon fill="#777777" stroke="#777777" points="1027.5,-297 961.5,-297 961.5,-273 1027.5,-273 1027.5,-297"/>
+<text text-anchor="middle" x="994.5" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">derivative</text>
+</g>
+<!-- proc~modified_quasi_cs_newton_method_t0&#45;&gt;derivative -->
+<g id="program~~test_solver6~~CallsGraph_edge21" class="edge">
+<title>proc~modified_quasi_cs_newton_method_t0&#45;&gt;derivative</title>
+<path fill="none" stroke="transparent" d="M896.25,-461.89C901.43,-459.34 906.38,-456.4 911,-453 959.88,-417.08 981.34,-344.2 989.38,-307.38"/>
+<polygon fill="transparent" stroke="transparent" points="992.89,-307.68 991.46,-297.19 986.03,-306.28 992.89,-307.68"/>
+</g>
+<!-- proc~modified_quasi_cs_newton_method_t1&#45;&gt;derivative -->
+<g id="program~~test_solver6~~CallsGraph_edge22" class="edge">
+<title>proc~modified_quasi_cs_newton_method_t1&#45;&gt;derivative</title>
+<path fill="none" stroke="transparent" d="M876.47,-234.01C888.24,-236.48 899.97,-239.44 911,-243 929.87,-249.09 949.72,-259.07 965.22,-267.77"/>
+<polygon fill="transparent" stroke="transparent" points="963.84,-271.02 974.25,-272.97 967.34,-264.95 963.84,-271.02"/>
+</g>
+<!-- proc~modified_quasi_cs_newton_method_t1&#45;&gt;interface~solve -->
+<g id="program~~test_solver6~~CallsGraph_edge23" class="edge">
+<title>proc~modified_quasi_cs_newton_method_t1&#45;&gt;interface~solve</title>
+<path fill="none" stroke="transparent" d="M889.53,-209.91C896.97,-207.43 904.2,-204.49 911,-201 940.02,-186.12 964.92,-157.15 979.55,-137.44"/>
+<polygon fill="transparent" stroke="transparent" points="982.54,-139.29 985.54,-129.12 976.86,-135.2 982.54,-139.29"/>
+</g>
+<!-- proc~modified_quasi_fd_newton_method_t0&#45;&gt;derivative -->
+<g id="program~~test_solver6~~CallsGraph_edge24" class="edge">
+<title>proc~modified_quasi_fd_newton_method_t0&#45;&gt;derivative</title>
+<path fill="none" stroke="#025500" d="M876.47,-335.99C888.24,-333.52 899.97,-330.56 911,-327 929.87,-320.91 949.72,-310.93 965.22,-302.23"/>
+<polygon fill="#025500" stroke="#025500" points="967.34,-305.05 974.25,-297.03 963.84,-298.98 967.34,-305.05"/>
+</g>
+<!-- proc~modified_quasi_fd_newton_method_t1&#45;&gt;derivative -->
+<g id="program~~test_solver6~~CallsGraph_edge25" class="edge">
+<title>proc~modified_quasi_fd_newton_method_t1&#45;&gt;derivative</title>
+<path fill="none" stroke="#025512" stroke-opacity="0.027451" d="M894.1,-150.11C900,-152.63 905.68,-155.57 911,-159 949.77,-183.96 974.27,-234.32 985.77,-263.25"/>
+<polygon fill="#025512" fill-opacity="0.027451" stroke="#025512" stroke-opacity="0.027451" points="982.59,-264.74 989.42,-272.84 989.13,-262.25 982.59,-264.74"/>
+</g>
+<!-- proc~modified_quasi_fd_newton_method_t1&#45;&gt;interface~solve -->
+<g id="program~~test_solver6~~CallsGraph_edge26" class="edge">
+<title>proc~modified_quasi_fd_newton_method_t1&#45;&gt;interface~solve</title>
+<path fill="none" stroke="#025512" stroke-opacity="0.027451" d="M899.89,-126C912.62,-124.77 925.07,-123.58 936.51,-122.48"/>
+<polygon fill="#025512" fill-opacity="0.027451" stroke="#025512" stroke-opacity="0.027451" points="937.1,-125.94 946.72,-121.5 936.43,-118.97 937.1,-125.94"/>
+</g>
+<!-- proc~newton_method_t1&#45;&gt;interface~solve -->
+<g id="program~~test_solver6~~CallsGraph_edge27" class="edge">
+<title>proc~newton_method_t1&#45;&gt;interface~solve</title>
+<path fill="none" stroke="#012725" stroke-opacity="0.019608" d="M860.34,-16.65C877.75,-19.92 895.48,-25.04 911,-33 940.02,-47.88 964.92,-76.85 979.55,-96.56"/>
+<polygon fill="#012725" fill-opacity="0.019608" stroke="#012725" stroke-opacity="0.019608" points="976.86,-98.8 985.54,-104.88 982.54,-94.71 976.86,-98.8"/>
+</g>
+<!-- proc~quasi_cs_newton_method_t0&#45;&gt;derivative -->
+<g id="program~~test_solver6~~CallsGraph_edge28" class="edge">
+<title>proc~quasi_cs_newton_method_t0&#45;&gt;derivative</title>
+<path fill="none" stroke="#002505" d="M885.26,-423.31C894.34,-420.14 903.07,-416.11 911,-411 949.77,-386.04 974.27,-335.68 985.77,-306.75"/>
+<polygon fill="#002505" stroke="#002505" points="989.13,-307.75 989.42,-297.16 982.59,-305.26 989.13,-307.75"/>
+</g>
+<!-- proc~quasi_cs_newton_method_t1&#45;&gt;derivative -->
+<g id="program~~test_solver6~~CallsGraph_edge29" class="edge">
+<title>proc~quasi_cs_newton_method_t1&#45;&gt;derivative</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M885.33,-190.74C894.24,-193.48 902.92,-196.86 911,-201 940.02,-215.88 964.92,-244.85 979.55,-264.56"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="976.86,-266.8 985.54,-272.88 982.54,-262.71 976.86,-266.8"/>
+</g>
+<!-- proc~quasi_cs_newton_method_t1&#45;&gt;interface~solve -->
+<g id="program~~test_solver6~~CallsGraph_edge30" class="edge">
+<title>proc~quasi_cs_newton_method_t1&#45;&gt;interface~solve</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M876.47,-167.99C888.24,-165.52 899.97,-162.56 911,-159 929.87,-152.91 949.72,-142.93 965.22,-134.23"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="967.34,-137.05 974.25,-129.03 963.84,-130.98 967.34,-137.05"/>
+</g>
+<!-- proc~quasi_fd_newton_method_t0&#45;&gt;derivative -->
+<g id="program~~test_solver6~~CallsGraph_edge31" class="edge">
+<title>proc~quasi_fd_newton_method_t0&#45;&gt;derivative</title>
+<path fill="none" stroke="#255025" stroke-opacity="0.019608" d="M884.62,-379.48C893.79,-376.69 902.71,-373.25 911,-369 940.02,-354.12 964.92,-325.15 979.55,-305.44"/>
+<polygon fill="#255025" fill-opacity="0.019608" stroke="#255025" stroke-opacity="0.019608" points="982.54,-307.29 985.54,-297.12 976.86,-303.2 982.54,-307.29"/>
+</g>
+<!-- proc~quasi_fd_newton_method_t1&#45;&gt;derivative -->
+<g id="program~~test_solver6~~CallsGraph_edge32" class="edge">
+<title>proc~quasi_fd_newton_method_t1&#45;&gt;derivative</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M884.61,-103.16C894.04,-106.61 903.01,-111.13 911,-117 959.88,-152.92 981.34,-225.8 989.38,-262.62"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="986.03,-263.72 991.46,-272.81 992.89,-262.32 986.03,-263.72"/>
+</g>
+<!-- proc~quasi_fd_newton_method_t1&#45;&gt;interface~solve -->
+<g id="program~~test_solver6~~CallsGraph_edge33" class="edge">
+<title>proc~quasi_fd_newton_method_t1&#45;&gt;interface~solve</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.027451" d="M884.57,-106.53C902.56,-108.26 920.55,-109.99 936.56,-111.53"/>
+<polygon fill="#255012" fill-opacity="0.027451" stroke="#255012" stroke-opacity="0.027451" points="936.5,-115.04 946.79,-112.51 937.17,-108.07 936.5,-115.04"/>
+</g>
+<!-- proc~solver_lin -->
+<g id="program~~test_solver6~~CallsGraph_node23" class="node">
+<title>proc~solver_lin</title>
+<g id="a_program~~test_solver6~~CallsGraph_node23"><a xlink:href="../proc/solver_lin.html" xlink:title="forsolver::solver_lin">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1196,-129 1078,-129 1078,-105 1196,-105 1196,-129"/>
+<text text-anchor="middle" x="1137" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::solver_lin</text>
+</a>
+</g>
+</g>
+<!-- interface~solve&#45;&gt;proc~solver_lin -->
+<g id="program~~test_solver6~~CallsGraph_edge34" class="edge">
+<title>interface~solve&#45;&gt;proc~solver_lin</title>
+<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M1042.28,-117C1050.43,-117 1059.05,-117 1067.64,-117"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="1067.67,-120.5 1077.67,-117 1067.67,-113.5 1067.67,-120.5"/>
+</g>
+<!-- proc~gels_rel -->
+<g id="program~~test_solver6~~CallsGraph_node24" class="node">
+<title>proc~gels_rel</title>
+<g id="a_program~~test_solver6~~CallsGraph_node24"><a xlink:href="../proc/gels_rel.html" xlink:title="forsolver::gels_rel">
+<polygon fill="#d9534f" stroke="#d9534f" points="1341.5,-150 1233.5,-150 1233.5,-126 1341.5,-126 1341.5,-150"/>
+<text text-anchor="middle" x="1287.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::gels_rel</text>
+</a>
+</g>
+</g>
+<!-- proc~solver_lin&#45;&gt;proc~gels_rel -->
+<g id="program~~test_solver6~~CallsGraph_edge35" class="edge">
+<title>proc~solver_lin&#45;&gt;proc~gels_rel</title>
+<path fill="none" stroke="#255000" d="M1196.26,-125.24C1205.12,-126.49 1214.29,-127.79 1223.25,-129.06"/>
+<polygon fill="#255000" stroke="#255000" points="1222.85,-132.53 1233.24,-130.47 1223.83,-125.6 1222.85,-132.53"/>
+</g>
+<!-- proc~gesv_rel -->
+<g id="program~~test_solver6~~CallsGraph_node25" class="node">
+<title>proc~gesv_rel</title>
+<g id="a_program~~test_solver6~~CallsGraph_node25"><a xlink:href="../proc/gesv_rel.html" xlink:title="forsolver::gesv_rel">
+<polygon fill="#d9534f" stroke="#d9534f" points="1343,-108 1232,-108 1232,-84 1343,-84 1343,-108"/>
+<text text-anchor="middle" x="1287.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::gesv_rel</text>
+</a>
+</g>
+</g>
+<!-- proc~solver_lin&#45;&gt;proc~gesv_rel -->
+<g id="program~~test_solver6~~CallsGraph_edge36" class="edge">
+<title>proc~solver_lin&#45;&gt;proc~gesv_rel</title>
+<path fill="none" stroke="#255000" d="M1196.26,-108.76C1204.58,-107.58 1213.18,-106.37 1221.62,-105.18"/>
+<polygon fill="#255000" stroke="#255000" points="1222.39,-108.6 1231.8,-103.74 1221.41,-101.67 1222.39,-108.6"/>
+</g>
+<!-- interface~gels -->
+<g id="program~~test_solver6~~CallsGraph_node26" class="node">
+<title>interface~gels</title>
+<g id="a_program~~test_solver6~~CallsGraph_node26"><a xlink:href="../interface/gels.html" xlink:title="external_interfaces_solver::gels">
+<polygon fill="#a7506f" stroke="#a7506f" points="1561.5,-150 1380.5,-150 1380.5,-126 1561.5,-126 1561.5,-150"/>
+<text text-anchor="middle" x="1471" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces_solver::gels</text>
+</a>
+</g>
+</g>
+<!-- proc~gels_rel&#45;&gt;interface~gels -->
+<g id="program~~test_solver6~~CallsGraph_edge37" class="edge">
+<title>proc~gels_rel&#45;&gt;interface~gels</title>
+<path fill="none" stroke="#255000" d="M1341.97,-138C1350.98,-138 1360.57,-138 1370.31,-138"/>
+<polygon fill="#255000" stroke="#255000" points="1370.48,-141.5 1380.48,-138 1370.48,-134.5 1370.48,-141.5"/>
+</g>
+<!-- interface~gesv -->
+<g id="program~~test_solver6~~CallsGraph_node27" class="node">
+<title>interface~gesv</title>
+<g id="a_program~~test_solver6~~CallsGraph_node27"><a xlink:href="../interface/gesv.html" xlink:title="external_interfaces_solver::gesv">
+<polygon fill="#a7506f" stroke="#a7506f" points="1563,-108 1379,-108 1379,-84 1563,-84 1563,-108"/>
+<text text-anchor="middle" x="1471" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces_solver::gesv</text>
+</a>
+</g>
+</g>
+<!-- proc~gesv_rel&#45;&gt;interface~gesv -->
+<g id="program~~test_solver6~~CallsGraph_edge38" class="edge">
+<title>proc~gesv_rel&#45;&gt;interface~gesv</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M1343.45,-96C1351.47,-96 1359.94,-96 1368.54,-96"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="1368.68,-99.5 1378.68,-96 1368.68,-92.5 1368.68,-99.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprogramtest_solver6CallsGraph = svgPanZoom('#programtest_solver6CallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nls~4"></span>
+              type(<a href='../type/nlsolver.html'>nlsolver</a>)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nls</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~34"></span>
+              real(kind=rk)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-expected_x~4"></span>
+              real(kind=rk)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>expected_x</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ut~4"></span>
+              type(unit_test)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ut</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">test_solver6</span>
+
+<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span>
+<span class="w">   </span><span class="k">use </span><span class="n">my_function6</span>
+<span class="w">   </span><span class="k">use </span><span class="n">forunittest</span>
+
+<span class="w">   </span><span class="k">implicit none</span>
+<span class="k">   </span>
+<span class="k">   type</span><span class="p">(</span><span class="n">nlsolver</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nls</span>
+<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span>
+<span class="w">   </span><span class="k">type</span><span class="p">(</span><span class="n">unit_test</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ut</span>
+
+<span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span>
+<span class="w">      </span><span class="n">nl_method</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;newton-quasi-fd-modified&#39;</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">fdm_method</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;central&#39;</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">fdm_tol</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-6_rk</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">nmp</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">maxit</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">TolFun</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-4_rk</span><span class="p">,&amp;</span>
+<span class="w">      </span><span class="n">verbosity</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+
+<span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="o">=</span><span class="n">F1</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="o">=</span><span class="mi">1</span><span class="mf">0.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">x_sol</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+
+<span class="w">   </span><span class="c">! check if solution is close to ~=0.53128</span>
+<span class="w">   </span><span class="n">expected_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.53128_rk</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-4_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test_solver6&#39;</span><span class="w"> </span><span class="p">)</span>
+
+<span class="k">end program </span><span class="n">test_solver6</span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>ForSolver was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-02-02T13:49:51.076335             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>
