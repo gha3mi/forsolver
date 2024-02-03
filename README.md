@@ -57,7 +57,7 @@ cs: complex step method
 ## Requirements
 
 - A Fortran Compiler
-- BLAS Library
+- LAPACK, BLAS or MKL
 - Fortran Package Manager (fpm)
 
 ## fpm Dependency
