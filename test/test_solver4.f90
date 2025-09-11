@@ -1,5 +1,5 @@
 module my_function4
-   use kinds
+   use kinds, only: rk
    implicit none
 contains
    function F1(x) result(F_val)
@@ -16,12 +16,13 @@ end module my_function4
 
 program test_solver4
 
-   use forsolver
-   use my_function4
-   use forunittest
+   use kinds, only: rk
+   use forsolver, only: nlsolver
+   use my_function4, only: F1, dF1dx
+   use forunittest, only: unit_test
 
    implicit none
-   
+
    type(nlsolver) :: nls
    real(rk)       :: x, expected_x
    type(unit_test) :: ut
@@ -38,5 +39,5 @@ program test_solver4
    ! check if solution is close to ~=0.53128
    expected_x = 0.53128_rk
    call ut%check(x, expected_x, 1.0e-4_rk, 'test_solver4' )
-   
+
 end program test_solver4
