@@ -12,14 +12,29 @@
 
     <title>test_solver11.f90 &ndash; ForSolver</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -75,9 +90,8 @@
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
-                 title=" 1.8% of total for source files.">25 statements</a>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.9% of total for source files.">26 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -96,9 +110,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -196,8 +212,8 @@
 <!-- sourcefile~test_solver11.f90&#45;&gt;sourcefile~forsolver.f90 -->
 <g id="sourcefile~~test_solver11.f90~~EfferentGraph_edge1" class="edge">
 <title>sourcefile~test_solver11.f90&#45;&gt;sourcefile~forsolver.f90</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M285.66,-12C277.2,-12 268.45,-12 260.05,-12"/>
-<polygon fill="#255000" stroke="#255000" points="260.02,-8.5 250.02,-12 260.02,-15.5 260.02,-8.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M285.66,-12C277.2,-12 268.45,-12 260.05,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="260.02,-8.5 250.02,-12 260.02,-15.5 260.02,-8.5"/>
 </g>
 <!-- sourcefile~external_interfaces.f90 -->
 <g id="sourcefile~~test_solver11.f90~~EfferentGraph_node3" class="node">
@@ -211,8 +227,8 @@
 <!-- sourcefile~forsolver.f90&#45;&gt;sourcefile~external_interfaces.f90 -->
 <g id="sourcefile~~test_solver11.f90~~EfferentGraph_edge2" class="edge">
 <title>sourcefile~forsolver.f90&#45;&gt;sourcefile~external_interfaces.f90</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M170.97,-12C162.91,-12 154.15,-12 145.25,-12"/>
-<polygon fill="#255000" stroke="#255000" points="145.18,-8.5 135.18,-12 145.18,-15.5 145.18,-8.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M170.97,-12C162.91,-12 154.15,-12 145.25,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="145.18,-8.5 135.18,-12 145.18,-15.5 145.18,-8.5"/>
 </g>
 </g>
 </svg>
@@ -270,7 +286,7 @@ large graphs.</div>
       <section>
         <h2><span class="anchor" id="src"></span>Source Code</h2>
         <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">module </span><span class="n">my_function11</span>
-<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">   </span><span class="k">use </span><span class="n">kinds</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">rk</span>
 <a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">   </span><span class="k">implicit none</span>
 <a id="ln-4" name="ln-4" href="#ln-4"></a><span class="k">contains</span>
 <a id="ln-5" name="ln-5" href="#ln-5"></a><span class="k">   function </span><span class="n">F3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">F_val</span><span class="p">)</span>
@@ -284,31 +300,32 @@ large graphs.</div>
 <a id="ln-13" name="ln-13" href="#ln-13"></a>
 <a id="ln-14" name="ln-14" href="#ln-14"></a><span class="k">program </span><span class="n">test_solver11</span>
 <a id="ln-15" name="ln-15" href="#ln-15"></a>
-<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">   </span><span class="k">use </span><span class="n">forsolver</span>
-<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">   </span><span class="k">use </span><span class="n">my_function11</span>
-<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">   </span><span class="k">use </span><span class="n">forunittest</span>
-<a id="ln-19" name="ln-19" href="#ln-19"></a>
-<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">   </span><span class="k">implicit none</span>
-<a id="ln-21" name="ln-21" href="#ln-21"></a>
-<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="k">   type</span><span class="p">(</span><span class="n">nlsolver</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">nls</span>
-<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span>
-<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">   </span><span class="k">type</span><span class="p">(</span><span class="n">unit_test</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ut</span>
-<a id="ln-25" name="ln-25" href="#ln-25"></a>
-<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span>
-<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">      </span><span class="n">nl_method</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;newton-quasi-fd&#39;</span><span class="p">,&amp;</span>
-<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">      </span><span class="n">fdm_method</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;central&#39;</span><span class="p">,&amp;</span>
-<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">      </span><span class="n">fdm_tol</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-7_rk</span><span class="p">,&amp;</span>
-<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">      </span><span class="n">maxit</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">,&amp;</span>
-<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">      </span><span class="n">TolFun</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-2_rk</span><span class="p">,&amp;</span>
-<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="w">      </span><span class="n">verbosity</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<a id="ln-33" name="ln-33" href="#ln-33"></a>
-<a id="ln-34" name="ln-34" href="#ln-34"></a><span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="o">=</span><span class="n">F3</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mf">0.95_rk</span><span class="p">,</span><span class="mf">0.95_rk</span><span class="p">],</span><span class="w"> </span><span class="n">x_sol</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
-<a id="ln-35" name="ln-35" href="#ln-35"></a>
-<a id="ln-36" name="ln-36" href="#ln-36"></a><span class="w">   </span><span class="c">! check if solution is close to [1,1]</span>
-<a id="ln-37" name="ln-37" href="#ln-37"></a><span class="w">   </span><span class="n">expected_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="mf">1.0_rk</span><span class="p">]</span>
-<a id="ln-38" name="ln-38" href="#ln-38"></a><span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-1_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test_solver11&#39;</span><span class="w"> </span><span class="p">)</span>
-<a id="ln-39" name="ln-39" href="#ln-39"></a>
-<a id="ln-40" name="ln-40" href="#ln-40"></a><span class="k">end program </span><span class="n">test_solver11</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">   </span><span class="k">use </span><span class="n">kinds</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">rk</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">   </span><span class="k">use </span><span class="n">forsolver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">nlsolver</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">   </span><span class="k">use </span><span class="n">my_function11</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">F3</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">   </span><span class="k">use </span><span class="n">forunittest</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">unit_test</span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">   </span><span class="k">implicit none</span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="k">   type</span><span class="p">(</span><span class="n">nlsolver</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">nls</span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">   </span><span class="k">type</span><span class="p">(</span><span class="n">unit_test</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ut</span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">      </span><span class="n">nl_method</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;newton-quasi-fd&#39;</span><span class="p">,&amp;</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">      </span><span class="n">fdm_method</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;central&#39;</span><span class="p">,&amp;</span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">      </span><span class="n">fdm_tol</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-7_rk</span><span class="p">,&amp;</span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">      </span><span class="n">maxit</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="p">,&amp;</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a><span class="w">      </span><span class="n">TolFun</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-2_rk</span><span class="p">,&amp;</span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="w">      </span><span class="n">verbosity</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="ln-34" name="ln-34" href="#ln-34"></a>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="o">=</span><span class="n">F3</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="o">=</span><span class="p">[</span><span class="mf">0.95_rk</span><span class="p">,</span><span class="mf">0.95_rk</span><span class="p">],</span><span class="w"> </span><span class="n">x_sol</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<a id="ln-36" name="ln-36" href="#ln-36"></a>
+<a id="ln-37" name="ln-37" href="#ln-37"></a><span class="w">   </span><span class="c">! check if solution is close to [1,1]</span>
+<a id="ln-38" name="ln-38" href="#ln-38"></a><span class="w">   </span><span class="n">expected_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.0_rk</span><span class="p">,</span><span class="mf">1.0_rk</span><span class="p">]</span>
+<a id="ln-39" name="ln-39" href="#ln-39"></a><span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0e-1_rk</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;test_solver11&#39;</span><span class="w"> </span><span class="p">)</span>
+<a id="ln-40" name="ln-40" href="#ln-40"></a>
+<a id="ln-41" name="ln-41" href="#ln-41"></a><span class="k">end program </span><span class="n">test_solver11</span>
 </pre></div>
 
       </section>
@@ -320,40 +337,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForSolver was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForSolver
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-02-03T16:56:16.148459             </p>
+ on 2025-09-11T21:52:20.597168+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

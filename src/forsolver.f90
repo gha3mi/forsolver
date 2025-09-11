@@ -3,8 +3,8 @@ module forsolver
    ! This module provides functions and subroutines for
    ! solving linear systems and performing Newton's method.
 
-   use kinds
-   use fordiff
+   use kinds, only: rk
+   use fordiff, only: derivative
 
    implicit none
 
@@ -58,7 +58,7 @@ contains
 
       ! outputs:
       real(rk), dimension(max(1, size(A, 2))) :: x      ! solution matrix x
-      
+
       ! local variables
       integer :: info ! result info
 
@@ -86,7 +86,7 @@ contains
    !> author: Seyed Ali Ghasemi
    pure subroutine gesv_rel(A, b, x, info)
 
-      use external_interfaces_solver
+      use external_interfaces_solver, only: gesv
 
       ! inputs:
       real(rk), dimension(:, :), contiguous, intent(in) :: A    ! input matrix A
@@ -132,7 +132,7 @@ contains
    !> solves an overdetermined or underdetermined linear system using gels.
    pure subroutine gels_rel(A, b, x, info)
 
-      use external_interfaces_solver
+      use external_interfaces_solver, only: gels
 
       ! inputs:
       real(rk), dimension(:, :), contiguous, intent(in) :: A    ! input matrix A
@@ -150,7 +150,7 @@ contains
       real(rk), dimension(:,:), allocatable :: a_copy
       real(rk), dimension(:,:), allocatable :: b_copy
 
-      ! 
+      !
       trans = 'n'
 
       ! get dimensions
@@ -195,12 +195,14 @@ contains
       interface
          impure function Fun1(x)
             import rk
+            implicit none
             real(rk), intent(in) :: x
             real(rk)             :: Fun1
          end function Fun1
 
          impure function dFun1(x)
             import rk
+            implicit none
             real(rk), intent(in) :: x
             real(rk)             :: dFun1
          end function dFun1
@@ -256,12 +258,14 @@ contains
       interface
          impure function Fun2(x) result(res)
             import rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: x
             real(rk), dimension(:), allocatable :: res
          end function Fun2
 
          impure function dFun2(x) result(res)
             import rk
+            implicit none
             real(rk), dimension(:), intent(in)    :: x
             real(rk), dimension(:,:), allocatable :: res
          end function dFun2
@@ -319,6 +323,7 @@ contains
       interface
          impure function Fun3(x) result(res)
             import rk
+            implicit none
             complex(rk), intent(in) :: x
             complex(rk)             :: res
          end function Fun3
@@ -364,6 +369,7 @@ contains
       interface
          impure function Fun4(x) result(res)
             import rk
+            implicit none
             complex(rk), dimension(:), intent(in)  :: x
             complex(rk), dimension(:), allocatable :: res
          end function Fun4
@@ -506,12 +512,14 @@ contains
       interface
          impure function Fun5(x) result(res)
             import rk
+            implicit none
             real(rk), intent(in)  :: x
             real(rk) :: res
          end function Fun5
 
          impure function dFun5(x) result(res)
             import rk
+            implicit none
             real(rk), intent(in)    :: x
             real(rk) :: res
          end function dFun5
@@ -567,12 +575,14 @@ contains
       interface
          impure function Fun6(x) result(res)
             import rk
+            implicit none
             real(rk), intent(in)  :: x
             real(rk) :: res
          end function Fun6
 
          impure function dFun6(x) result(res)
             import rk
+            implicit none
             real(rk), intent(in)    :: x
             real(rk) :: res
          end function dFun6
@@ -628,6 +638,7 @@ contains
       interface
          impure function Fun7(x) result(res)
             import rk
+            implicit none
             real(rk), intent(in) :: x
             real(rk)             :: res
          end function Fun7
@@ -684,6 +695,7 @@ contains
       interface
          impure function Fun8(x) result(res)
             import rk
+            implicit none
             real(rk), intent(in) :: x
             real(rk)             :: res
          end function Fun8
@@ -740,12 +752,14 @@ contains
       interface
          impure function Fun9(x) result(res)
             import rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: x
             real(rk), dimension(:), allocatable :: res
          end function Fun9
 
          impure function dFun10(x) result(res)
             import rk
+            implicit none
             real(rk), dimension(:), intent(in)    :: x
             real(rk), dimension(:,:), allocatable :: res
          end function dFun10
@@ -801,12 +815,14 @@ contains
       interface
          impure function Fun11(x) result(res)
             import rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: x
             real(rk), dimension(:), allocatable :: res
          end function Fun11
 
          impure function dFun11(x) result(res)
             import rk
+            implicit none
             real(rk), dimension(:), intent(in)    :: x
             real(rk), dimension(:,:), allocatable :: res
          end function dFun11
@@ -862,6 +878,7 @@ contains
       interface
          impure function Fun12(x) result(res)
             import rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: x
             real(rk), dimension(:), allocatable :: res
          end function Fun12
@@ -916,6 +933,7 @@ contains
       interface
          impure function Fun13(x) result(res)
             import rk
+            implicit none
             real(rk), dimension(:), intent(in)  :: x
             real(rk), dimension(:), allocatable :: res
          end function Fun13
@@ -971,6 +989,7 @@ contains
       interface
          impure function Fun14(x) result(res)
             import rk
+            implicit none
             complex(rk), intent(in) :: x
             complex(rk)             :: res
          end function Fun14
@@ -1026,6 +1045,7 @@ contains
       interface
          impure function Fun15(x) result(res)
             import rk
+            implicit none
             complex(rk), intent(in) :: x
             complex(rk)             :: res
          end function Fun15
@@ -1080,6 +1100,7 @@ contains
       interface
          impure function Fun16(x) result(res)
             import rk
+            implicit none
             complex(rk), dimension(:), intent(in)  :: x
             complex(rk), dimension(:), allocatable :: res
          end function Fun16
@@ -1134,6 +1155,7 @@ contains
       interface
          impure function Fun17(x) result(res)
             import rk
+            implicit none
             complex(rk), dimension(:), intent(in)  :: x
             complex(rk), dimension(:), allocatable :: res
          end function Fun17

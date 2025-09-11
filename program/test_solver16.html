@@ -12,14 +12,29 @@
 
     <title>test_solver16 &ndash; ForSolver</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -74,9 +89,8 @@
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
-                 title=" 7.7% of total for programs.">21 statements</a>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 7.3% of total for programs.">21 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -96,9 +110,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -115,11 +131,11 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/test_solver16.html#variable-a~6">A</a>
-            <a class="list-group-item" href="../program/test_solver16.html#variable-b~6">b</a>
-            <a class="list-group-item" href="../program/test_solver16.html#variable-x~45">x</a>
-            <a class="list-group-item" href="../program/test_solver16.html#variable-expected_x~11">expected_x</a>
-            <a class="list-group-item" href="../program/test_solver16.html#variable-ut~11">ut</a>
+            <a class="list-group-item" href="../program/test_solver16.html#variable-a~2">A</a>
+            <a class="list-group-item" href="../program/test_solver16.html#variable-b~2">b</a>
+            <a class="list-group-item" href="../program/test_solver16.html#variable-x~25">x</a>
+            <a class="list-group-item" href="../program/test_solver16.html#variable-expected_x~12">expected_x</a>
+            <a class="list-group-item" href="../program/test_solver16.html#variable-ut~12">ut</a>
         </div>
       </div>
     </div>
@@ -161,9 +177,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
+                  <li class="list-inline-item">forunittest</li>
                   <li class="list-inline-item"><a href='../module/forsolver.html'>forsolver</a></li>
                   <li class="list-inline-item">kinds</li>
-                  <li class="list-inline-item">forunittest</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -193,8 +209,8 @@
 <!-- program~test_solver16&#45;&gt;forunittest -->
 <g id="program~~test_solver16~~UsesGraph_edge1" class="edge">
 <title>program~test_solver16&#45;&gt;forunittest</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M200.8,-66C190.13,-69.92 178.12,-74.32 166.85,-78.46"/>
-<polygon fill="#255000" stroke="#255000" points="165.36,-75.28 157.18,-82.01 167.77,-81.85 165.36,-75.28"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M200.8,-66C190.13,-69.92 178.12,-74.32 166.85,-78.46"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="165.36,-75.28 157.18,-82.01 167.77,-81.85 165.36,-75.28"/>
 </g>
 <!-- kinds -->
 <g id="program~~test_solver16~~UsesGraph_node3" class="node">
@@ -205,8 +221,8 @@
 <!-- program~test_solver16&#45;&gt;kinds -->
 <g id="program~~test_solver16~~UsesGraph_edge2" class="edge">
 <title>program~test_solver16&#45;&gt;kinds</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M192.9,-54C155.43,-54 100.28,-54 64.26,-54"/>
-<polygon fill="#255000" stroke="#255000" points="64.18,-50.5 54.18,-54 64.18,-57.5 64.18,-50.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M192.9,-54C155.43,-54 100.28,-54 64.26,-54"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="64.18,-50.5 54.18,-54 64.18,-57.5 64.18,-50.5"/>
 </g>
 <!-- module~forsolver -->
 <g id="program~~test_solver16~~UsesGraph_node4" class="node">
@@ -220,14 +236,14 @@
 <!-- program~test_solver16&#45;&gt;module~forsolver -->
 <g id="program~~test_solver16~~UsesGraph_edge3" class="edge">
 <title>program~test_solver16&#45;&gt;module~forsolver</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M200.8,-42C189.02,-37.68 175.62,-32.76 163.37,-28.26"/>
-<polygon fill="#255000" stroke="#255000" points="164.44,-24.93 153.84,-24.77 162.02,-31.5 164.44,-24.93"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M200.8,-42C189.02,-37.68 175.62,-32.76 163.37,-28.26"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="164.44,-24.93 153.84,-24.77 162.02,-31.5 164.44,-24.93"/>
 </g>
 <!-- module~forsolver&#45;&gt;kinds -->
 <g id="program~~test_solver16~~UsesGraph_edge5" class="edge">
 <title>module~forsolver&#45;&gt;kinds</title>
-<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M94.15,-26C84.51,-30.08 73.61,-34.69 63.48,-38.98"/>
-<polygon fill="#002505" stroke="#002505" points="61.92,-35.84 54.07,-42.96 64.65,-42.29 61.92,-35.84"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M94.15,-26C84.51,-30.08 73.61,-34.69 63.48,-38.98"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="61.92,-35.84 54.07,-42.96 64.65,-42.29 61.92,-35.84"/>
 </g>
 <!-- fordiff -->
 <g id="program~~test_solver16~~UsesGraph_node5" class="node">
@@ -238,8 +254,8 @@
 <!-- module~forsolver&#45;&gt;fordiff -->
 <g id="program~~test_solver16~~UsesGraph_edge4" class="edge">
 <title>module~forsolver&#45;&gt;fordiff</title>
-<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M93.38,-13.38C84.22,-13.19 73.98,-12.97 64.39,-12.77"/>
-<polygon fill="#002505" stroke="#002505" points="64.37,-9.27 54.3,-12.56 64.22,-16.27 64.37,-9.27"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M93.38,-13.38C84.22,-13.19 73.98,-12.97 64.39,-12.77"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="64.37,-9.27 54.3,-12.56 64.22,-16.27 64.37,-9.27"/>
 </g>
 </g>
 </svg>
@@ -333,11 +349,11 @@ large graphs.</div>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: program~~test_solver16~~CallsGraph Pages: 1 -->
-<svg id="programtest_solver16CallsGraph" width="641pt" height="82pt"
- viewBox="0.00 0.00 641.00 81.96" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="program~~test_solver16~~CallsGraph" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 91)">
+<svg id="programtest_solver16CallsGraph" width="462pt" height="95pt"
+ viewBox="0.00 0.00 462.00 95.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="program~~test_solver16~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 91)">
 <title>program~~test_solver16~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-91 739,-91 739,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-91 458,-91 458,4 -4,4"/>
 <!-- program~test_solver16 -->
 <g id="program~~test_solver16~~CallsGraph_node1" class="node">
 <title>program~test_solver16</title>
@@ -347,112 +363,108 @@ large graphs.</div>
 <!-- check -->
 <g id="program~~test_solver16~~CallsGraph_node2" class="node">
 <title>check</title>
-<polygon fill="#777777" stroke="#777777" points="193.5,-87 139.5,-87 139.5,-63 193.5,-63 193.5,-87"/>
-<text text-anchor="middle" x="166.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check</text>
+<polygon fill="#777777" stroke="#777777" points="173,-87 119,-87 119,-63 173,-63 173,-87"/>
+<text text-anchor="middle" x="146" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check</text>
 </g>
 <!-- program~test_solver16&#45;&gt;check -->
 <g id="program~~test_solver16~~CallsGraph_edge1" class="edge">
 <title>program~test_solver16&#45;&gt;check</title>
-<path fill="none" stroke="#255000" d="M83.12,-60.93C97.98,-63.47 114.69,-66.33 129.16,-68.8"/>
-<polygon fill="#255000" stroke="#255000" points="128.79,-72.28 139.24,-70.52 129.97,-65.38 128.79,-72.28"/>
+<path fill="none" stroke="#ff0000" d="M83.01,-62.3C91.6,-64.06 100.62,-65.91 109.03,-67.63"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="108.42,-71.08 118.92,-69.66 109.83,-64.22 108.42,-71.08"/>
 </g>
 <!-- interface~solve -->
 <g id="program~~test_solver16~~CallsGraph_node3" class="node">
 <title>interface~solve</title>
-<g id="a_program~~test_solver16~~CallsGraph_node3"><a xlink:href="../interface/solve.html" xlink:title="forsolver::solve">
-<polygon fill="#a7506f" stroke="#a7506f" points="214,-45 119,-45 119,-21 214,-21 214,-45"/>
-<text text-anchor="middle" x="166.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::solve</text>
+<g id="a_program~~test_solver16~~CallsGraph_node3"><a xlink:href="../interface/solve.html" xlink:title="solve">
+<polygon fill="#a7506f" stroke="#a7506f" points="173,-45 119,-45 119,-21 173,-21 173,-45"/>
+<text text-anchor="middle" x="146" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">solve</text>
 </a>
 </g>
 </g>
 <!-- program~test_solver16&#45;&gt;interface~solve -->
 <g id="program~~test_solver16~~CallsGraph_edge2" class="edge">
 <title>program~test_solver16&#45;&gt;interface~solve</title>
-<path fill="none" stroke="#255000" d="M83.12,-47.07C91.36,-45.66 100.18,-44.15 108.87,-42.67"/>
-<polygon fill="#255000" stroke="#255000" points="109.7,-46.08 118.96,-40.95 108.52,-39.18 109.7,-46.08"/>
+<path fill="none" stroke="#ff0000" d="M83.01,-45.7C91.6,-43.94 100.62,-42.09 109.03,-40.37"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="109.83,-43.78 118.92,-38.34 108.42,-36.92 109.83,-43.78"/>
 </g>
 <!-- proc~solver_lin -->
 <g id="program~~test_solver16~~CallsGraph_node4" class="node">
 <title>proc~solver_lin</title>
-<g id="a_program~~test_solver16~~CallsGraph_node4"><a xlink:href="../proc/solver_lin.html" xlink:title="forsolver::solver_lin">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="368,-45 250,-45 250,-21 368,-21 368,-45"/>
-<text text-anchor="middle" x="309" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::solver_lin</text>
+<g id="a_program~~test_solver16~~CallsGraph_node4"><a xlink:href="../proc/solver_lin.html" xlink:title="solver_lin">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="272,-45 209,-45 209,-21 272,-21 272,-45"/>
+<text text-anchor="middle" x="240.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">solver_lin</text>
 </a>
 </g>
 </g>
 <!-- interface~solve&#45;&gt;proc~solver_lin -->
 <g id="program~~test_solver16~~CallsGraph_edge3" class="edge">
 <title>interface~solve&#45;&gt;proc~solver_lin</title>
-<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M214.28,-33C222.43,-33 231.05,-33 239.64,-33"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="239.67,-36.5 249.67,-33 239.67,-29.5 239.67,-36.5"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M173.26,-33C181.24,-33 190.21,-33 198.91,-33"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="198.92,-36.5 208.92,-33 198.92,-29.5 198.92,-36.5"/>
 </g>
 <!-- proc~gels_rel -->
 <g id="program~~test_solver16~~CallsGraph_node5" class="node">
 <title>proc~gels_rel</title>
-<g id="a_program~~test_solver16~~CallsGraph_node5"><a xlink:href="../proc/gels_rel.html" xlink:title="forsolver::gels_rel">
-<polygon fill="#d9534f" stroke="#d9534f" points="513.5,-66 405.5,-66 405.5,-42 513.5,-42 513.5,-66"/>
-<text text-anchor="middle" x="459.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::gels_rel</text>
+<g id="a_program~~test_solver16~~CallsGraph_node5"><a xlink:href="../proc/gels_rel.html" xlink:title="gels_rel">
+<polygon fill="#d9534f" stroke="#d9534f" points="363,-66 309,-66 309,-42 363,-42 363,-66"/>
+<text text-anchor="middle" x="336" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gels_rel</text>
 </a>
 </g>
 </g>
 <!-- proc~solver_lin&#45;&gt;proc~gels_rel -->
 <g id="program~~test_solver16~~CallsGraph_edge4" class="edge">
 <title>proc~solver_lin&#45;&gt;proc~gels_rel</title>
-<path fill="none" stroke="#255000" d="M368.26,-41.24C377.12,-42.49 386.29,-43.79 395.25,-45.06"/>
-<polygon fill="#255000" stroke="#255000" points="394.85,-48.53 405.24,-46.47 395.83,-41.6 394.85,-48.53"/>
+<path fill="none" stroke="#ff0000" d="M272.12,-39.88C280.61,-41.78 289.92,-43.88 298.71,-45.85"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="298.19,-49.32 308.71,-48.1 299.72,-42.49 298.19,-49.32"/>
 </g>
 <!-- proc~gesv_rel -->
 <g id="program~~test_solver16~~CallsGraph_node6" class="node">
 <title>proc~gesv_rel</title>
-<g id="a_program~~test_solver16~~CallsGraph_node6"><a xlink:href="../proc/gesv_rel.html" xlink:title="forsolver::gesv_rel">
-<polygon fill="#d9534f" stroke="#d9534f" points="515,-24 404,-24 404,0 515,0 515,-24"/>
-<text text-anchor="middle" x="459.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver::gesv_rel</text>
+<g id="a_program~~test_solver16~~CallsGraph_node6"><a xlink:href="../proc/gesv_rel.html" xlink:title="gesv_rel">
+<polygon fill="#d9534f" stroke="#d9534f" points="364,-24 308,-24 308,0 364,0 364,-24"/>
+<text text-anchor="middle" x="336" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gesv_rel</text>
 </a>
 </g>
 </g>
 <!-- proc~solver_lin&#45;&gt;proc~gesv_rel -->
 <g id="program~~test_solver16~~CallsGraph_edge5" class="edge">
 <title>proc~solver_lin&#45;&gt;proc~gesv_rel</title>
-<path fill="none" stroke="#255000" d="M368.26,-24.76C376.58,-23.58 385.18,-22.37 393.62,-21.18"/>
-<polygon fill="#255000" stroke="#255000" points="394.39,-24.6 403.8,-19.74 393.41,-17.67 394.39,-24.6"/>
+<path fill="none" stroke="#ff0000" d="M272.12,-26.12C280.38,-24.27 289.42,-22.24 298,-20.31"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="298.79,-23.72 307.78,-18.11 297.26,-16.89 298.79,-23.72"/>
 </g>
 <!-- interface~gels -->
 <g id="program~~test_solver16~~CallsGraph_node7" class="node">
 <title>interface~gels</title>
-<g id="a_program~~test_solver16~~CallsGraph_node7"><a xlink:href="../interface/gels.html" xlink:title="external_interfaces_solver::gels">
-<polygon fill="#a7506f" stroke="#a7506f" points="733.5,-66 552.5,-66 552.5,-42 733.5,-42 733.5,-66"/>
-<text text-anchor="middle" x="643" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces_solver::gels</text>
+<g id="a_program~~test_solver16~~CallsGraph_node7"><a xlink:href="../interface/gels.html" xlink:title="gels">
+<polygon fill="#a7506f" stroke="#a7506f" points="454,-66 400,-66 400,-42 454,-42 454,-66"/>
+<text text-anchor="middle" x="427" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gels</text>
 </a>
 </g>
 </g>
 <!-- proc~gels_rel&#45;&gt;interface~gels -->
 <g id="program~~test_solver16~~CallsGraph_edge6" class="edge">
 <title>proc~gels_rel&#45;&gt;interface~gels</title>
-<path fill="none" stroke="#255000" d="M513.97,-54C522.98,-54 532.57,-54 542.31,-54"/>
-<polygon fill="#255000" stroke="#255000" points="542.48,-57.5 552.48,-54 542.48,-50.5 542.48,-57.5"/>
+<path fill="none" stroke="#ff0000" d="M363.22,-54C371.55,-54 380.91,-54 389.82,-54"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="389.97,-57.5 399.97,-54 389.97,-50.5 389.97,-57.5"/>
 </g>
 <!-- interface~gesv -->
 <g id="program~~test_solver16~~CallsGraph_node8" class="node">
 <title>interface~gesv</title>
-<g id="a_program~~test_solver16~~CallsGraph_node8"><a xlink:href="../interface/gesv.html" xlink:title="external_interfaces_solver::gesv">
-<polygon fill="#a7506f" stroke="#a7506f" points="735,-24 551,-24 551,0 735,0 735,-24"/>
-<text text-anchor="middle" x="643" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces_solver::gesv</text>
+<g id="a_program~~test_solver16~~CallsGraph_node8"><a xlink:href="../interface/gesv.html" xlink:title="gesv">
+<polygon fill="#a7506f" stroke="#a7506f" points="454,-24 400,-24 400,0 454,0 454,-24"/>
+<text text-anchor="middle" x="427" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">gesv</text>
 </a>
 </g>
 </g>
 <!-- proc~gesv_rel&#45;&gt;interface~gesv -->
 <g id="program~~test_solver16~~CallsGraph_edge7" class="edge">
 <title>proc~gesv_rel&#45;&gt;interface~gesv</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M515.45,-12C523.47,-12 531.94,-12 540.54,-12"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="540.68,-15.5 550.68,-12 540.68,-8.5 540.68,-15.5"/>
+<path fill="none" stroke="#00ffff" d="M364.19,-12C372.25,-12 381.22,-12 389.77,-12"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="389.89,-15.5 399.89,-12 389.89,-8.5 389.89,-15.5"/>
 </g>
 </g>
 </svg>
-</div>                <script>
-                  var panprogramtest_solver16CallsGraph = svgPanZoom('#programtest_solver16CallsGraph',
-                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
-                  );
-                </script>          <div>
+</div>          <div>
             <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
           </div>
           <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
@@ -472,7 +484,7 @@ large graphs.</div>
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
  viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
 <title>Graph Key</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
 <!-- Subroutine -->
@@ -549,7 +561,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~6"></span>
+              <span class="anchor" id="variable-a~2"></span>
               real(kind=rk),
             </td>
             <td>
@@ -565,7 +577,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~6"></span>
+              <span class="anchor" id="variable-b~2"></span>
               real(kind=rk),
             </td>
             <td>
@@ -581,7 +593,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~45"></span>
+              <span class="anchor" id="variable-x~25"></span>
               real(kind=rk),
             </td>
             <td>
@@ -597,7 +609,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-expected_x~11"></span>
+              <span class="anchor" id="variable-expected_x~12"></span>
               real(kind=rk),
             </td>
             <td>
@@ -613,7 +625,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ut~11"></span>
+              <span class="anchor" id="variable-ut~12"></span>
               type(unit_test)
             </td>
             <td>
@@ -645,9 +657,9 @@ large graphs.</div>
     <h2 id="src">Source Code</h2>
     <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">test_solver16</span>
 
-<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
-<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span>
-<span class="w">   </span><span class="k">use </span><span class="n">forunittest</span>
+<span class="w">   </span><span class="k">use </span><span class="n">kinds</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">rk</span>
+<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">solve</span>
+<span class="w">   </span><span class="k">use </span><span class="n">forunittest</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">unit_test</span>
 
 <span class="w">   </span><span class="k">implicit none</span>
 
@@ -690,40 +702,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForSolver was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForSolver
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-02-03T16:56:16.148459             </p>
+ on 2025-09-11T21:52:20.597168+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

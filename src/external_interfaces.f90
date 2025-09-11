@@ -1,6 +1,6 @@
 module external_interfaces_solver
 
-    use kinds
+    use kinds, only: rk
 
     implicit none
 
@@ -8,6 +8,7 @@ module external_interfaces_solver
 #if defined(REAL64)
         pure subroutine dgesv(fn, fnrhs, fa, flda, fipiv, fb, fldb, finfo)
             import rk
+            implicit none
             integer,  intent(in)    :: fn, fnrhs, flda, fldb
             real(rk), intent(inout) :: fa(flda,fn), fb(fldb,fnrhs)
             integer,  intent(out)   :: finfo
@@ -16,6 +17,7 @@ module external_interfaces_solver
 #elif defined(REAL32)
         pure subroutine sgesv(fn, fnrhs, fa, flda, fipiv, fb, fldb, finfo)
             import rk
+            implicit none
             integer,  intent(in)    :: fn, fnrhs, flda, fldb
             real(rk), intent(inout) :: fa(flda,fn), fb(fldb,fnrhs)
             integer,  intent(out)   :: finfo
@@ -24,6 +26,7 @@ module external_interfaces_solver
 #else
         pure subroutine dgesv(fn, fnrhs, fa, flda, fipiv, fb, fldb, finfo)
             import rk
+            implicit none
             integer,  intent(in)    :: fn, fnrhs, flda, fldb
             real(rk), intent(inout) :: fa(flda,fn), fb(fldb,fnrhs)
             integer,  intent(out)   :: finfo

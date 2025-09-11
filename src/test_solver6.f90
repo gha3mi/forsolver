@@ -1,5 +1,5 @@
 module my_function6
-   use kinds
+   use kinds, only: rk
    implicit none
 contains
    function F1(x) result(F_val)
@@ -11,12 +11,13 @@ end module my_function6
 
 program test_solver6
 
-   use forsolver
-   use my_function6
-   use forunittest
+   use kinds, only: rk
+   use forsolver, only: nlsolver
+   use my_function6, only: F1
+   use forunittest, only: unit_test
 
    implicit none
-   
+
    type(nlsolver) :: nls
    real(rk)       :: x, expected_x
    type(unit_test) :: ut
