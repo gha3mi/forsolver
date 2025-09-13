@@ -1,23 +1,135 @@
-@test-gfortran
-options test
-options --profile release
+# CI configurations for fpm tests
+## ubuntu
+@ubuntu-latest_gfortran_debug
+options test target --all
 options --compiler gfortran
-options --flag "-O3 -march=native -llapack -lblas"
+options --profile debug
+options --flag "-llapack -lblas"
 
-@test-ifort
-options test
+@ubuntu-latest_gfortran_release
+options test target --all
+options --compiler gfortran
 options --profile release
-options --compiler ifort
-options --flag "-O3 -xHost -mtune=native -qmkl"
+options --flag "-llapack -lblas"
 
-@test-ifx
-options test
-options --profile release
+@ubuntu-latest_ifx_debug
+options test target --all
 options --compiler ifx
-options --flag "-O3 -xHost -mtune=native -qmkl"
+options --profile debug
+options --flag "-llapack -lblas"
 
-@test-nvfortran
-options test
+@ubuntu-latest_ifx_release
+options test target --all
+options --compiler ifx
 options --profile release
+options --flag "-llapack -lblas"
+
+@ubuntu-latest_nvfortran_debug
+options test target --all
 options --compiler nvfortran
-options --flag "-O3 -mtune=native -stdpar=gpu,multicore -llapack -lblas"
+options --profile debug
+options --flag "-llapack -lblas"
+
+@ubuntu-latest_nvfortran_release
+options run --example --all
+options --compiler nvfortran
+options --profile release
+options --flag "-llapack -lblas"
+
+@ubuntu-latest_flang-new_debug
+options test target --all
+options --compiler flang-new
+options --profile debug
+options --flag "-cpp -llapack -lblas"
+
+@ubuntu-latest_flang-new_release
+options test target --all
+options --compiler flang-new
+options --profile release
+options --flag "-cpp -llapack -lblas"
+
+@ubuntu-latest_lfortran_debug
+options test target --all
+options --compiler lfortran
+options --profile debug
+options --flag "-llapack -lblas"
+
+@ubuntu-latest_lfortran_release
+options test target --all
+options --compiler lfortran
+options --profile release
+options --flag "-llapack -lblas"
+
+
+## macOS
+@macos-latest_gfortran_debug
+options test target --all
+options --compiler gfortran
+options --profile debug
+options --flag "-llapack -lblas"
+
+@macos-latest_gfortran_release
+options test target --all
+options --compiler gfortran
+options --profile release
+options --flag "-llapack -lblas"
+
+@macos-latest_lfortran_debug
+options test target --all
+options --compiler lfortran
+options --profile debug
+options --flag "-llapack -lblas"
+
+@macos-latest_lfortran_release
+options test target --all
+options --compiler lfortran
+options --profile release
+options --flag "-llapack -lblas"
+
+
+## windows
+@windows-latest_gfortran_debug
+options test target --all
+options --compiler gfortran
+options --profile debug
+options --flag "-llapack -lblas"
+
+@windows-latest_gfortran_release
+options test target --all
+options --compiler gfortran
+options --profile release
+options --flag "-llapack -lblas"
+
+@windows-latest_ifx_debug
+options test target --all
+options --compiler ifx
+options --profile debug
+options --flag "/Qmkl"
+
+@windows-latest_ifx_release
+options test target --all
+options --compiler ifx
+options --profile release
+options --flag "/Qmkl"
+
+@windows-latest_flang-new_debug
+options test target --all
+options --compiler flang-new
+options --flag "-cpp -llapack -lblas"
+
+@windows-latest_flang-new_release
+options test target --all
+options --compiler flang-new
+options --flag "-cpp -llapack -lblas"
+
+@windows-latest_lfortran_debug
+options test target --all
+options --compiler lfortran
+options --profile debug
+options --flag "-llapack -lblas"
+
+@windows-latest_lfortran_release
+options test target --all
+options --compiler lfortran
+options --profile release
+options --flag "-llapack -lblas"

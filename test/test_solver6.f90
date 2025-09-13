@@ -1,5 +1,5 @@
 module my_function6
-   use kinds, only: rk
+   use forsolver_kinds, only: rk
    implicit none
 contains
    function F1(x) result(F_val)
@@ -11,7 +11,7 @@ end module my_function6
 
 program test_solver6
 
-   use kinds, only: rk
+   use forsolver_kinds, only: rk
    use forsolver, only: nlsolver
    use my_function6, only: F1
    use forunittest, only: unit_test

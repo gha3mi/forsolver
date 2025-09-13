@@ -1,8 +1,8 @@
-[![GitHub](https://img.shields.io/badge/GitHub-ForSolver-blue.svg?style=social&logo=github)](https://github.com/gha3mi/forsolver)
-[![Version](https://img.shields.io/github/release/gha3mi/forsolver.svg)](https://github.com/gha3mi/forsolver/releases/latest)
+[![GitHub](https://img.shields.io/badge/GitHub-forsolver-blue.svg?style=social&logo=github)](https://github.com/gha3mi/forsolver)
+[![Version](https://img.shields.io/github/v/tag/gha3mi/forsolver?label=version&sort=semver)](https://github.com/gha3mi/forsolver/releases)
 [![Documentation](https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg)](https://gha3mi.github.io/forsolver/)
+[![Setup Fortran Conda CI/CD](https://github.com/gha3mi/forsolver/actions/workflows/CI-CD.yml/badge.svg?branch=main)](https://github.com/gha3mi/forsolver/actions/workflows/CI-CD.yml)
 [![License](https://img.shields.io/github/license/gha3mi/forsolver?color=green)](https://github.com/gha3mi/forsolver/blob/main/LICENSE)
-[![Build](https://github.com/gha3mi/forsolver/actions/workflows/CI_test.yml/badge.svg)](https://github.com/gha3mi/forsolver/actions/workflows/CI_test.yml)
 
 
 **ForSolver**: A Fortran library of linear and nonlinear solvers.
@@ -69,16 +69,6 @@ you can easily include it by adding the following line to your `fpm.toml` file:
 [dependencies]
 forsolver = {git="https://github.com/gha3mi/forsolver.git"}
 ```
-
-## Runing Tests
-
-Execute the following commands to run tests with specific compilers:
-
-```shell
-fpm @<compiler>-test
-```
-`compiler: ifx, ifort, gfortran, nvfortran`
-
 
 ## Examples
 
@@ -152,6 +142,11 @@ program example2
 end program example2
 ```
 
+## CI Status
+
+<!-- STATUS:setup-fortran-conda:START -->
+<!-- STATUS:setup-fortran-conda:END -->
+
 ## API Documentation
 
 The most up-to-date API documentation for the master branch is available
@@ -161,7 +156,7 @@ To generate the API documentation for `ForSolver` using
 command:
 
 ```shell
-ford ford.yml
+ford README.md
 ```
 
 ## Contributing

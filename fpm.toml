@@ -1,9 +1,11 @@
-name       = "forsolver"
-version    = "0.3.1"
-author     = "Seyed Ali Ghasemi"
-maintainer = "info@gha3mi.com"
-copyright  = "Copyright (c) 2023, Seyed Ali Ghasemi"
-license    = "BSD-3"
+name        = "forsolver"
+description = "A Fortran library for linear and nonlinear solvers"
+version     = "VERSION"
+author      = "Seyed Ali Ghasemi"
+maintainer  = "info@gha3mi.com"
+homepage    = "https://github.com/gha3mi/forsolver"
+copyright   = "Copyright (c) 2023-2025, Seyed Ali Ghasemi"
+license     = "BSD-3"
 
 [build]
 auto-executables = false
@@ -19,8 +21,10 @@ implicit-typing   = false
 implicit-external = false
 source-form       = "free"
 
+[preprocess]
+[preprocess.cpp]
+
 [dependencies]
-kinds       = {git="https://github.com/gha3mi/kinds.git"}
 fordiff     = {git="https://github.com/gha3mi/fordiff.git"}
 forunittest = {git="https://github.com/gha3mi/forunittest.git"}
 
@@ -108,3 +112,27 @@ main       = "test_solver16.f90"
 name       = "test_solver17"
 source-dir = "test"
 main       = "test_solver17.f90"
+
+
+[extra.ford]
+project             = "ForSolver"
+year                = "2023-2025"
+project_github      = "https://github.com/gha3mi/forsolver"
+author              = "Seyed Ali Ghasemi"
+email               = "info@gha3mi.com"
+github              = "https://github.com/gha3mi"
+license             = "BSD 3-Clause"
+src_dir             = ["src", "test"]
+output_dir          = "doc"
+source              = true
+incl_src            = true
+graph               = true
+coloured_edges      = true
+search              = true
+print_creation_date = true
+sort                = "permission-alpha"
+display             = ["public", "private", "protected"]
+
+
+[extra.fortitude.check]
+ignore = ["S001", "S061", "C071", "C131", "C003"]

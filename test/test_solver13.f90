@@ -1,5 +1,5 @@
 module my_function13
-   use kinds, only: rk
+   use forsolver_kinds, only: rk
    implicit none
 contains
    function F4(x) result(F_val)
@@ -13,7 +13,7 @@ end module my_function13
 
 program test_solver13
 
-   use kinds, only: rk
+   use forsolver_kinds, only: rk
    use forsolver, only: nlsolver
    use my_function13, only: F4
    use forunittest, only: unit_test
