@@ -1,6 +1,6 @@
 module external_interfaces_solver
 
-    use kinds, only: rk
+    use forsolver_kinds, only: rk
 
     implicit none
 

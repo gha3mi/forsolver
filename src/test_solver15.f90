@@ -1,7 +1,6 @@
 program test_solver15
 
-   use kinds, only: rk
-   use forsolver, only: solve
+   use forsolver, only: rk, solve
    use forunittest, only: unit_test
 
    implicit none

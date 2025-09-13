@@ -44,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="./index.html">ForSolver <small>v0.3.1</small></a>
+          <a class="navbar-brand" href="./index.html">ForSolver </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -95,17 +95,17 @@
       <div class="row" id='text'>
         <div class=col-md-8>
           <h1>ForSolver</h1>
-          <p><a href="https://github.com/gha3mi/forsolver"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-ForSolver-blue.svg?style=social&amp;logo=github"></a>
-<a href="https://github.com/gha3mi/forsolver/releases/latest"><img alt="Version" src="https://img.shields.io/github/release/gha3mi/forsolver.svg"></a>
+          <p><a href="https://github.com/gha3mi/forsolver"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-forsolver-blue.svg?style=social&amp;logo=github"></a>
+<a href="https://github.com/gha3mi/forsolver/releases"><img alt="Version" src="https://img.shields.io/github/v/tag/gha3mi/forsolver?label=version&amp;sort=semver"></a>
 <a href="https://gha3mi.github.io/forsolver/"><img alt="Documentation" src="https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg"></a>
-<a href="https://github.com/gha3mi/forsolver/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/gha3mi/forsolver?color=green"></a>
-<a href="https://github.com/gha3mi/forsolver/actions/workflows/CI_test.yml"><img alt="Build" src="https://github.com/gha3mi/forsolver/actions/workflows/CI_test.yml/badge.svg"></a></p>
+<a href="https://github.com/gha3mi/forsolver/actions/workflows/CI-CD.yml"><img alt="Setup Fortran Conda CI/CD" src="https://github.com/gha3mi/forsolver/actions/workflows/CI-CD.yml/badge.svg?branch=main"></a>
+<a href="https://github.com/gha3mi/forsolver/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/gha3mi/forsolver?color=green"></a></p>
 <p><strong>ForSolver</strong>: A Fortran library of linear and nonlinear solvers.</p>
 <h2>Usage</h2>
 <h3>Linear system solver</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">forsolver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">solve</span>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">forsolver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">solve</span><span class="w"></span>
 
-<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">method</span><span class="p">)</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">method</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
 <p>available methods (optional):</p>
@@ -114,20 +114,20 @@
 <li><code>gels</code></li>
 </ul>
 <h3>Nonlinear system solver</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">forsolver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">nlsolver</span>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">forsolver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">nlsolver</span><span class="w"></span>
 
-<span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span>
-<span class="w">      </span><span class="n">lin_method</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">nl_method</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">fdm_method</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">fdm_tol</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">cs_tol</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">TolFun</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">maxit</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">nmp</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">verbosity</span><span class="w"> </span><span class="p">)</span>
+<span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">lin_method</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">nl_method</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">fdm_method</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">fdm_tol</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">cs_tol</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">TolFun</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">maxit</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">nmp</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">verbosity</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 
-<span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">x_sol</span><span class="p">)</span>
+<span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">x_sol</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
 <p>available nl_methods:</p>
@@ -150,81 +150,75 @@
 <h2>fpm Dependency</h2>
 <p>If you want to use <code>ForSolver</code> as a dependency in your own fpm project,
 you can easily include it by adding the following line to your <code>fpm.toml</code> file:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span>
-<span class="n">forsolver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="p">=</span><span class="s2">&quot;https://github.com/gha3mi/forsolver.git&quot;</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span><span class="w"></span>
+<span class="n">forsolver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="o">=</span><span class="s">&quot;https://github.com/gha3mi/forsolver.git&quot;</span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
-<h2>Runing Tests</h2>
-<p>Execute the following commands to run tests with specific compilers:</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@&lt;compiler&gt;-test
-</code></pre></div>
-
-<p><code>compiler: ifx, ifort, gfortran, nvfortran</code></p>
 <h2>Examples</h2>
 <h3>Example 1: Linear System Solver</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">program </span><span class="n">example1</span>
+<div class="codehilite"><pre><span></span><code><span class="k">program </span><span class="n">example1</span><span class="w"></span>
 
-<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
-<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span>
+<span class="w">   </span><span class="k">use </span><span class="n">kinds</span><span class="w"></span>
+<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">implicit none</span>
 
-<span class="k">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span>
-<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
-<span class="w">   </span><span class="kt">integer</span><span class="w">                               </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
+<span class="k">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:)</span><span class="w">  </span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"></span>
+<span class="w">   </span><span class="kt">integer</span><span class="w">                               </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
 
-<span class="w">   </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">   </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">   </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
 
-<span class="w">   </span><span class="k">allocate</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="n">b</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="w">   </span><span class="k">allocate</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="n">b</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"></span>
 
-<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="p">]</span>
-<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">3.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0_rk</span><span class="p">]</span>
-<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">2.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0_rk</span><span class="p">]</span>
+<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">3.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0_rk</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">,:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">2.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0_rk</span><span class="p">]</span><span class="w"></span>
 
-<span class="w">   </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">4.0_rk</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">2.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0_rk</span><span class="p">]</span>
+<span class="w">   </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">4.0_rk</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">2.0_rk</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0_rk</span><span class="p">]</span><span class="w"></span>
 
-<span class="w">   </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<span class="w">   </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 
-<span class="k">end program </span><span class="n">example1</span>
+<span class="k">end program </span><span class="n">example1</span><span class="w"></span>
 </code></pre></div>
 
 <h3>Example 2: Newton's Method for Root Finding</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">module </span><span class="n">my_function3</span>
-<span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
+<div class="codehilite"><pre><span></span><code><span class="k">module </span><span class="n">my_function3</span><span class="w"></span>
+<span class="w">   </span><span class="k">use </span><span class="n">kinds</span><span class="w"></span>
 <span class="w">   </span><span class="k">implicit none</span>
 <span class="k">contains</span>
-<span class="k">   function </span><span class="n">F1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">F_val</span><span class="p">)</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">F_val</span>
-<span class="w">      </span><span class="n">F_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5.0_rk</span>
-<span class="w">   </span><span class="k">end function </span><span class="n">F1</span>
-<span class="w">   </span><span class="k">function </span><span class="n">dF1dx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dFdx_val</span><span class="p">)</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dFdx_val</span>
-<span class="w">      </span><span class="n">dFdx_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">5.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8.0_rk</span>
-<span class="w">   </span><span class="k">end function </span><span class="n">dF1dx</span>
-<span class="k">end module </span><span class="n">my_function3</span>
+<span class="k">   function </span><span class="n">F1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">F_val</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">F_val</span><span class="w"></span>
+<span class="w">      </span><span class="n">F_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="w"></span>
+<span class="w">   </span><span class="k">end function </span><span class="n">F1</span><span class="w"></span>
+<span class="w">   </span><span class="k">function </span><span class="n">dF1dx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dFdx_val</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dFdx_val</span><span class="w"></span>
+<span class="w">      </span><span class="n">dFdx_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">5.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8.0_rk</span><span class="w"></span>
+<span class="w">   </span><span class="k">end function </span><span class="n">dF1dx</span><span class="w"></span>
+<span class="k">end module </span><span class="n">my_function3</span><span class="w"></span>
 
-<span class="k">program </span><span class="n">example2</span>
+<span class="k">program </span><span class="n">example2</span><span class="w"></span>
 
-<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span>
-<span class="w">   </span><span class="k">use </span><span class="n">my_function3</span>
+<span class="w">   </span><span class="k">use </span><span class="n">forsolver</span><span class="w"></span>
+<span class="w">   </span><span class="k">use </span><span class="n">my_function3</span><span class="w"></span>
 
 <span class="w">   </span><span class="k">implicit none</span>
 
-<span class="k">   type</span><span class="p">(</span><span class="n">nlsolver</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nls</span>
-<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span>
+<span class="k">   type</span><span class="p">(</span><span class="n">nlsolver</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nls</span><span class="w"></span>
+<span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">expected_x</span><span class="w"></span>
 
-<span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span>
-<span class="w">      </span><span class="n">nl_method</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;newton&#39;</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">maxit</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">TolFun</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-4_rk</span><span class="p">,&amp;</span>
-<span class="w">      </span><span class="n">verbosity</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">set_options</span><span class="p">(&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">nl_method</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;newton&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">maxit</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">TolFun</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mf">1e-4_rk</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="w">      </span><span class="n">verbosity</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 
-<span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="o">=</span><span class="n">F1</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="o">=</span><span class="n">dF1dx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="o">=</span><span class="mi">1</span><span class="mf">0.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">x_sol</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">nls</span><span class="p">%</span><span class="n">solve</span><span class="p">(</span><span class="n">F</span><span class="o">=</span><span class="n">F1</span><span class="p">,</span><span class="w"> </span><span class="n">dFdx</span><span class="o">=</span><span class="n">dF1dx</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="o">=</span><span class="mi">1</span><span class="mf">0.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">x_sol</span><span class="o">=</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
 
-<span class="k">end program </span><span class="n">example2</span>
+<span class="k">end program </span><span class="n">example2</span><span class="w"></span>
 </code></pre></div>
 
 <h2>API Documentation</h2>
@@ -233,7 +227,7 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 To generate the API documentation for <code>ForSolver</code> using
 <a href="https://github.com/Fortran-FOSS-Programmers/ford">ford</a> run the following
 command:</p>
-<div class="codehilite"><pre><span></span><code>ford<span class="w"> </span>ford.yml
+<div class="codehilite"><pre><span></span><code>ford README.md
 </code></pre></div>
 
 <h2>Contributing</h2>
@@ -264,7 +258,7 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col-xs-6 col-sm-3">
             <div>
               <h3>Source Files</h3>
-              <ul><li><a href='sourcefile/external_interfaces.f90.html'>external_interfaces.f90</a></li><li><a href='sourcefile/forsolver.f90.html'>forsolver.f90</a></li><li><a href='sourcefile/test_solver1.f90.html'>test_solver1.f90</a></li><li><a href='sourcefile/test_solver10.f90.html'>test_solver10.f90</a></li><li><a href='sourcefile/test_solver11.f90.html'>test_solver11.f90</a></li><li><a href='sourcefile/test_solver12.f90.html'>test_solver12.f90</a></li><li><a href='sourcefile/test_solver13.f90.html'>test_solver13.f90</a></li><li><a href='sourcefile/test_solver14.f90.html'>test_solver14.f90</a></li><li><a href='sourcefile/test_solver15.f90.html'>test_solver15.f90</a></li><li><a href='sourcefile/test_solver16.f90.html'>test_solver16.f90</a></li></ul>
+              <ul><li><a href='sourcefile/external_interfaces.f90.html'>external_interfaces.f90</a></li><li><a href='sourcefile/forsolver.f90.html'>forsolver.f90</a></li><li><a href='sourcefile/forsolver_kinds.f90.html'>forsolver_kinds.F90</a></li><li><a href='sourcefile/test_solver1.f90.html'>test_solver1.f90</a></li><li><a href='sourcefile/test_solver10.f90.html'>test_solver10.f90</a></li><li><a href='sourcefile/test_solver11.f90.html'>test_solver11.f90</a></li><li><a href='sourcefile/test_solver12.f90.html'>test_solver12.f90</a></li><li><a href='sourcefile/test_solver13.f90.html'>test_solver13.f90</a></li><li><a href='sourcefile/test_solver14.f90.html'>test_solver14.f90</a></li><li><a href='sourcefile/test_solver15.f90.html'>test_solver15.f90</a></li></ul>
             </div>
             <div>
               <ul>
@@ -275,7 +269,7 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col-xs-6 col-sm-3">
             <div>
               <h3>Modules</h3>
-              <ul><li><a href='module/external_interfaces_solver.html'>external_interfaces_solver</a></li><li><a href='module/forsolver.html'>forsolver</a></li><li><a href='module/my_function10.html'>my_function10</a></li><li><a href='module/my_function11.html'>my_function11</a></li><li><a href='module/my_function12.html'>my_function12</a></li><li><a href='module/my_function13.html'>my_function13</a></li><li><a href='module/my_function14.html'>my_function14</a></li><li><a href='module/my_function3.html'>my_function3</a></li><li><a href='module/my_function4.html'>my_function4</a></li><li><a href='module/my_function5.html'>my_function5</a></li></ul>
+              <ul><li><a href='module/external_interfaces_solver.html'>external_interfaces_solver</a></li><li><a href='module/forsolver.html'>forsolver</a></li><li><a href='module/forsolver_kinds.html'>forsolver_kinds</a></li><li><a href='module/my_function10.html'>my_function10</a></li><li><a href='module/my_function11.html'>my_function11</a></li><li><a href='module/my_function12.html'>my_function12</a></li><li><a href='module/my_function13.html'>my_function13</a></li><li><a href='module/my_function14.html'>my_function14</a></li><li><a href='module/my_function3.html'>my_function3</a></li><li><a href='module/my_function4.html'>my_function4</a></li></ul>
             </div>
             <div>
               <ul>
@@ -314,14 +308,14 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col">
             <p>
               ForSolver
- was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-09-11T21:52:20.597168+0000             </p>
+ on 2025-09-13T10:21:12.449173+0000             </p>
           </div>
         </div>
         <br>

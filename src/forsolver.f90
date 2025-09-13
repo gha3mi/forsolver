@@ -3,14 +3,14 @@ module forsolver
    ! This module provides functions and subroutines for
    ! solving linear systems and performing Newton's method.
 
-   use kinds, only: rk
+   use forsolver_kinds, only: rk
    use fordiff, only: derivative
 
    implicit none
 
    private
 
-   public ::  solve, nlsolver
+   public ::  rk, solve, nlsolver
 
    type :: nlsolver
       character(:), allocatable :: lin_method

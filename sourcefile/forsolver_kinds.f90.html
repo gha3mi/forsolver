@@ -1,0 +1,649 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for ForSolver">
+    <meta name="author" content="Seyed Ali Ghasemi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>forsolver_kinds.F90 &ndash; ForSolver</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForSolver </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>forsolver_kinds.F90
+      <small>Source File</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.4% of total for source files.">6 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/forsolver_kinds.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">forsolver_kinds.F90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#mods-0"
+         aria-expanded="false" aria-controls="mods-0">
+         <h4 class="card-header bg-primary text-white">Modules</h4>
+      </a>
+      <div id="mods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/forsolver_kinds.html">forsolver_kinds</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/forsolver_kinds.f90.html#src">forsolver_kinds.F90</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    <div class="col-md-9" id='text'>
+      
+      <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Files dependent on this one</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
+ -->
+<!-- Title: sourcefile~~forsolver_kinds.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefileforsolver_kindsf90AfferentGraph" width="544pt" height="704pt"
+ viewBox="0.00 0.00 544.00 704.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 700.27)">
+<title>sourcefile~~forsolver_kinds.f90~~AfferentGraph</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-700.27 539.83,-700.27 539.83,4 -4,4"/>
+<!-- sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~forsolver_kinds.f90</title>
+<polygon fill="none" stroke="black" points="114.27,-381.27 0,-381.27 0,-357 114.27,-357 114.27,-381.27"/>
+<text xml:space="preserve" text-anchor="middle" x="57.13" y="-365.53" font-family="Helvetica,sans-Serif" font-size="10.50">forsolver_kinds.F90</text>
+</g>
+<!-- sourcefile~external_interfaces.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~external_interfaces.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/external_interfaces.f90.html" xlink:title="external_interfaces.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="284.04,-381.27 150.27,-381.27 150.27,-357 284.04,-357 284.04,-381.27"/>
+<text xml:space="preserve" text-anchor="middle" x="217.15" y="-365.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~external_interfaces.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~external_interfaces.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M150.06,-369.13C142.01,-369.13 133.78,-369.13 125.71,-369.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="125.96,-365.64 115.96,-369.14 125.96,-372.64 125.96,-365.64"/>
+</g>
+<!-- sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~forsolver.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/forsolver.f90.html" xlink:title="forsolver.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="397.56,-381.27 320.04,-381.27 320.04,-357 397.56,-357 397.56,-381.27"/>
+<text xml:space="preserve" text-anchor="middle" x="358.8" y="-365.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">forsolver.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~forsolver.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~forsolver.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M357.34,-381.63C354.6,-437.19 336.29,-658.4 218.15,-642.13"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M216.15,-642.13C103.25,-626.59 69.48,-455.88 60.8,-392.58"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="64.31,-392.4 59.57,-382.93 57.36,-393.29 64.31,-392.4"/>
+</g>
+<!-- sourcefile~forsolver.f90&#45;&gt;sourcefile~external_interfaces.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge15" class="edge">
+<title>sourcefile~forsolver.f90&#45;&gt;sourcefile~external_interfaces.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M319.64,-369.13C312.15,-369.13 304.03,-369.13 295.77,-369.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="295.98,-365.64 285.98,-369.14 295.98,-372.64 295.98,-365.64"/>
+</g>
+<!-- sourcefile~test_solver10.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node4" class="node">
+<title>sourcefile~test_solver10.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node4"><a xlink:href="../sourcefile/test_solver10.f90.html" xlink:title="test_solver10.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.83,-696.27 433.56,-696.27 433.56,-672 535.83,-672 535.83,-696.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-680.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver10.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver10.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge3" class="edge">
+<title>sourcefile~test_solver10.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M451.09,-671.58C417.61,-658.93 369.11,-641.36 359.8,-642.13"/>
+</g>
+<!-- sourcefile~test_solver10.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge17" class="edge">
+<title>sourcefile~test_solver10.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M443.55,-671.57C439.82,-669.21 436.39,-666.43 433.56,-663.13 364.65,-582.96 358.47,-447.57 359,-392.99"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="362.5,-393.08 359.2,-383.01 355.5,-392.94 362.5,-393.08"/>
+</g>
+<!-- sourcefile~test_solver11.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node5" class="node">
+<title>sourcefile~test_solver11.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node5"><a xlink:href="../sourcefile/test_solver11.f90.html" xlink:title="test_solver11.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.83,-654.27 433.56,-654.27 433.56,-630 535.83,-630 535.83,-654.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-638.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver11.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver11.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge4" class="edge">
+<title>sourcefile~test_solver11.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M433.28,-640.25C410.76,-639.9 383.92,-640.14 359.8,-642.13"/>
+</g>
+<!-- sourcefile~test_solver11.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge18" class="edge">
+<title>sourcefile~test_solver11.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M444.17,-629.76C440.23,-627.36 436.58,-624.51 433.56,-621.13 373.89,-554.38 362.36,-441.73 360.23,-392.9"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="363.74,-393.06 359.91,-383.18 356.74,-393.29 363.74,-393.06"/>
+</g>
+<!-- sourcefile~test_solver12.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node6" class="node">
+<title>sourcefile~test_solver12.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node6"><a xlink:href="../sourcefile/test_solver12.f90.html" xlink:title="test_solver12.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.83,-612.27 433.56,-612.27 433.56,-588 535.83,-588 535.83,-612.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-596.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver12.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver12.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge5" class="edge">
+<title>sourcefile~test_solver12.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M452.42,-612.68C422.05,-624.5 377.96,-640.63 359.8,-642.13"/>
+</g>
+<!-- sourcefile~test_solver12.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge19" class="edge">
+<title>sourcefile~test_solver12.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M444.34,-587.6C440.37,-585.23 436.67,-582.43 433.56,-579.13 383.12,-525.64 366.91,-435.66 361.92,-392.98"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="365.4,-392.66 360.88,-383.08 358.44,-393.39 365.4,-392.66"/>
+</g>
+<!-- sourcefile~test_solver13.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node7" class="node">
+<title>sourcefile~test_solver13.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node7"><a xlink:href="../sourcefile/test_solver13.f90.html" xlink:title="test_solver13.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.83,-570.27 433.56,-570.27 433.56,-546 535.83,-546 535.83,-570.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-554.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver13.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver13.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge6" class="edge">
+<title>sourcefile~test_solver13.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M449.54,-570.75C444.05,-573.25 438.54,-576.07 433.56,-579.13 396.85,-601.73 402.77,-638.58 359.8,-642.13"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M357.8,-642.13C295.95,-647.26 279.64,-650.6 218.15,-642.13"/>
+</g>
+<!-- sourcefile~test_solver13.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge20" class="edge">
+<title>sourcefile~test_solver13.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M444.83,-545.51C440.73,-543.15 436.86,-540.38 433.56,-537.13 392.11,-496.38 372.27,-428.36 364.3,-392.66"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="367.74,-392.03 362.27,-382.96 360.89,-393.46 367.74,-392.03"/>
+</g>
+<!-- sourcefile~test_solver14.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node8" class="node">
+<title>sourcefile~test_solver14.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node8"><a xlink:href="../sourcefile/test_solver14.f90.html" xlink:title="test_solver14.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.83,-318.27 433.56,-318.27 433.56,-294 535.83,-294 535.83,-318.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-302.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver14.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver14.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge7" class="edge">
+<title>sourcefile~test_solver14.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M446.73,-293.51C442.06,-291.11 437.53,-288.33 433.56,-285.13 389.13,-249.38 416.64,-175.43 359.8,-180.13"/>
+</g>
+<!-- sourcefile~test_solver14.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge21" class="edge">
+<title>sourcefile~test_solver14.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M452.14,-318.67C445.92,-321.33 439.49,-324.22 433.56,-327.13 419.06,-334.27 403.44,-343 390.33,-350.65"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="388.55,-347.63 381.72,-355.73 392.11,-353.66 388.55,-347.63"/>
+</g>
+<!-- sourcefile~test_solver3.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node9" class="node">
+<title>sourcefile~test_solver3.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node9"><a xlink:href="../sourcefile/test_solver3.f90.html" xlink:title="test_solver3.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-276.27 436.93,-276.27 436.93,-252 532.45,-252 532.45,-276.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-260.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver3.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver3.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge8" class="edge">
+<title>sourcefile~test_solver3.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M449.54,-251.52C444.05,-249.02 438.54,-246.2 433.56,-243.13 396.85,-220.54 402.77,-176.58 359.8,-180.13"/>
+</g>
+<!-- sourcefile~test_solver3.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge26" class="edge">
+<title>sourcefile~test_solver3.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M448.09,-276.65C443.01,-279.11 438,-281.94 433.56,-285.13 409.52,-302.42 387.93,-328.94 374.42,-347.55"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="371.73,-345.29 368.82,-355.48 377.44,-349.33 371.73,-345.29"/>
+</g>
+<!-- sourcefile~test_solver4.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node10" class="node">
+<title>sourcefile~test_solver4.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node10"><a xlink:href="../sourcefile/test_solver4.f90.html" xlink:title="test_solver4.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-234.27 436.93,-234.27 436.93,-210 532.45,-210 532.45,-234.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-218.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver4.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver4.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge9" class="edge">
+<title>sourcefile~test_solver4.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M451.09,-209.58C417.61,-196.93 369.11,-179.36 359.8,-180.13"/>
+</g>
+<!-- sourcefile~test_solver4.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge27" class="edge">
+<title>sourcefile~test_solver4.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M445.96,-234.73C441.51,-237.12 437.25,-239.9 433.56,-243.13 401.01,-271.62 379.09,-318.11 368.08,-345.94"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="364.84,-344.62 364.57,-355.21 371.38,-347.1 364.84,-344.62"/>
+</g>
+<!-- sourcefile~test_solver5.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node11" class="node">
+<title>sourcefile~test_solver5.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node11"><a xlink:href="../sourcefile/test_solver5.f90.html" xlink:title="test_solver5.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-192.27 436.93,-192.27 436.93,-168 532.45,-168 532.45,-192.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-176.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver5.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver5.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge10" class="edge">
+<title>sourcefile~test_solver5.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M436.55,-178.31C413.39,-177.88 385.09,-178.04 359.8,-180.13"/>
+</g>
+<!-- sourcefile~test_solver5.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge28" class="edge">
+<title>sourcefile~test_solver5.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M444.83,-192.76C440.73,-195.12 436.86,-197.89 433.56,-201.13 392.11,-241.89 372.27,-309.91 364.3,-345.61"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="360.89,-344.81 362.27,-355.31 367.74,-346.24 360.89,-344.81"/>
+</g>
+<!-- sourcefile~test_solver6.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node12" class="node">
+<title>sourcefile~test_solver6.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node12"><a xlink:href="../sourcefile/test_solver6.f90.html" xlink:title="test_solver6.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-150.27 436.93,-150.27 436.93,-126 532.45,-126 532.45,-150.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-134.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver6.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver6.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge11" class="edge">
+<title>sourcefile~test_solver6.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M452.42,-150.68C422.05,-162.5 377.96,-178.63 359.8,-180.13"/>
+</g>
+<!-- sourcefile~test_solver6.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge29" class="edge">
+<title>sourcefile~test_solver6.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M444.34,-150.67C440.37,-153.04 436.67,-155.84 433.56,-159.13 383.12,-212.63 366.91,-302.61 361.92,-345.29"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="358.44,-344.88 360.88,-355.19 365.4,-345.61 358.44,-344.88"/>
+</g>
+<!-- sourcefile~test_solver7.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node13" class="node">
+<title>sourcefile~test_solver7.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node13"><a xlink:href="../sourcefile/test_solver7.f90.html" xlink:title="test_solver7.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-108.27 436.93,-108.27 436.93,-84 532.45,-84 532.45,-108.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-92.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver7.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver7.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge12" class="edge">
+<title>sourcefile~test_solver7.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M449.54,-108.75C444.05,-111.25 438.54,-114.07 433.56,-117.13 396.85,-139.73 402.77,-176.58 359.8,-180.13"/>
+</g>
+<!-- sourcefile~test_solver7.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge30" class="edge">
+<title>sourcefile~test_solver7.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M444.17,-108.51C440.23,-110.91 436.58,-113.76 433.56,-117.13 402.77,-151.58 374.5,-289.43 364.06,-345.37"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="360.64,-344.62 362.28,-355.09 367.53,-345.88 360.64,-344.62"/>
+</g>
+<!-- sourcefile~test_solver8.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node14" class="node">
+<title>sourcefile~test_solver8.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node14"><a xlink:href="../sourcefile/test_solver8.f90.html" xlink:title="test_solver8.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-66.27 436.93,-66.27 436.93,-42 532.45,-42 532.45,-66.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-50.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver8.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver8.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge13" class="edge">
+<title>sourcefile~test_solver8.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M446.73,-66.76C442.06,-69.16 437.53,-71.94 433.56,-75.13 389.13,-110.89 416.64,-175.43 359.8,-180.13"/>
+</g>
+<!-- sourcefile~test_solver8.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge31" class="edge">
+<title>sourcefile~test_solver8.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M443.55,-66.7C439.82,-69.06 436.39,-71.84 433.56,-75.13 424.54,-85.63 380.52,-277.47 365.13,-345.48"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="361.72,-344.66 362.93,-355.19 368.55,-346.2 361.72,-344.66"/>
+</g>
+<!-- sourcefile~test_solver9.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node15" class="node">
+<title>sourcefile~test_solver9.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node15"><a xlink:href="../sourcefile/test_solver9.f90.html" xlink:title="test_solver9.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-24.27 436.93,-24.27 436.93,0 532.45,0 532.45,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver9.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver9.f90&#45;&gt;sourcefile~forsolver_kinds.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge14" class="edge">
+<title>sourcefile~test_solver9.f90&#45;&gt;sourcefile~forsolver_kinds.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M445.5,-24.65C441.18,-27.04 437.08,-29.85 433.56,-33.13 380.14,-83.02 432.65,-174.1 359.8,-180.13"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M357.8,-180.13C234.53,-190.35 120.02,-301.14 76.57,-348.19"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="73.99,-345.83 69.86,-355.58 79.17,-350.53 73.99,-345.83"/>
+</g>
+<!-- sourcefile~test_solver9.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge32" class="edge">
+<title>sourcefile~test_solver9.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M443.45,-24.61C439.74,-26.99 436.34,-29.8 433.56,-33.13 432.28,-34.67 381.33,-269.65 364.87,-345.69"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="361.47,-344.85 362.78,-355.36 368.32,-346.33 361.47,-344.85"/>
+</g>
+<!-- sourcefile~test_solver1.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node16" class="node">
+<title>sourcefile~test_solver1.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node16"><a xlink:href="../sourcefile/test_solver1.f90.html" xlink:title="test_solver1.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-486.27 436.93,-486.27 436.93,-462 532.45,-462 532.45,-486.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-470.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver1.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver1.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge16" class="edge">
+<title>sourcefile~test_solver1.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M448.09,-461.62C443.01,-459.16 438,-456.33 433.56,-453.13 409.52,-435.85 387.93,-409.33 374.42,-390.72"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="377.44,-388.94 368.82,-382.79 371.73,-392.98 377.44,-388.94"/>
+</g>
+<!-- sourcefile~test_solver15.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node17" class="node">
+<title>sourcefile~test_solver15.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node17"><a xlink:href="../sourcefile/test_solver15.f90.html" xlink:title="test_solver15.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.83,-444.27 433.56,-444.27 433.56,-420 535.83,-420 535.83,-444.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-428.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver15.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver15.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge22" class="edge">
+<title>sourcefile~test_solver15.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M452.14,-419.6C445.92,-416.94 439.49,-414.05 433.56,-411.13 419.06,-404 403.44,-395.27 390.33,-387.62"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="392.11,-384.61 381.72,-382.54 388.55,-390.64 392.11,-384.61"/>
+</g>
+<!-- sourcefile~test_solver16.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node18" class="node">
+<title>sourcefile~test_solver16.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node18"><a xlink:href="../sourcefile/test_solver16.f90.html" xlink:title="test_solver16.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.83,-402.27 433.56,-402.27 433.56,-378 535.83,-378 535.83,-402.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-386.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver16.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver16.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge23" class="edge">
+<title>sourcefile~test_solver16.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M433.3,-381.59C425.38,-380.25 417.2,-378.86 409.3,-377.52"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="409.92,-374.08 399.48,-375.86 408.75,-380.98 409.92,-374.08"/>
+</g>
+<!-- sourcefile~test_solver17.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node19" class="node">
+<title>sourcefile~test_solver17.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node19"><a xlink:href="../sourcefile/test_solver17.f90.html" xlink:title="test_solver17.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="535.83,-360.27 433.56,-360.27 433.56,-336 535.83,-336 535.83,-360.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-344.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver17.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver17.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge24" class="edge">
+<title>sourcefile~test_solver17.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M433.3,-356.68C425.38,-358.02 417.2,-359.41 409.3,-360.75"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="408.75,-357.29 399.48,-362.41 409.92,-364.19 408.75,-357.29"/>
+</g>
+<!-- sourcefile~test_solver2.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_node20" class="node">
+<title>sourcefile~test_solver2.f90</title>
+<g id="a_sourcefile~~forsolver_kinds.f90~~AfferentGraph_node20"><a xlink:href="../sourcefile/test_solver2.f90.html" xlink:title="test_solver2.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="532.45,-528.27 436.93,-528.27 436.93,-504 532.45,-504 532.45,-528.27"/>
+<text xml:space="preserve" text-anchor="middle" x="484.69" y="-512.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_solver2.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~test_solver2.f90&#45;&gt;sourcefile~forsolver.f90 -->
+<g id="sourcefile~~forsolver_kinds.f90~~AfferentGraph_edge25" class="edge">
+<title>sourcefile~test_solver2.f90&#45;&gt;sourcefile~forsolver.f90</title>
+<path fill="none" stroke="#ff6d00" stroke-dasharray="5,2" d="M445.96,-503.54C441.51,-501.15 437.25,-498.37 433.56,-495.13 401.01,-466.65 379.09,-420.16 368.08,-392.33"/>
+<polygon fill="#ff6d00" stroke="#ff6d00" points="371.38,-391.17 364.57,-383.06 364.84,-393.65 371.38,-391.17"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#AfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 13.1.2 (20250809.0930)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="200pt" height="32pt"
+ viewBox="0.00 0.00 200.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28.27)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-28.27 195.52,-28.27 195.52,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="69.27,-24.27 0,-24.27 0,0 69.27,0 69.27,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="34.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="191.52,-24.27 87.75,-24.27 87.75,0 191.52,0 191.52,-24.27"/>
+<text xml:space="preserve" text-anchor="middle" x="139.63" y="-8.53" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+<br>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="c">!&gt; author: Seyed Ali Ghasemi</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="c">!&gt; license: BSD 3-Clause</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="k">module </span><span class="n">forsolver_kinds</span><span class="w"></span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">   </span><span class="k">implicit none</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="k">   private</span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="k">   public </span><span class="n">rk</span><span class="w"></span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="cp">#ifdef REAL32</span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">   </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">selected_real_kind</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="cp">#elif REAL64</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">   </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">selected_real_kind</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"></span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="cp">#elif REALXDP</span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">   </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">selected_real_kind</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="w"></span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="cp">#elif REAL128</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">   </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">selected_real_kind</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span><span class="w"></span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="cp">#else</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">   </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">selected_real_kind</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"></span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="cp">#endif</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="k">end module</span><span class="w"></span>
+</pre></div>
+
+      </section>
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              ForSolver
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-09-13T10:21:12.449173+0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

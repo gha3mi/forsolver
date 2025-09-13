@@ -44,7 +44,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForSolver <small>v0.3.1</small></a>
+          <a class="navbar-brand" href="../index.html">ForSolver </a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -88,6 +88,7 @@
     <div class="row align-items-center justify-content-between" id="info-bar">
       <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-license"><i class="fa fa-legal"></i> BSD 3-Clause</li>
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
@@ -96,15 +97,15 @@
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/test_solver7.f90"> Source File</a>
+              <a href="../src/test_solver8.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/test_solver7.f90.html'>test_solver7.f90</a></li>
-                <li class="breadcrumb-item"><a href='../module/my_function7.html'>my_function7</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/test_solver8.f90.html'>test_solver8.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/my_function8.html'>my_function8</a></li>
             <li class="breadcrumb-item active" aria-current="page">F2</li>
           </ol>
         </nav>
@@ -177,7 +178,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~11"></span>
+              <span class="anchor" id="variable-x~52"></span>
               complex(kind=rk),
             </td>
 <td>intent(in)</td>
@@ -195,7 +196,7 @@
 
       <h3>Return Value
         <small>
-          <span class="anchor" id="variable-f_val~5"></span>
+          <span class="anchor" id="variable-f_val~23"></span>
           complex(kind=rk)
         </small>
       </h3>
@@ -214,11 +215,11 @@
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">function </span><span class="n">F2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">F_val</span><span class="p">)</span>
-<span class="w">      </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span>
-<span class="w">      </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">F_val</span>
-<span class="w">      </span><span class="n">F_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5.0_rk</span>
-<span class="w">   </span><span class="k">end function </span><span class="n">F2</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">function </span><span class="n">F2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">F_val</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">      </span><span class="kt">complex</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">F_val</span><span class="w"></span>
+<span class="w">      </span><span class="n">F_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">8.0_rk</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">5.0_rk</span><span class="w"></span>
+<span class="w">   </span><span class="k">end function </span><span class="n">F2</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -235,14 +236,14 @@
           <div class="col">
             <p>
               ForSolver
- was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-09-11T21:52:20.597168+0000             </p>
+ on 2025-09-13T10:21:12.449173+0000             </p>
           </div>
         </div>
         <br>
