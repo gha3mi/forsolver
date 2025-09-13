@@ -145,6 +145,13 @@ end program example2
 ## CI Status
 
 <!-- STATUS:setup-fortran-conda:START -->
+| Compiler   | macos | ubuntu | windows |
+|------------|----------------------|----------------------|----------------------|
+| `flang-new` | - | fpm ✅ | fpm ❌ |
+| `gfortran` | fpm ❌ | fpm ❌ | fpm ❌ |
+| `ifx` | - | fpm ✅ | fpm ❌ |
+| `lfortran` | fpm ❌ | fpm ❌ | fpm ❌ |
+| `nvfortran` | - | fpm ✅ | - |
 <!-- STATUS:setup-fortran-conda:END -->
 
 ## API Documentation
